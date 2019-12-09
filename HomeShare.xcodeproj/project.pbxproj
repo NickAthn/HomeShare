@@ -13,6 +13,11 @@
 		E60AFB192397D0DE00211C28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60AFB182397D0DE00211C28 /* Assets.xcassets */; };
 		E60AFB1C2397D0DE00211C28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60AFB1B2397D0DE00211C28 /* Preview Assets.xcassets */; };
 		E60AFB1F2397D0DE00211C28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60AFB1D2397D0DE00211C28 /* LaunchScreen.storyboard */; };
+		E653C10623991D6600EBB56F /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C10523991D6600EBB56F /* Typography.swift */; };
+		E653C10823991D8C00EBB56F /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C10723991D8C00EBB56F /* ColorPalette.swift */; };
+		E653C10B23991DFD00EBB56F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C10A23991DFD00EBB56F /* Button.swift */; };
+		E662758A239A61C9002D8B0B /* ColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6627589239A61C9002D8B0B /* ColorPalette.xcassets */; };
+		E662758D239A98AD002D8B0B /* AliasHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E662758C239A98AD002D8B0B /* AliasHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		E60AFB1B2397D0DE00211C28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E60AFB1E2397D0DE00211C28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E60AFB202397D0DE00211C28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E653C10523991D6600EBB56F /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		E653C10723991D8C00EBB56F /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		E653C10A23991DFD00EBB56F /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		E6627589239A61C9002D8B0B /* ColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalette.xcassets; sourceTree = "<group>"; };
+		E662758C239A98AD002D8B0B /* AliasHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,9 @@
 		E60AFB112397D0DC00211C28 /* HomeShare */ = {
 			isa = PBXGroup;
 			children = (
+				E662758B239A6633002D8B0B /* Helper */,
+				E653C10923991DE600EBB56F /* Components */,
+				E653C10423991D4800EBB56F /* DesignSystem */,
 				E60AFB122397D0DC00211C28 /* AppDelegate.swift */,
 				E60AFB142397D0DC00211C28 /* SceneDelegate.swift */,
 				E60AFB162397D0DC00211C28 /* ContentView.swift */,
@@ -73,6 +86,40 @@
 				E60AFB1B2397D0DE00211C28 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E653C10423991D4800EBB56F /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				E6627588239A61AF002D8B0B /* Assets */,
+				E653C10523991D6600EBB56F /* Typography.swift */,
+				E653C10723991D8C00EBB56F /* ColorPalette.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		E653C10923991DE600EBB56F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E653C10A23991DFD00EBB56F /* Button.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E6627588239A61AF002D8B0B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E6627589239A61C9002D8B0B /* ColorPalette.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E662758B239A6633002D8B0B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E662758C239A98AD002D8B0B /* AliasHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +183,7 @@
 				E60AFB1F2397D0DE00211C28 /* LaunchScreen.storyboard in Resources */,
 				E60AFB1C2397D0DE00211C28 /* Preview Assets.xcassets in Resources */,
 				E60AFB192397D0DE00211C28 /* Assets.xcassets in Resources */,
+				E662758A239A61C9002D8B0B /* ColorPalette.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,9 +194,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E653C10823991D8C00EBB56F /* ColorPalette.swift in Sources */,
 				E60AFB132397D0DC00211C28 /* AppDelegate.swift in Sources */,
 				E60AFB152397D0DC00211C28 /* SceneDelegate.swift in Sources */,
+				E653C10B23991DFD00EBB56F /* Button.swift in Sources */,
+				E662758D239A98AD002D8B0B /* AliasHelper.swift in Sources */,
 				E60AFB172397D0DC00211C28 /* ContentView.swift in Sources */,
+				E653C10623991D6600EBB56F /* Typography.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeShare/Preview Content\"";
-				DEVELOPMENT_TEAM = X5PNQ55UN4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HomeShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -306,7 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeShare/Preview Content\"";
-				DEVELOPMENT_TEAM = X5PNQ55UN4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HomeShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
