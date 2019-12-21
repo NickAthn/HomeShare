@@ -11,8 +11,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
-    @State var isPressed: Bool = false
-
+    
     var body: some View {
         VStack{
             Image("logo")
@@ -34,8 +33,8 @@ struct LoginView: View {
                 .cornerRadius(8)
             Spacer().frame(height: 18)
             
-            RoundedButton(title: "LOGIN", isPressed: $isPressed)
-
+            RoundedButton(title: "LOGIN") { self.login() }
+            
             HStack {
                 Text("Register Now").foregroundColor(Color.Token.highlight)
                 Spacer()
@@ -48,6 +47,7 @@ struct LoginView: View {
     
     func login() {
         // Do the credential check here
+        print("🐞 Login Pressed")
     }
 }
 

@@ -10,10 +10,10 @@ import SwiftUI
 
 struct RoundedButton: View {
     let title: String
-    @Binding var isPressed: Bool
+    var action: (() -> Void)
     
     var body: some View {
-        Button(action: { self.isPressed = true }){
+        Button(action: { self.action() }){
             Spacer()
             Text(title)
                 .font(.system(size: 20, weight: .bold, design: .default))
