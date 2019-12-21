@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C4BB8A2EDE4776ACF13F338 /* Pods_HomeShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F35EF397E7703AEDCF0E592 /* Pods_HomeShare.framework */; };
 		E60AFB132397D0DC00211C28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60AFB122397D0DC00211C28 /* AppDelegate.swift */; };
 		E60AFB152397D0DC00211C28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60AFB142397D0DC00211C28 /* SceneDelegate.swift */; };
 		E60AFB172397D0DC00211C28 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60AFB162397D0DC00211C28 /* LoginView.swift */; };
@@ -17,11 +18,15 @@
 		E653C10623991D6600EBB56F /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C10523991D6600EBB56F /* Typography.swift */; };
 		E653C10823991D8C00EBB56F /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C10723991D8C00EBB56F /* ColorPalette.swift */; };
 		E662758A239A61C9002D8B0B /* ColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6627589239A61C9002D8B0B /* ColorPalette.xcassets */; };
-		E6B756E523AE276B0003F107 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E423AE276B0003F107 /* Button.swift */; };
+		E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E423AE276B0003F107 /* RoundedButton.swift */; };
 		E6B756E823AE44610003F107 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E723AE44610003F107 /* RegisterView.swift */; };
+		E6B756EE23AE6E0B0003F107 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D8DD3F4FF8B3DFA511E22E9 /* Pods-HomeShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeShare.debug.xcconfig"; path = "Target Support Files/Pods-HomeShare/Pods-HomeShare.debug.xcconfig"; sourceTree = "<group>"; };
+		8F35EF397E7703AEDCF0E592 /* Pods_HomeShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5552327D2BB8E70F5AFD8C9 /* Pods-HomeShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeShare.release.xcconfig"; path = "Target Support Files/Pods-HomeShare/Pods-HomeShare.release.xcconfig"; sourceTree = "<group>"; };
 		E60AFB0F2397D0DC00211C28 /* HomeShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60AFB122397D0DC00211C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E60AFB142397D0DC00211C28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,8 +39,10 @@
 		E653C10523991D6600EBB56F /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		E653C10723991D8C00EBB56F /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		E6627589239A61C9002D8B0B /* ColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalette.xcassets; sourceTree = "<group>"; };
-		E6B756E423AE276B0003F107 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		E6B756E423AE276B0003F107 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E6B756E723AE44610003F107 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		E6B756EC23AE6CAE0003F107 /* HomeShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeShare.entitlements; sourceTree = "<group>"; };
+		E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +50,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C4BB8A2EDE4776ACF13F338 /* Pods_HomeShare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0031C22BC5EE136CFFF47A71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F35EF397E7703AEDCF0E592 /* Pods_HomeShare.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C3A6088CC4B492FD0DCC52B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D8DD3F4FF8B3DFA511E22E9 /* Pods-HomeShare.debug.xcconfig */,
+				C5552327D2BB8E70F5AFD8C9 /* Pods-HomeShare.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E60AFB062397D0DC00211C28 = {
 			isa = PBXGroup;
 			children = (
 				E60AFB112397D0DC00211C28 /* HomeShare */,
 				E60AFB102397D0DC00211C28 /* Products */,
+				1C3A6088CC4B492FD0DCC52B /* Pods */,
+				0031C22BC5EE136CFFF47A71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,16 +95,17 @@
 		E60AFB112397D0DC00211C28 /* HomeShare */ = {
 			isa = PBXGroup;
 			children = (
+				E6B756EC23AE6CAE0003F107 /* HomeShare.entitlements */,
 				E60AFB122397D0DC00211C28 /* AppDelegate.swift */,
 				E60AFB142397D0DC00211C28 /* SceneDelegate.swift */,
+				E6B756F023AE76070003F107 /* Networking */,
 				E61FD85F239E8E92003C8E1B /* Views */,
-				E662758B239A6633002D8B0B /* Helper */,
-				E6B756E923AE45A50003F107 /* Modifiers */,
 				E653C10923991DE600EBB56F /* Components */,
 				E653C10423991D4800EBB56F /* DesignSystem */,
 				E60AFB182397D0DE00211C28 /* Assets.xcassets */,
 				E60AFB1D2397D0DE00211C28 /* LaunchScreen.storyboard */,
 				E60AFB202397D0DE00211C28 /* Info.plist */,
+				E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */,
 				E60AFB1A2397D0DE00211C28 /* Preview Content */,
 			);
 			path = HomeShare;
@@ -130,7 +158,7 @@
 		E653C10923991DE600EBB56F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E6B756E423AE276B0003F107 /* Button.swift */,
+				E6B756E423AE276B0003F107 /* RoundedButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -143,13 +171,6 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		E662758B239A6633002D8B0B /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 		E6B756E623AE444F0003F107 /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,11 +179,11 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
-		E6B756E923AE45A50003F107 /* Modifiers */ = {
+		E6B756F023AE76070003F107 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Modifiers;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,9 +193,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E60AFB232397D0DE00211C28 /* Build configuration list for PBXNativeTarget "HomeShare" */;
 			buildPhases = (
+				5B9C01459374AB2877B184CC /* [CP] Check Pods Manifest.lock */,
 				E60AFB0B2397D0DC00211C28 /* Sources */,
 				E60AFB0C2397D0DC00211C28 /* Frameworks */,
 				E60AFB0D2397D0DC00211C28 /* Resources */,
+				F85A92FBB3785CB3A5F1D741 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,12 +248,55 @@
 			files = (
 				E60AFB1F2397D0DE00211C28 /* LaunchScreen.storyboard in Resources */,
 				E60AFB1C2397D0DE00211C28 /* Preview Assets.xcassets in Resources */,
+				E6B756EE23AE6E0B0003F107 /* GoogleService-Info.plist in Resources */,
 				E60AFB192397D0DE00211C28 /* Assets.xcassets in Resources */,
 				E662758A239A61C9002D8B0B /* ColorPalette.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B9C01459374AB2877B184CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HomeShare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F85A92FBB3785CB3A5F1D741 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeShare/Pods-HomeShare-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeShare/Pods-HomeShare-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomeShare/Pods-HomeShare-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E60AFB0B2397D0DC00211C28 /* Sources */ = {
@@ -243,7 +309,7 @@
 				E60AFB152397D0DC00211C28 /* SceneDelegate.swift in Sources */,
 				E60AFB172397D0DC00211C28 /* LoginView.swift in Sources */,
 				E6B756E823AE44610003F107 /* RegisterView.swift in Sources */,
-				E6B756E523AE276B0003F107 /* Button.swift in Sources */,
+				E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */,
 				E653C10623991D6600EBB56F /* Typography.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,11 +446,14 @@
 		};
 		E60AFB242397D0DE00211C28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D8DD3F4FF8B3DFA511E22E9 /* Pods-HomeShare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HomeShare/HomeShare.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeShare/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X5PNQ55UN4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HomeShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -393,6 +462,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.athanasiou.HomeShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -400,11 +470,14 @@
 		};
 		E60AFB252397D0DE00211C28 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5552327D2BB8E70F5AFD8C9 /* Pods-HomeShare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HomeShare/HomeShare.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeShare/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X5PNQ55UN4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HomeShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -413,6 +486,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.athanasiou.HomeShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

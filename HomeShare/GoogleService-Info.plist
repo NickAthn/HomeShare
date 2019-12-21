@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>242799692508-s6m24m0om41ageh2avdrjfk89njb2abl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.242799692508-s6m24m0om41ageh2avdrjfk89njb2abl</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCwWcO97UODyt0DpID7_daM4wostRQc_xA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>242799692508</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.athanasiou.HomeShare</string>
+	<key>PROJECT_ID</key>
+	<string>homeshare-aegean</string>
+	<key>STORAGE_BUCKET</key>
+	<string>homeshare-aegean.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:242799692508:ios:bce50f4e8dceeef7bfc219</string>
+	<key>DATABASE_URL</key>
+	<string>https://homeshare-aegean.firebaseio.com</string>
+</dict>
+</plist>
