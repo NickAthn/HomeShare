@@ -73,7 +73,6 @@ struct TokenTypography {
     init() {
         self.mainFont = Font.custom(FontFamilyToken.main.getValue(), size: FontSizeToken.body.getValue())
         self.subFont = Font.custom(FontFamilyToken.sub.getValue(), size: FontSizeToken.caption.getValue())
-        
     }
 }
 

@@ -9,9 +9,11 @@
 import SwiftUI
 
 struct LoginView: View {
+    // MARK: - PROPERTIES
     @State private var username: String = ""
     @State private var password: String = ""
     
+    // MARK: - VIEW
     var body: some View {
         VStack{
             Image("logo")
@@ -22,33 +24,45 @@ struct LoginView: View {
             
             Spacer().frame(height: 30)
             
-            TextField("Username or mail", text: $username)
+            VStack(spacing: 18){
+                Group {
+                    TextField("Username or mail", text: $username)
+                    SecureField("Password", text: $password)
+                }
                 .padding()
                 .background(Color.Token.fieldDefault)
                 .cornerRadius(8)
-            Spacer().frame(height: 18)
-            SecureField("Password", text: $password)
-                .padding()
-                .background(Color.Token.fieldDefault)
-                .cornerRadius(8)
-            Spacer().frame(height: 18)
-            
-            RoundedButton(title: "LOGIN") { self.login() }
+                
+                RoundedButton(title: "LOGIN") { self.login() }
+            }
             
             HStack {
-                Text("Register Now").foregroundColor(Color.Token.highlight)
+                Button("Register Now") {self.register()}
+                    .foregroundColor(Color.Token.highlight)
                 Spacer()
-                Text("Forgot Password").foregroundColor(Color.Token.inactive)
+                Button("Forget Password") {self.forgotPassword()}
+                    .foregroundColor(Color.Token.inactive)
             }.padding(.top)
             
             
         }.padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
     }
     
+    // MARK: - ACTIONS
     func login() {
         // Do the credential check here
         print("🐞 Login Pressed")
     }
+    func register() {
+        print("🐞 Register Pressed")
+
+    }
+    func forgotPassword() {
+        print("🐞 Forgot Password Pressed")
+
+    }
+    
+    // MARK: - NAVIGATION
 }
 
 struct ContentView_Previews: PreviewProvider {
