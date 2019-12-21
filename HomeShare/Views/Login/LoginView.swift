@@ -56,9 +56,11 @@ struct LoginView: View {
                 NavigationLink(destination: RegisterView(), tag: 1, selection: $tag) {
                     EmptyView()
                 }
-
+                
             }.padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
+            
         }.navigationViewStyle(StackNavigationViewStyle())
+            
     }
     
     // MARK: - ACTIONS

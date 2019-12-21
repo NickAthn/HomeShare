@@ -15,6 +15,8 @@ struct RegisterView: View {
     @State private var password: String = ""
     @State private var passwordConfirmation: String = ""
 
+    // Variable to programaticaly dismish modal
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         VStack(spacing: 10){
