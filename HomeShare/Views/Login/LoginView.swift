@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct LoginView: View {
+
     // MARK: - PROPERTIES
+    @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
+
     @State private var username: String = ""
     @State private var password: String = ""
-
-    @State var tag:Int? = nil
-    @State var showRegisterModal = false
     
     // MARK: - VIEW
     var body: some View {
@@ -43,48 +43,38 @@ struct LoginView: View {
                 HStack {
                     Button("Register Now") {self.register()}
                         .foregroundColor(Color.Token.highlight)
-                        .sheet(isPresented: $showRegisterModal){
+                        .sheet(isPresented: $viewModel.showRegisterModal){
                             RegisterView()
                         }
                     Spacer()
                     Button("Forget Password") {self.forgotPassword()}
                         .foregroundColor(Color.Token.inactive)
                 }.padding(.top)
-                
-                
-                // Navigation Links
-                NavigationLink(destination: RegisterView(), tag: 1, selection: $tag) {
-                    EmptyView()
-                }
-                
             }.padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
-            
-        }.navigationViewStyle(StackNavigationViewStyle())
-            
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear(perform: viewModel.startListener)
+        .alert(isPresented: $viewModel.hasError) {
+            Alert(title: Text(viewModel.errorMessage))
+        }
     }
     
-    // MARK: - ACTIONS
+    // MARK: - ACTIONS    
     func login() {
-        // Do the credential check here
-        print("🐞 Login Pressed")
+        self.viewModel.login(mail: username, password: password)
     }
     func register() {
-        print("🐞 Register Pressed")
-        self.showRegisterModal = true
+        self.viewModel.showRegisterModal = true
     }
     func forgotPassword() {
         print("🐞 Forgot Password Pressed")
-
     }
     
-    // MARK: - NAVIGATION
-    func setupNavigationLinks(){
-        
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView().environmentObject(FirebaseManager())
+
     }
 }

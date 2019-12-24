@@ -17,6 +17,7 @@ struct RegisterView: View {
 
     // Variable to programaticaly dismish modal
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var viewModel: RegisterViewModel = RegisterViewModel()
 
     var body: some View {
         VStack(spacing: 10){
@@ -36,11 +37,15 @@ struct RegisterView: View {
             .cornerRadius(8)
             
             RoundedButton(title: "Register"){self.register()}
-        }.padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
+        }
+        .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
+        .alert(isPresented: $viewModel.hasError) {
+            Alert(title: Text(viewModel.errorMessage))
+        }
     }
     
     func register(){
-        
+        viewModel.register(mail: self.email, password: self.password, firstName: firstName, lastName: lastName)
     }
 }
 
