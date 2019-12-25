@@ -78,7 +78,7 @@ class FirebaseManager: ObservableObject {
         }
     }
     
-    // User Information Methods
+    // User Information Change Requests
     func updateProfile(imageURL: URL){
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.photoURL = imageURL

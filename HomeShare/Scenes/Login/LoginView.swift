@@ -9,17 +9,20 @@
 import SwiftUI
 
 struct LoginView: View {
-
     // MARK: - PROPERTIES
     @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
 
     @State private var username: String = ""
     @State private var password: String = ""
-    
+
     // MARK: - VIEW
     var body: some View {
         NavigationView{
             VStack{
+                // Navigation Links
+                NavigationLink(destination: DashboardView(), isActive: $viewModel.showDashboard){ EmptyView() }.hidden()
+
+                // View
                 Image("logo")
                 Text("HomeShare")
                     .font(Font.system(size: 34, weight: .regular, design: .rounded))
@@ -43,21 +46,22 @@ struct LoginView: View {
                 HStack {
                     Button("Register Now") {self.register()}
                         .foregroundColor(Color.Token.highlight)
-                        .sheet(isPresented: $viewModel.showRegisterModal){
-                            RegisterView()
-                        }
+                        .sheet(isPresented: $viewModel.showRegisterModal){ RegisterView() }
                     Spacer()
                     Button("Forget Password") {self.forgotPassword()}
                         .foregroundColor(Color.Token.inactive)
                 }.padding(.top)
+
             }.padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear(perform: viewModel.startListener)
-        .alert(isPresented: $viewModel.hasError) {
+        .alert(isPresented: $viewModel.isErrorShown) {
             Alert(title: Text(viewModel.errorMessage))
         }
+
     }
+    
     
     // MARK: - ACTIONS    
     func login() {

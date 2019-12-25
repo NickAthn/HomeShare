@@ -10,16 +10,20 @@ import SwiftUI
 import Combine
 import Firebase
 
-
 class LoginViewModel: ObservableObject{
-    // MARK: - PROPERTIES
     let didChange = PassthroughSubject<Void, Never>()
 
-    @Published var hasError: Bool = false
-    @Published var errorMessage: String = ""
+    // MARK: Output
+    @Published var isErrorShown = false
+    @Published var errorMessage = ""
+    @Published var isUserAuthenticated = false {
+        didSet { showDashboard = self.isUserAuthenticated }
+    }
     
-    // NAVIGATION
+    // MARK: NAVIGATION
     @Published var showRegisterModal = false
+    @Published var showDashboard = false
+
 
     // MARK: - Methods
     func startListener(){
@@ -27,12 +31,14 @@ class LoginViewModel: ObservableObject{
     }
     
     func login(mail: String, password: String){
-        print("🐞 Login Pressed")
         FirebaseManager.shared.signIn(withEmail: mail, password: password) { result, error in
             if error != nil {
-                self.hasError = true
+                self.isErrorShown = true
                 self.errorMessage = FirebaseManager.shared.getErrorDescription(error!)
             }
+        
+            self.isUserAuthenticated = true
+            print(self.showDashboard)
         }
     }
 

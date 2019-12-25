@@ -110,7 +110,7 @@
 				E60AFB142397D0DC00211C28 /* SceneDelegate.swift */,
 				E66C144F23B25797007FD7ED /* Extensions */,
 				E6B756F023AE76070003F107 /* Networking */,
-				E61FD85F239E8E92003C8E1B /* Views */,
+				E61FD85F239E8E92003C8E1B /* Scenes */,
 				E653C10923991DE600EBB56F /* Components */,
 				E653C10423991D4800EBB56F /* DesignSystem */,
 				E6B756F323AE7AC40003F107 /* Models */,
@@ -131,14 +131,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E61FD85F239E8E92003C8E1B /* Views */ = {
+		E61FD85F239E8E92003C8E1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				E61FD861239E8EA9003C8E1B /* Dashboard */,
 				E6B756E623AE444F0003F107 /* Register */,
 				E61FD860239E8E98003C8E1B /* Login */,
 			);
-			path = Views;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		E61FD860239E8E98003C8E1B /* Login */ = {
