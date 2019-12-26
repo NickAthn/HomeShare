@@ -17,47 +17,49 @@ struct LoginView: View {
 
     // MARK: - VIEW
     var body: some View {
-        NavigationView {
-            VStack {
-                // Navigation Links
-                NavigationLink(destination: MainTabView(), isActive: $viewModel.showMainTab) { EmptyView() }.hidden()
+        LoadingView(isShowing: $viewModel.isLoading) {
+            NavigationView {
+                VStack {
+                    // Navigation Links
+                    NavigationLink(destination: MainTabView(), isActive: self.$viewModel.showMainTab) { EmptyView() }.hidden()
 
-                // View
-                Image("logo")
-                Text("HomeShare")
-                    .font(Font.system(size: 34, weight: .regular, design: .rounded))
-                    .foregroundColor(Color.Token.textHighlight)
-                Text("We connect people")
-                
-                Spacer().frame(height: 30)
-                
-                VStack(spacing: 18) {
-                    Group {
-                        TextField("Username or mail", text: $username)
-                        SecureField("Password", text: $password)
-                    }
-                    .padding()
-                    .background(Color.Token.fieldDefault)
-                    .cornerRadius(8)
+                    // View
+                    Image("logo")
+                    Text("HomeShare")
+                        .font(Font.system(size: 34, weight: .regular, design: .rounded))
+                        .foregroundColor(Color.Token.textHighlight)
+                    Text("We connect people")
                     
-                    RoundedButton(title: "LOGIN") { self.login() }
-                }
-                
-                HStack {
-                    Button("Register Now") {self.register()}
-                        .foregroundColor(Color.Token.highlight)
-                        .sheet(isPresented: $viewModel.showRegisterModal) { RegisterView() }
-                    Spacer()
-                    Button("Forget Password") {self.forgotPassword()}
-                        .foregroundColor(Color.Token.inactive)
-                }.padding(.top)
+                    Spacer().frame(height: 30)
+                    
+                    VStack(spacing: 18) {
+                        Group {
+                            TextField("Username or mail", text: self.$username)
+                            SecureField("Password", text: self.$password)
+                        }
+                        .padding()
+                        .background(Color.Token.fieldDefault)
+                        .cornerRadius(8)
+                        
+                        RoundedButton(title: "LOGIN") { self.login() }
+                    }
+                    
+                    HStack {
+                        Button("Register Now") {self.register()}
+                            .foregroundColor(Color.Token.highlight)
+                            .sheet(isPresented: self.$viewModel.showRegisterModal) { RegisterView() }
+                        Spacer()
+                        Button("Forget Password") {self.forgotPassword()}
+                            .foregroundColor(Color.Token.inactive)
+                    }.padding(.top)
 
-            }.padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
-            .onAppear(perform: viewModel.startListener)
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .alert(isPresented: $viewModel.isErrorShown) {
-            Alert(title: Text(viewModel.errorMessage))
+                }.padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
+                    .onAppear(perform: self.viewModel.startListener)
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .alert(isPresented: self.$viewModel.isErrorShown) {
+                Alert(title: Text(self.viewModel.errorMessage))
+            }
         }
     }
     

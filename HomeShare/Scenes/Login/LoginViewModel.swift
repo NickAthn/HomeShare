@@ -32,7 +32,7 @@ class LoginViewModel: ObservableObject {
     // MARK: - METHODS
     func startListener() {
         FirebaseManager.shared.listen()
-        
+        FirebaseManager.shared.signOut()
         let trackingSubjectStream = FirebaseManager.shared.didChange.sink { firebase in
             if firebase.session != nil {
                 self.isUserAuthenticated = true
@@ -48,7 +48,9 @@ class LoginViewModel: ObservableObject {
     
     func login(mail: String, password: String) {
         if FirebaseManager.shared.session == nil {
+            self.isLoading = true
             FirebaseManager.shared.signIn(withEmail: mail, password: password) { result, error in
+                self.isLoading = false
                 if error != nil {
                     self.isErrorShown = true
                     self.errorMessage = FirebaseManager.shared.getErrorDescription(error!)
