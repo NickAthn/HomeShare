@@ -40,12 +40,9 @@ struct DashboardView: View {
                 }
             }
             
-            
             Text("Upcoming Travels")
             
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarTitle("Dashboard")
     }
 }
 

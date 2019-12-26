@@ -53,9 +53,9 @@ struct LoginView: View {
                 }.padding(.top)
 
             }.padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
+            .onAppear(perform: viewModel.startListener)
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .onAppear(perform: viewModel.startListener)
         .alert(isPresented: $viewModel.isErrorShown) {
             Alert(title: Text(viewModel.errorMessage))
         }

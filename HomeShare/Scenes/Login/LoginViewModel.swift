@@ -14,30 +14,48 @@ class LoginViewModel: ObservableObject {
     let didChange = PassthroughSubject<Void, Never>()
 
     // MARK: OUTPUT
+    @Published var isLoading = false
     @Published var isErrorShown = false
     @Published var errorMessage = ""
     @Published var isUserAuthenticated = false {
         didSet { showMainTab = self.isUserAuthenticated }
     }
     
+    
     // MARK: NAVIGATION
     @Published var showRegisterModal = false
     @Published var showMainTab = false
 
+    private var cancellables: [AnyCancellable] = []
 
+    
     // MARK: - METHODS
     func startListener() {
         FirebaseManager.shared.listen()
-    }
-    
-    func login(mail: String, password: String) {
-        FirebaseManager.shared.signIn(withEmail: mail, password: password) { result, error in
-            if error != nil {
-                self.isErrorShown = true
-                self.errorMessage = FirebaseManager.shared.getErrorDescription(error!)
-            } else {
+        
+        let trackingSubjectStream = FirebaseManager.shared.didChange.sink { firebase in
+            if firebase.session != nil {
                 self.isUserAuthenticated = true
             }
+        }
+        
+        cancellables += [
+            trackingSubjectStream
+        ]
+
+    }
+    
+    
+    func login(mail: String, password: String) {
+        if FirebaseManager.shared.session == nil {
+            FirebaseManager.shared.signIn(withEmail: mail, password: password) { result, error in
+                if error != nil {
+                    self.isErrorShown = true
+                    self.errorMessage = FirebaseManager.shared.getErrorDescription(error!)
+                }
+            }
+        } else {
+            self.isUserAuthenticated = true
         }
     }
 }

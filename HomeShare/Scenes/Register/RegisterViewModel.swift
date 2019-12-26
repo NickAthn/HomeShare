@@ -14,20 +14,20 @@ class RegisterViewModel: ObservableObject{
     let didChange = PassthroughSubject<Void, Never>()
     
     // MARK: OUTPUT
-    @Published var hasError: Bool = false
+    @Published var isErrorShown: Bool = false
     @Published var errorMessage: String = ""
 
-    func register(mail: String, password: String, firstName: String, lastName: String){
+    func register(mail: String, password: String, firstName: String, lastName: String) {
         FirebaseManager.shared.registerUser(withEmail: mail, password: password) { result, error in
             if error != nil {
-                self.hasError = true
+                self.isErrorShown = true
                 self.errorMessage = FirebaseManager.shared.getErrorDescription(error!)
             }
             let changeRequest = result?.user.createProfileChangeRequest()
             changeRequest?.displayName = firstName + " " + lastName
             changeRequest?.commitChanges { error in
                 if error != nil {
-                    self.hasError = true
+                    self.isErrorShown = true
                     self.errorMessage = FirebaseManager.shared.getErrorDescription(error!)
                 }
             }

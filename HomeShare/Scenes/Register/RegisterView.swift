@@ -20,11 +20,11 @@ struct RegisterView: View {
     @ObservedObject var viewModel: RegisterViewModel = RegisterViewModel()
 
     var body: some View {
-        VStack(spacing: 10){
+        VStack(spacing: 10) {
             Image("logo").padding()
             
-            Group{
-                HStack{
+            Group {
+                HStack {
                     TextField("First Name",text: $firstName)
                     TextField("Last Name",text: $lastName)
                 }
@@ -39,12 +39,12 @@ struct RegisterView: View {
             RoundedButton(title: "Register"){self.register()}
         }
         .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
-        .alert(isPresented: $viewModel.hasError) {
+        .alert(isPresented: $viewModel.isErrorShown) {
             Alert(title: Text(viewModel.errorMessage))
         }
     }
     
-    func register(){
+    func register() {
         viewModel.register(mail: self.email, password: self.password, firstName: firstName, lastName: lastName)
     }
 }
