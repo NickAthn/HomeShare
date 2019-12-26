@@ -17,8 +17,8 @@ struct LoginView: View {
 
     // MARK: - VIEW
     var body: some View {
-        NavigationView{
-            VStack{
+        NavigationView {
+            VStack {
                 // Navigation Links
                 NavigationLink(destination: MainTabView(), isActive: $viewModel.showMainTab) { EmptyView() }.hidden()
 
@@ -31,7 +31,7 @@ struct LoginView: View {
                 
                 Spacer().frame(height: 30)
                 
-                VStack(spacing: 18){
+                VStack(spacing: 18) {
                     Group {
                         TextField("Username or mail", text: $username)
                         SecureField("Password", text: $password)
@@ -46,7 +46,7 @@ struct LoginView: View {
                 HStack {
                     Button("Register Now") {self.register()}
                         .foregroundColor(Color.Token.highlight)
-                        .sheet(isPresented: $viewModel.showRegisterModal){ RegisterView() }
+                        .sheet(isPresented: $viewModel.showRegisterModal) { RegisterView() }
                     Spacer()
                     Button("Forget Password") {self.forgotPassword()}
                         .foregroundColor(Color.Token.inactive)
@@ -59,7 +59,6 @@ struct LoginView: View {
         .alert(isPresented: $viewModel.isErrorShown) {
             Alert(title: Text(viewModel.errorMessage))
         }
-
     }
     
     

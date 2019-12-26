@@ -12,11 +12,10 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             DashboardView()
-                .tabItem{
+                .tabItem {
                     Image(systemName: "circle.bottomthird.split")
                     Text("Dashboard")
                 }
-                .tag(1)
             Text("Inbox")
                 .tabItem {
                     Image(systemName: "tray")
@@ -27,9 +26,6 @@ struct MainTabView: View {
                     Image(systemName: "person.crop.circle")
                     Text("Account")
                 }
-            //person.crop.circle
-            //bubble.left.and.bubble.right
-            //tray
         }
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 import Firebase
 
-class LoginViewModel: ObservableObject{
+class LoginViewModel: ObservableObject {
     let didChange = PassthroughSubject<Void, Never>()
 
     // MARK: OUTPUT
@@ -26,11 +26,11 @@ class LoginViewModel: ObservableObject{
 
 
     // MARK: - METHODS
-    func startListener(){
+    func startListener() {
         FirebaseManager.shared.listen()
     }
     
-    func login(mail: String, password: String){
+    func login(mail: String, password: String) {
         FirebaseManager.shared.signIn(withEmail: mail, password: password) { result, error in
             if error != nil {
                 self.isErrorShown = true
@@ -40,6 +40,5 @@ class LoginViewModel: ObservableObject{
             }
         }
     }
-
 }
 
