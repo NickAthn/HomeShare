@@ -13,19 +13,19 @@ import Firebase
 class LoginViewModel: ObservableObject{
     let didChange = PassthroughSubject<Void, Never>()
 
-    // MARK: Output
+    // MARK: OUTPUT
     @Published var isErrorShown = false
     @Published var errorMessage = ""
     @Published var isUserAuthenticated = false {
-        didSet { showDashboard = self.isUserAuthenticated }
+        didSet { showMainTab = self.isUserAuthenticated }
     }
     
     // MARK: NAVIGATION
     @Published var showRegisterModal = false
-    @Published var showDashboard = false
+    @Published var showMainTab = false
 
 
-    // MARK: - Methods
+    // MARK: - METHODS
     func startListener(){
         FirebaseManager.shared.listen()
     }
@@ -35,10 +35,9 @@ class LoginViewModel: ObservableObject{
             if error != nil {
                 self.isErrorShown = true
                 self.errorMessage = FirebaseManager.shared.getErrorDescription(error!)
+            } else {
+                self.isUserAuthenticated = true
             }
-        
-            self.isUserAuthenticated = true
-            print(self.showDashboard)
         }
     }
 

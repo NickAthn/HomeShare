@@ -11,9 +11,9 @@ import Firebase
 
 
 class RegisterViewModel: ObservableObject{
-    // MARK: - PROPERTIES
     let didChange = PassthroughSubject<Void, Never>()
     
+    // MARK: OUTPUT
     @Published var hasError: Bool = false
     @Published var errorMessage: String = ""
 

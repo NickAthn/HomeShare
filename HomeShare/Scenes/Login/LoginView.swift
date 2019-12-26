@@ -20,7 +20,7 @@ struct LoginView: View {
         NavigationView{
             VStack{
                 // Navigation Links
-                NavigationLink(destination: DashboardView(), isActive: $viewModel.showDashboard){ EmptyView() }.hidden()
+                NavigationLink(destination: MainTabView(), isActive: $viewModel.showMainTab) { EmptyView() }.hidden()
 
                 // View
                 Image("logo")

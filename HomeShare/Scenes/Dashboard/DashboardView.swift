@@ -18,21 +18,34 @@ struct Task: Identifiable {
 }
 struct DashboardView: View {
     let todoList = [
+        Task(image: Image("logo"), title: "Confirm Mail", desc: "You have to confirm your email"),
         Task(image: Image("logo"), title: "Confirm Mail", desc: "You have to confirm your email")
     ]
     var body: some View {
-        
-        List(todoList) { task in
-            HStack{
-                Image("logo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                VStack(alignment: .leading){
-                    Text(task.title)
-                    Text(task.desc)
+        VStack(alignment: .leading) {
+            Group {
+                Text("To - Do")
+                    .padding(.leading)
+                    .font(Font.system(.headline))
+                List(todoList) { task in
+                    HStack{
+                        Image("logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        VStack(alignment: .leading){
+                            Text(task.title)
+                            Text(task.desc)
+                        }
+                    }.frame(minWidth: .none, idealWidth: .infinity, maxWidth: .infinity, minHeight: 34, idealHeight: 50, maxHeight: 70, alignment: .leading)
                 }
-            }.frame(minWidth: .none, idealWidth: .infinity, maxWidth: .infinity, minHeight: 34, idealHeight: 50, maxHeight: 70, alignment: .leading)
+            }
+            
+            
+            Text("Upcoming Travels")
+            
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitle("Dashboard")
     }
 }
 

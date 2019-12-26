@@ -21,6 +21,7 @@
 		E662758A239A61C9002D8B0B /* ColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6627589239A61C9002D8B0B /* ColorPalette.xcassets */; };
 		E668A66823AF9F900030741D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E668A66723AF9F900030741D /* RegisterViewModel.swift */; };
 		E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */; };
+		E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C145323B4F664007FD7ED /* MainTabView.swift */; };
 		E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E423AE276B0003F107 /* RoundedButton.swift */; };
 		E6B756E823AE44610003F107 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E723AE44610003F107 /* RegisterView.swift */; };
 		E6B756EE23AE6E0B0003F107 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */; };
@@ -47,6 +48,7 @@
 		E6627589239A61C9002D8B0B /* ColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalette.xcassets; sourceTree = "<group>"; };
 		E668A66723AF9F900030741D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+ErrorDescriptions.swift"; sourceTree = "<group>"; };
+		E66C145323B4F664007FD7ED /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		E6B756E423AE276B0003F107 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E6B756E723AE44610003F107 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E6B756EC23AE6CAE0003F107 /* HomeShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeShare.entitlements; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		E61FD85F239E8E92003C8E1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E66C145223B4F616007FD7ED /* MainTab */,
 				E61FD861239E8EA9003C8E1B /* Dashboard */,
 				E6B756E623AE444F0003F107 /* Register */,
 				E61FD860239E8E98003C8E1B /* Login */,
@@ -190,6 +193,14 @@
 				E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E66C145223B4F616007FD7ED /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				E66C145323B4F664007FD7ED /* MainTabView.swift */,
+			);
+			path = MainTab;
 			sourceTree = "<group>";
 		};
 		E6B756E623AE444F0003F107 /* Register */ = {
@@ -345,6 +356,7 @@
 				E668A66823AF9F900030741D /* RegisterViewModel.swift in Sources */,
 				E6B756E823AE44610003F107 /* RegisterView.swift in Sources */,
 				E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */,
+				E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */,
 				E6B756F523AE7AD10003F107 /* User.swift in Sources */,
 				E653C10623991D6600EBB56F /* Typography.swift in Sources */,
 			);
