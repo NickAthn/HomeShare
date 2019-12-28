@@ -35,7 +35,10 @@ struct LoginView: View {
                     VStack(spacing: 18) {
                         Group {
                             TextField("Username or mail", text: self.$username)
+                                .textContentType(.emailAddress)
+                                .keyboardType(.emailAddress)
                             SecureField("Password", text: self.$password)
+                                .textContentType(.password)
                         }
                         .padding()
                         .background(Color.Token.fieldDefault)

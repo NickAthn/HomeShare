@@ -21,7 +21,7 @@ struct MainTabView: View {
                     Image(systemName: "tray")
                     Text("Inbox")
                 }
-            Text("Account")
+            AccountView()
                 .tabItem {
                     Image(systemName: "person.crop.circle")
                     Text("Account")
