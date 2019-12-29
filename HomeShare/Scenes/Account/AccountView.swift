@@ -10,14 +10,12 @@ import SwiftUI
 
 struct AccountView: View {
     var body: some View {
-        VStack {
+        NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     
                     ZStack(alignment: .bottomLeading) {
                         StickyImage().frame(height: 300)
-                        
-                        
                         
                         VStack(alignment: .leading) {
                             Text("Nikolaos Athanasiou")
@@ -32,7 +30,6 @@ struct AccountView: View {
                     }
                         
 
-                    
                     ZStack(alignment: .leading) {
                         Rectangle()
                             .frame(height: 30)
@@ -53,8 +50,8 @@ struct AccountView: View {
                     .scaledToFit()
                     .disabled(true)
                 }
-            }
-        }.navigationBarTitle("Home", displayMode: .automatic)
+            }.navigationBarTitle("Account", displayMode: .inline)
+        }
     }
 }
 
