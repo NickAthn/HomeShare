@@ -42,7 +42,7 @@ struct DashboardView: View {
             
             Text("Upcoming Travels")
             
-        }
+        }.navigationBarTitle("Dashboard", displayMode: .automatic)
     }
 }
 

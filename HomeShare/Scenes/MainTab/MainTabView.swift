@@ -26,7 +26,7 @@ struct MainTabView: View {
                     Image(systemName: "person.crop.circle")
                     Text("Account")
                 }
-        }
+        }.navigationBarTitle("Fuck")
     }
 }
 

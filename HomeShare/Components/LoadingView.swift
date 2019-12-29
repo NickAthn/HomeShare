@@ -25,8 +25,7 @@ struct LoadingView<Content>: View where Content: View {
                     Text("Loading Account")
                     ActivityIndicator(isAnimating: .constant(true), style: .large)
                 }
-                .frame(width: geometry.size.width / 2,
-                       height: geometry.size.height / 5)
+                .frame(width: geometry.size.width / 2, height: geometry.size.height / 5)
                 .background(Color.white)
                 .foregroundColor(Color.black)
                 .cornerRadius(20)

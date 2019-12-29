@@ -23,6 +23,7 @@
 		E653C10623991D6600EBB56F /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C10523991D6600EBB56F /* Typography.swift */; };
 		E653C10823991D8C00EBB56F /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C10723991D8C00EBB56F /* ColorPalette.swift */; };
 		E662758A239A61C9002D8B0B /* ColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6627589239A61C9002D8B0B /* ColorPalette.xcassets */; };
+		E664D3DC23B8E47F00960281 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = E664D3DB23B8E47F00960281 /* Option.swift */; };
 		E668A66823AF9F900030741D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E668A66723AF9F900030741D /* RegisterViewModel.swift */; };
 		E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */; };
 		E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C145323B4F664007FD7ED /* MainTabView.swift */; };
@@ -54,6 +55,7 @@
 		E653C10523991D6600EBB56F /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		E653C10723991D8C00EBB56F /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		E6627589239A61C9002D8B0B /* ColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalette.xcassets; sourceTree = "<group>"; };
+		E664D3DB23B8E47F00960281 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		E668A66723AF9F900030741D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+ErrorDescriptions.swift"; sourceTree = "<group>"; };
 		E66C145323B4F664007FD7ED /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				E6B756F423AE7AD10003F107 /* User.swift */,
+				E664D3DB23B8E47F00960281 /* Option.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */,
 				E63E158723B7CA5A0056F2AC /* AccountView.swift in Sources */,
 				E653C10823991D8C00EBB56F /* ColorPalette.swift in Sources */,
+				E664D3DC23B8E47F00960281 /* Option.swift in Sources */,
 				E64384D323AF68D70021D190 /* LoginViewModel.swift in Sources */,
 				E63E158123B517150056F2AC /* LoadingView.swift in Sources */,
 				E61FD863239E8EC5003C8E1B /* DashboardView.swift in Sources */,
