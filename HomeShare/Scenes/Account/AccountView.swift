@@ -13,9 +13,10 @@ struct AccountView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    
                     ZStack(alignment: .bottomLeading) {
-                        StickyImage().frame(height: 300)
+                        StickyImage()
+                            .frame(height: 300)
+                        
                         
                         VStack(alignment: .leading) {
                             Text("Nikolaos Athanasiou")
@@ -60,12 +61,18 @@ struct AccountView: View {
                         OptionRow(destination: EmptyView(), title: "Sumbit a ticket", style: .normal)
 
                     }
-                }
-            }.navigationBarTitle("Account", displayMode: .inline)
-            .background(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
-           
+                }.background(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
+            }.navigationBarTitle("Account")
         }
+        .edgesIgnoringSafeArea(.top)
+        .padding(.top, 1)
     }
+    
+    init() {
+        // Trying to mimic old navbar behavior. >=12
+        UINavigationBar.appearance().backgroundColor = .white
+    }
+
 }
 
 struct AccountView_Previews: PreviewProvider {

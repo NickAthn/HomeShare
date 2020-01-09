@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct StickyImage: View{
-//    var headerHeight: CGFloat = 300
     var image: Image = Image("exampleImage")
 
     var body: some View {
