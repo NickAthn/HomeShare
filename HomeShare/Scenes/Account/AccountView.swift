@@ -51,11 +51,20 @@ struct AccountView: View {
                         OptionRow(title: "Hosting", style: .normal)
                         OptionRow(title: "Notifications", style: .normal)
                         OptionRow(title: "Bookmarked", style: .normal)
-                        OptionRow(title: "Log Out", style: .button) {
-                            self.viewModel.signOut()
-                        }
+                        OptionRow(title: "Log Out", style: .button) {self.viewModel.signOut()}
                         
-                        OptionRow(title: "Delete Account", style: .alertButton)
+                        OptionRow(title: "Delete Account", style: .alertButton) {
+                            self.viewModel.isDeleteAlertShown.toggle()
+                        }.alert(isPresented: $viewModel.isDeleteAlertShown ) {
+                            Alert(title: Text("DANGER ZONE"),
+                                  message: Text("You are about to delete your account. This action cannot be reversed. Are you sure you want to continue?"),
+                                  primaryButton: .destructive(Text("Delete")) {
+                                    self.viewModel.deleteAccount()
+                                },
+                                  secondaryButton: .cancel()
+                            )
+                        }
+
                         
                         Text("ABOUT HOMESHARE")
                             .padding(.top, 20)
@@ -66,9 +75,9 @@ struct AccountView: View {
                             .foregroundColor(.gray)
 
                         OptionRow(title: "Sumbit a ticket", style: .normal)
-
                     }
                 }.background(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
+                
             }.navigationBarTitle("Account")
         }
         .edgesIgnoringSafeArea(.top)

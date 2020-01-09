@@ -12,8 +12,17 @@ import Combine
 class AccountViewModel: ObservableObject {
     let didChange = PassthroughSubject<Void, Never>()
 
-    
+    // MARK: OUTPUT
+    @Published var isDeleteAlertShown = false
+
     func signOut() {
         FirebaseManager.shared.signOut()
+    }
+    
+    func initiateDeleteSequence() {
+        isDeleteAlertShown = true
+    }
+    func deleteAccount() {
+        
     }
 }

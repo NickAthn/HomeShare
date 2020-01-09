@@ -68,13 +68,19 @@ class FirebaseManager: ObservableObject {
         }
     }
     
-    func signOut() -> Bool{
-        do{
+    func signOut() -> Bool {
+        do {
             try Auth.auth().signOut()
             self.session = nil
             return true
         } catch {
             return false
+        }
+    }
+    
+    func deleteAccount() {
+        Auth.auth().currentUser?.delete() { error in
+            print(error as Any)
         }
     }
     
