@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct AccountView: View {
+    
+    @ObservedObject var viewModel: AccountViewModel = AccountViewModel()
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -47,7 +51,10 @@ struct AccountView: View {
                         OptionRow(title: "Hosting", style: .normal)
                         OptionRow(title: "Notifications", style: .normal)
                         OptionRow(title: "Bookmarked", style: .normal)
-                        OptionRow(title: "Log Out", style: .button)
+                        OptionRow(title: "Log Out", style: .button) {
+                            self.viewModel.signOut()
+                        }
+                        
                         OptionRow(title: "Delete Account", style: .alertButton)
                         
                         Text("ABOUT HOMESHARE")

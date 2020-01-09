@@ -17,14 +17,10 @@ class LoginViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var isErrorShown = false
     @Published var errorMessage = ""
-    @Published var isUserAuthenticated = false {
-        didSet { showMainTab = self.isUserAuthenticated }
-    }
-    
+    @Published var isUserAuthenticated = false
     
     // MARK: NAVIGATION
     @Published var showRegisterModal = false
-    @Published var showMainTab = false
 
     private var cancellables: [AnyCancellable] = []
 
@@ -32,10 +28,12 @@ class LoginViewModel: ObservableObject {
     // MARK: - METHODS
     func startListener() {
         FirebaseManager.shared.listen()
-//        FirebaseManager.shared.signOut()
+
         let trackingSubjectStream = FirebaseManager.shared.didChange.sink { firebase in
             if firebase.session != nil {
                 self.isUserAuthenticated = true
+            } else {
+                self.isUserAuthenticated = false
             }
         }
         
@@ -57,7 +55,7 @@ class LoginViewModel: ObservableObject {
                 }
             }
         } else {
-            self.isUserAuthenticated = true
+//            self.isUserAuthenticated = true
         }
     }
 }

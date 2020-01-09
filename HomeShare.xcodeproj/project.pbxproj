@@ -27,6 +27,7 @@
 		E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */; };
 		E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C145323B4F664007FD7ED /* MainTabView.swift */; };
 		E66DEF7223B90E5E003470C0 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66DEF7123B90E5E003470C0 /* OptionRow.swift */; };
+		E679C90723C7C093003362B4 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679C90623C7C093003362B4 /* AccountViewModel.swift */; };
 		E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E423AE276B0003F107 /* RoundedButton.swift */; };
 		E6B756E823AE44610003F107 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E723AE44610003F107 /* RegisterView.swift */; };
 		E6B756EE23AE6E0B0003F107 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */; };
@@ -59,6 +60,7 @@
 		E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+ErrorDescriptions.swift"; sourceTree = "<group>"; };
 		E66C145323B4F664007FD7ED /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		E66DEF7123B90E5E003470C0 /* OptionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRow.swift; sourceTree = "<group>"; };
+		E679C90623C7C093003362B4 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		E6B756E423AE276B0003F107 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E6B756E723AE44610003F107 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E6B756EC23AE6CAE0003F107 /* HomeShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeShare.entitlements; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				E63E158623B7CA5A0056F2AC /* AccountView.swift */,
+				E679C90623C7C093003362B4 /* AccountViewModel.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */,
 				E63E158723B7CA5A0056F2AC /* AccountView.swift in Sources */,
 				E653C10823991D8C00EBB56F /* ColorPalette.swift in Sources */,
+				E679C90723C7C093003362B4 /* AccountViewModel.swift in Sources */,
 				E66DEF7223B90E5E003470C0 /* OptionRow.swift in Sources */,
 				E64384D323AF68D70021D190 /* LoginViewModel.swift in Sources */,
 				E63E158123B517150056F2AC /* LoadingView.swift in Sources */,
