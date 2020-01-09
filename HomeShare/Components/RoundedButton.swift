@@ -26,3 +26,13 @@ struct RoundedButton: View {
         .foregroundColor(.white)
     }
 }
+
+#if DEBUG
+struct RoundedButton_Previews: PreviewProvider {
+    static var previews: some View {
+        RoundedButton(title: "Test") {
+            print("")
+        }
+    }
+}
+#endif

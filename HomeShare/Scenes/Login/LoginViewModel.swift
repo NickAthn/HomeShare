@@ -32,7 +32,7 @@ class LoginViewModel: ObservableObject {
     // MARK: - METHODS
     func startListener() {
         FirebaseManager.shared.listen()
-        FirebaseManager.shared.signOut()
+//        FirebaseManager.shared.signOut()
         let trackingSubjectStream = FirebaseManager.shared.didChange.sink { firebase in
             if firebase.session != nil {
                 self.isUserAuthenticated = true

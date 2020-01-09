@@ -32,3 +32,7 @@ struct StickyImage: View{
         }
     }
 }
+
+extension Image {
+    
+}

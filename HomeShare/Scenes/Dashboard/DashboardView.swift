@@ -22,27 +22,29 @@ struct DashboardView: View {
         Task(image: Image("logo"), title: "Confirm Mail", desc: "You have to confirm your email")
     ]
     var body: some View {
-        VStack(alignment: .leading) {
-            Group {
-                Text("To - Do")
-                    .padding(.leading)
-                    .font(Font.system(.headline))
-                List(todoList) { task in
-                    HStack{
-                        Image("logo")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        VStack(alignment: .leading){
-                            Text(task.title)
-                            Text(task.desc)
-                        }
-                    }.frame(minWidth: .none, idealWidth: .infinity, maxWidth: .infinity, minHeight: 34, idealHeight: 50, maxHeight: 70, alignment: .leading)
+        NavigationView {
+            VStack(alignment: .leading) {
+                Group {
+                    Text("To - Do")
+                        .padding(.leading)
+                        .font(Font.system(.headline))
+                    List(todoList) { task in
+                        HStack{
+                            Image("logo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                            VStack(alignment: .leading){
+                                Text(task.title)
+                                Text(task.desc)
+                            }
+                        }.frame(minWidth: .none, idealWidth: .infinity, maxWidth: .infinity, minHeight: 34, idealHeight: 50, maxHeight: 70, alignment: .leading)
+                    }
                 }
-            }
-            
-            Text("Upcoming Travels")
-            
-        }.navigationBarTitle("Dashboard", displayMode: .automatic)
+                
+                Text("Upcoming Travels")
+                
+            }.navigationBarTitle("Dashboard", displayMode: .automatic)
+        }
     }
 }
 

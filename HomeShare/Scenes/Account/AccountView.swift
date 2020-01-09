@@ -28,8 +28,7 @@ struct AccountView: View {
                         .padding(.leading)
                         .padding(.bottom)
                     }
-                        
-
+                    
                     ZStack(alignment: .leading) {
                         Rectangle()
                             .frame(height: 30)
@@ -40,17 +39,31 @@ struct AccountView: View {
                                 .foregroundColor(.white)
                                 .font(.system(size: 17, weight: .bold, design: .default))
                         }.padding(.leading)
+                        
                     }
                     
-                    Form {
-                        ForEach(Option.options,id: \.id) { settingOption in
-                            OptionRow(option: settingOption)
-                        }
+                    VStack(alignment: .leading, spacing: 0.2) {
+                        OptionRow(destination: EmptyView(), title: "Hosting", style: .normal)
+                        OptionRow(destination: EmptyView(), title: "Notifications", style: .normal)
+                        OptionRow(destination: EmptyView(), title: "Bookmarked", style: .normal)
+                        OptionRow(destination: EmptyView(), title: "Log Out", style: .button)
+                        OptionRow(destination: EmptyView(), title: "Delete Account", style: .alertButton)
+                        
+                        Text("ABOUT HOMESHARE")
+                            .padding(.top, 20)
+                            .padding(.leading, 10)
+                            .foregroundColor(.gray)
+                        Rectangle()
+                            .frame(height: 0.5)
+                            .foregroundColor(.gray)
+
+                        OptionRow(destination: EmptyView(), title: "Sumbit a ticket", style: .normal)
+
                     }
-                    .scaledToFit()
-                    .disabled(true)
                 }
             }.navigationBarTitle("Account", displayMode: .inline)
+            .background(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
+           
         }
     }
 }
@@ -61,38 +74,3 @@ struct AccountView_Previews: PreviewProvider {
     }
 }
 
-struct OptionRow: View {
-    let option: Option
-    var body: some View {
-        Group() {
-            if option.isAddSection {
-                Section {
-                    OptionSettingsView(option: option)
-                }
-            } else {
-                OptionSettingsView(option: option)
-            }
-        }
-    }
-}
-
-
-struct OptionSettingsView : View {
-    let option: Option
-    
-    var body: some View {
-        return NavigationLink(destination: RegisterView()) {
-            HStack {
-                Image("default")
-                    .resizable()
-                    .cornerRadius(12)
-                    .frame(width: 25, height: 25)
-                    .clipped()
-                    .aspectRatio(contentMode: .fit)
-                Text(option.title)
-                    .foregroundColor(.blue)
-                    .font(.system(size: 18))
-            }
-        }
-    }
-}
