@@ -23,6 +23,6 @@ class AccountViewModel: ObservableObject {
         isDeleteAlertShown = true
     }
     func deleteAccount() {
-        
+        FirebaseManager.shared.deleteAccount()
     }
 }
