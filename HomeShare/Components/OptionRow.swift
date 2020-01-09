@@ -15,15 +15,17 @@ enum OptionRowStyle: Int, Codable {
     alertButton
 }
 
-struct OptionRow<Content: View>: View {
-    @State var destination: Content
+struct OptionRow: View {
     @State var title: String = "Title"
     @State var style: OptionRowStyle
+    @State var action: (()->()) = {}
+    
 
     var body: some View {
-        return NavigationLink(destination: self.destination) {
+        return Button(action: {self.action()}){
             OptionView(title: title, style: style)
         }.background(Color.white)
+        
     }
 }
 
@@ -121,7 +123,7 @@ fileprivate struct AlertButtonView: View {
 #if DEBUG
 struct OptionRow_Previews: PreviewProvider {
     static var previews: some View {
-        OptionRow(destination: Text("Debuging View"), style: .alertButton)
+        OptionRow(style: .alertButton)
     }
 }
 #endif

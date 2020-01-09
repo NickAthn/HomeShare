@@ -44,11 +44,11 @@ struct AccountView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 0.2) {
-                        OptionRow(destination: EmptyView(), title: "Hosting", style: .normal)
-                        OptionRow(destination: EmptyView(), title: "Notifications", style: .normal)
-                        OptionRow(destination: EmptyView(), title: "Bookmarked", style: .normal)
-                        OptionRow(destination: EmptyView(), title: "Log Out", style: .button)
-                        OptionRow(destination: EmptyView(), title: "Delete Account", style: .alertButton)
+                        OptionRow(title: "Hosting", style: .normal)
+                        OptionRow(title: "Notifications", style: .normal)
+                        OptionRow(title: "Bookmarked", style: .normal)
+                        OptionRow(title: "Log Out", style: .button)
+                        OptionRow(title: "Delete Account", style: .alertButton)
                         
                         Text("ABOUT HOMESHARE")
                             .padding(.top, 20)
@@ -58,7 +58,7 @@ struct AccountView: View {
                             .frame(height: 0.5)
                             .foregroundColor(.gray)
 
-                        OptionRow(destination: EmptyView(), title: "Sumbit a ticket", style: .normal)
+                        OptionRow(title: "Sumbit a ticket", style: .normal)
 
                     }
                 }.background(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
@@ -72,7 +72,6 @@ struct AccountView: View {
         // Trying to mimic old navbar behavior. >=12
         UINavigationBar.appearance().backgroundColor = .white
     }
-
 }
 
 struct AccountView_Previews: PreviewProvider {
