@@ -64,7 +64,6 @@ struct AccountView: View {
                                   secondaryButton: .cancel()
                             )
                         }
-
                         
                         Text("ABOUT HOMESHARE")
                             .padding(.top, 20)
