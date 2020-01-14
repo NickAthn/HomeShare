@@ -7,5 +7,7 @@ target 'HomeShare' do
 
   # Pods for HomeShare
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
+
 
 end

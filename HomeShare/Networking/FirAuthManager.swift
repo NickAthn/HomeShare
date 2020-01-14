@@ -11,11 +11,11 @@ import Combine
 import Firebase
 
 
-class FirebaseManager: ObservableObject {
-    static let shared = FirebaseManager()
+class FirAuthManager: ObservableObject {
+    static let shared = FirAuthManager()
     
     var session: User? { didSet { self.didChange.send(self) }}
-    var didChange = PassthroughSubject<FirebaseManager, Never>()
+    var didChange = PassthroughSubject<FirAuthManager, Never>()
     var handle: AuthStateDidChangeListenerHandle?
     
     // Start the session listener

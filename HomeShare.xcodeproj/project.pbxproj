@@ -21,6 +21,10 @@
 		E63E158923B7D5740056F2AC /* StickyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E158823B7D5740056F2AC /* StickyImage.swift */; };
 		E64384D323AF68D70021D190 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64384D223AF68D70021D190 /* LoginViewModel.swift */; };
 		E64A333D23CCD04200618987 /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A333C23CCD04200618987 /* Accommodation.swift */; };
+		E64A334323CCD1C500618987 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334223CCD1C500618987 /* InboxView.swift */; };
+		E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334423CCD1D700618987 /* InboxViewModel.swift */; };
+		E64A334B23CCD67900618987 /* InboxRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334A23CCD67900618987 /* InboxRowView.swift */; };
+		E64A334D23CCD7E700618987 /* InboxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334C23CCD7E700618987 /* InboxModel.swift */; };
 		E653C10623991D6600EBB56F /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C10523991D6600EBB56F /* Typography.swift */; };
 		E653C10823991D8C00EBB56F /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653C10723991D8C00EBB56F /* ColorPalette.swift */; };
 		E662758A239A61C9002D8B0B /* ColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6627589239A61C9002D8B0B /* ColorPalette.xcassets */; };
@@ -33,7 +37,7 @@
 		E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E423AE276B0003F107 /* RoundedButton.swift */; };
 		E6B756E823AE44610003F107 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E723AE44610003F107 /* RegisterView.swift */; };
 		E6B756EE23AE6E0B0003F107 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */; };
-		E6B756F223AE79700003F107 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756F123AE79700003F107 /* FirebaseManager.swift */; };
+		E6B756F223AE79700003F107 /* FirAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756F123AE79700003F107 /* FirAuthManager.swift */; };
 		E6B756F523AE7AD10003F107 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756F423AE7AD10003F107 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,10 @@
 		E63E158823B7D5740056F2AC /* StickyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyImage.swift; sourceTree = "<group>"; };
 		E64384D223AF68D70021D190 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E64A333C23CCD04200618987 /* Accommodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
+		E64A334223CCD1C500618987 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
+		E64A334423CCD1D700618987 /* InboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewModel.swift; sourceTree = "<group>"; };
+		E64A334A23CCD67900618987 /* InboxRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxRowView.swift; sourceTree = "<group>"; };
+		E64A334C23CCD7E700618987 /* InboxModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxModel.swift; sourceTree = "<group>"; };
 		E653C10523991D6600EBB56F /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		E653C10723991D8C00EBB56F /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		E6627589239A61C9002D8B0B /* ColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalette.xcassets; sourceTree = "<group>"; };
@@ -69,7 +77,7 @@
 		E6B756E723AE44610003F107 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E6B756EC23AE6CAE0003F107 /* HomeShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeShare.entitlements; sourceTree = "<group>"; };
 		E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E6B756F123AE79700003F107 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		E6B756F123AE79700003F107 /* FirAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirAuthManager.swift; sourceTree = "<group>"; };
 		E6B756F423AE7AD10003F107 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +160,7 @@
 		E61FD85F239E8E92003C8E1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E64A334123CCD1A500618987 /* Inbox */,
 				E66650EC23CA36DB00942756 /* Hosting */,
 				E66C145223B4F616007FD7ED /* MainTab */,
 				E63E158323B7CA2D0056F2AC /* Account */,
@@ -185,6 +194,17 @@
 				E679C90623C7C093003362B4 /* AccountViewModel.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		E64A334123CCD1A500618987 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				E64A334223CCD1C500618987 /* InboxView.swift */,
+				E64A334423CCD1D700618987 /* InboxViewModel.swift */,
+				E64A334A23CCD67900618987 /* InboxRowView.swift */,
+				E64A334C23CCD7E700618987 /* InboxModel.swift */,
+			);
+			path = Inbox;
 			sourceTree = "<group>";
 		};
 		E653C10423991D4800EBB56F /* DesignSystem */ = {
@@ -262,7 +282,7 @@
 		E6B756F023AE76070003F107 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				E6B756F123AE79700003F107 /* FirebaseManager.swift */,
+				E6B756F123AE79700003F107 /* FirAuthManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -393,10 +413,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6B756F223AE79700003F107 /* FirebaseManager.swift in Sources */,
+				E6B756F223AE79700003F107 /* FirAuthManager.swift in Sources */,
 				E63E158923B7D5740056F2AC /* StickyImage.swift in Sources */,
 				E63E157F23B516B90056F2AC /* ActivityIndicator.swift in Sources */,
+				E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */,
+				E64A334323CCD1C500618987 /* InboxView.swift in Sources */,
 				E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */,
+				E64A334B23CCD67900618987 /* InboxRowView.swift in Sources */,
+				E64A334D23CCD7E700618987 /* InboxModel.swift in Sources */,
 				E63E158723B7CA5A0056F2AC /* AccountView.swift in Sources */,
 				E653C10823991D8C00EBB56F /* ColorPalette.swift in Sources */,
 				E679C90723C7C093003362B4 /* AccountViewModel.swift in Sources */,

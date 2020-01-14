@@ -16,13 +16,13 @@ class AccountViewModel: ObservableObject {
     @Published var isDeleteAlertShown = false
 
     func signOut() {
-        FirebaseManager.shared.signOut()
+        FirAuthManager.shared.signOut()
     }
     
     func initiateDeleteSequence() {
         isDeleteAlertShown = true
     }
     func deleteAccount() {
-        FirebaseManager.shared.deleteAccount()
+        FirAuthManager.shared.deleteAccount()
     }
 }

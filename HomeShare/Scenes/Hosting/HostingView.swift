@@ -13,14 +13,33 @@ struct HostingView: View {
     var body: some View {
         NavigationView {
             List {
-                Text("Test")
+                VStack(alignment: .leading){
+                    Image("exampleImage")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 200)
+                        .cornerRadius(10)
+                        .clipped()
+                    Text("Eleftherias 64, Messini, Greece ")
+                        .font(.headline)
+                }
             }
+                
             .navigationBarTitle("Hosting")
             .navigationBarItems(trailing: Button("Add") {
                 
             })
         }
     }
+    
+    init() {
+        // To remove only extra separators below the list:
+        UITableView.appearance().tableFooterView = UIView()
+
+        // To remove all separators including the actual ones:
+        UITableView.appearance().separatorStyle = .none
+    }
+
 }
 
 struct HostingView_Previews: PreviewProvider {
