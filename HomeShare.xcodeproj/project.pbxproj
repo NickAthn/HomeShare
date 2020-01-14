@@ -14,6 +14,7 @@
 		E60AFB192397D0DE00211C28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60AFB182397D0DE00211C28 /* Assets.xcassets */; };
 		E60AFB1C2397D0DE00211C28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60AFB1B2397D0DE00211C28 /* Preview Assets.xcassets */; };
 		E60AFB1F2397D0DE00211C28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60AFB1D2397D0DE00211C28 /* LaunchScreen.storyboard */; };
+		E6167BDA23CE182700C77935 /* FirDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6167BD923CE182700C77935 /* FirDatabaseManager.swift */; };
 		E61FD863239E8EC5003C8E1B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61FD862239E8EC5003C8E1B /* DashboardView.swift */; };
 		E63E157F23B516B90056F2AC /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E157E23B516B90056F2AC /* ActivityIndicator.swift */; };
 		E63E158123B517150056F2AC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E158023B517150056F2AC /* LoadingView.swift */; };
@@ -53,6 +54,7 @@
 		E60AFB1B2397D0DE00211C28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E60AFB1E2397D0DE00211C28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E60AFB202397D0DE00211C28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6167BD923CE182700C77935 /* FirDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirDatabaseManager.swift; sourceTree = "<group>"; };
 		E61FD862239E8EC5003C8E1B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		E63E157E23B516B90056F2AC /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		E63E158023B517150056F2AC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				E6B756F123AE79700003F107 /* FirAuthManager.swift */,
+				E6167BD923CE182700C77935 /* FirDatabaseManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				E60AFB172397D0DC00211C28 /* LoginView.swift in Sources */,
 				E668A66823AF9F900030741D /* RegisterViewModel.swift in Sources */,
 				E6B756E823AE44610003F107 /* RegisterView.swift in Sources */,
+				E6167BDA23CE182700C77935 /* FirDatabaseManager.swift in Sources */,
 				E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */,
 				E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */,
 				E6B756F523AE7AD10003F107 /* User.swift in Sources */,

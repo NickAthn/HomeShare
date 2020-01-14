@@ -18,7 +18,7 @@ class RegisterViewModel: ObservableObject{
     @Published var errorMessage: String = ""
 
     func register(mail: String, password: String, firstName: String, lastName: String) {
-        FirAuthManager.shared.registerUser(withEmail: mail, password: password) { result, error in
+        FirAuthManager.shared.createUser(withEmail: mail, password: password) { result, error in
             if error != nil {
                 self.isErrorShown = true
                 self.errorMessage = FirAuthManager.shared.getErrorDescription(error!)

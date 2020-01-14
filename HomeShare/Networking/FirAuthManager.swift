@@ -45,9 +45,11 @@ class FirAuthManager: ObservableObject {
     }
 
     // MARK: - User Authentication
-    func registerUser(withEmail: String, password: String, completion: @escaping AuthDataResultCallback){
+    func createUser(withEmail: String, password: String, completion: @escaping AuthDataResultCallback){
         Auth.auth().createUser(withEmail: withEmail, password: password) { authResult, error in
             if error == nil {
+                // Registering the new user on the database with his uuid
+                FirDatabaseManager.shared.createUser(withEmail: withEmail, id: (authResult?.user.uid)!)
                 completion(authResult, nil)
             } else {
                 completion(nil, error)
@@ -79,8 +81,13 @@ class FirAuthManager: ObservableObject {
     }
     
     func deleteAccount() {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         Auth.auth().currentUser?.delete() { error in
-            print(error as Any)
+            if error != nil {
+                print(error as Any)
+            } else {
+                FirDatabaseManager.shared.deleteUser(withID: userID)
+            }
         }
     }
     
