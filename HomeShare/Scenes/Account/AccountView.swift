@@ -16,7 +16,11 @@ struct AccountView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                // MARK: - Navigation Links
+                NavigationLink(destination: HostingView(), isActive: self.$viewModel.showHostingView) {EmptyView()}.hidden()
+                
                 VStack(alignment: .leading, spacing: 0) {
+                    
                     ZStack(alignment: .bottomLeading) {
                         StickyImage()
                             .frame(height: 300)
@@ -48,7 +52,9 @@ struct AccountView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 0.2) {
-                        OptionRow(title: "Hosting", style: .normal)
+                        OptionRow(title: "Hosting", style: .normal) {
+                            self.viewModel.showHostingView.toggle()
+                        }
                         OptionRow(title: "Notifications", style: .normal)
                         OptionRow(title: "Bookmarked", style: .normal)
                         OptionRow(title: "Log Out", style: .button) {self.viewModel.signOut()}

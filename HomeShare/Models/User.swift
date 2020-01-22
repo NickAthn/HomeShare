@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class User: Identifiable {
     var uid: String
@@ -18,4 +19,11 @@ class User: Identifiable {
         self.email = email
         self.displayName = displayName
     }
+    
+    init(authData: Firebase.User) {
+        uid = authData.uid
+        email = authData.email!
+        displayName = authData.displayName
+    }
+
 }

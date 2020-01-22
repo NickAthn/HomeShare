@@ -7,8 +7,25 @@
 //
 
 import Foundation
+import Firebase
 
-struct Accommodation: Codable, Identifiable {
+struct Accommodation: Identifiable {
     var id: String
     var address: String
+    var ownerID: String
+    
+    init?(snapshot: DataSnapshot) {
+        guard
+            let value = snapshot.value as? [String: Any],
+            let address = value["address"] as? String,
+            let ownerID = value["userID"] as? String
+            else {
+                return nil
+            }
+      
+        self.id = snapshot.key
+        self.address = address
+        self.ownerID = ownerID
+    }
+
 }

@@ -7,39 +7,36 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HostingView: View {
+    @ObservedObject var viewModel: HostingViewModel = HostingViewModel()
+    @State var showAddAccommodation = false
     
     var body: some View {
-        NavigationView {
-            List {
-                VStack(alignment: .leading){
-                    Image("exampleImage")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 200)
-                        .cornerRadius(10)
-                        .clipped()
-                    Text("Eleftherias 64, Messini, Greece ")
-                        .font(.headline)
-                }
-            }
-                
-            .navigationBarTitle("Hosting")
-            .navigationBarItems(trailing: Button("Add") {
-                
-            })
+        List(viewModel.accommodations) { accommodation in
+            HostingRow(accommodation: accommodation)
         }
+        .sheet(isPresented: self.$showAddAccommodation, onDismiss: {self.viewModel.loadAccommodations()}) {
+            AddAccommodationView()
+        }
+        .onAppear{
+            self.viewModel.loadAccommodations()
+        }
+        .navigationBarTitle("Hosting")
+        .navigationBarItems(trailing: Button("Add") {
+            self.showAddAccommodation.toggle()
+        })
     }
     
-    init() {
-        // To remove only extra separators below the list:
-        UITableView.appearance().tableFooterView = UIView()
-
-        // To remove all separators including the actual ones:
-        UITableView.appearance().separatorStyle = .none
-    }
-
+    
+//    init() {
+//        // To remove only extra separators below the list:
+//        UITableView.appearance().tableFooterView = UIView()
+//
+//        // To remove all separators including the actual ones:
+//        UITableView.appearance().separatorStyle = .none
+//    }
 }
 
 struct HostingView_Previews: PreviewProvider {
