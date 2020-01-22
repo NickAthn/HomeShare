@@ -14,7 +14,7 @@ class FirDatabaseManager: ObservableObject {
     // Singleton
     static let shared = FirDatabaseManager()
 
-    // MARK: Database Reference's
+    // MARK: - Database Reference's
     let baseRef = Database.database().reference().root
     var userRef: DatabaseReference {
         return baseRef.child("users")
@@ -24,13 +24,14 @@ class FirDatabaseManager: ObservableObject {
     }
     
     // MARK: - Accomodations
-    func createAccommodation(address: String) {
+    func createAccommodation(imageURL: URL, address: String) {
         let currentUserID = FirAuthManager.shared.session?.uid
         let accRef = baseRef.child("accommodations")
         let accKey = accRef.childByAutoId().key
         let accommodation =
             ["userID": currentUserID,
              "address": address,
+             "imageURL": imageURL.absoluteString
         ]
         
         accRef.child(accKey!).setValue(accommodation)
@@ -51,6 +52,8 @@ class FirDatabaseManager: ObservableObject {
             completion(allAccom)
         }
     }
+    
+
     
     // MARK: - Authenitcation/User
     func createUser(withEmail: String, id: String) {

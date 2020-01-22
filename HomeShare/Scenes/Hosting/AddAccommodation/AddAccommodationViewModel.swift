@@ -12,12 +12,27 @@ import Combine
 class AddAccommodationViewModel: ObservableObject {
     let didChange = PassthroughSubject<Void, Never>()
 
-    func addImage(){
-        
+    // MARK: OUTPUT
+    @Published var outputImage: UIImage = UIImage(systemName: "plus.rectangle.on.rectangle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 200, weight: .regular))!
+    
+    // MARK: INPUT
+    @Published var inputImage: UIImage?
+    
+    // MARK: NAVIGATION
+    @Published var showImagePicker: Bool = false
+    
+    func loadImage() {
+        if let image = inputImage {
+            outputImage = image
+        }
     }
     func saveAccommodation(address: String){
         DispatchQueue.global(qos: .userInitiated).async {
-            FirDatabaseManager.shared.createAccommodation(address: address)
+            FirStorageManager.shared.upload(self.inputImage!) { url in
+                if let url = url {
+                    FirDatabaseManager.shared.createAccommodation(imageURL: url, address: address)
+                }
+            }
         }
     }
 }

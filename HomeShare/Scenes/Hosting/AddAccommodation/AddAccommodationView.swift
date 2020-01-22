@@ -16,15 +16,14 @@ struct AddAccommodationView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Image of the Accommodation").font(.headline)
-            Button(action: { self.viewModel.addImage() }) {
-                Spacer()
-                Image(systemName: "plus.rectangle.on.rectangle")
+            Button(action: { self.viewModel.showImagePicker.toggle() }) {
+                Image(uiImage: viewModel.outputImage)
                     .renderingMode(.original)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 100)
-                    .padding()
-                Spacer()
+                    .cornerRadius(10)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .frame(height: 200)
             }
             Text("Address").font(.headline)
             TextField("Address", text: $address)
@@ -32,7 +31,11 @@ struct AddAccommodationView: View {
                 .background(Color.Token.fieldDefault)
                 .cornerRadius(8)
             RoundedButton(title: "Submit", action: {self.viewModel.saveAccommodation(address: self.address)})
-        }.padding()
+        }
+        .padding()
+        .sheet(isPresented: self.$viewModel.showImagePicker, onDismiss: viewModel.loadImage) {
+            ImagePicker(image: self.$viewModel.inputImage)
+        }
     }
 }
 

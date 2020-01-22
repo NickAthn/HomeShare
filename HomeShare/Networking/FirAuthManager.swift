@@ -20,6 +20,7 @@ class FirAuthManager: ObservableObject {
     
     // Start the session listener
     func listen() {
+    
         // monitor authentication changes using firebase
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {

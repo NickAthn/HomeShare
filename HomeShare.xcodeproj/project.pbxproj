@@ -39,6 +39,8 @@
 		E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C145323B4F664007FD7ED /* MainTabView.swift */; };
 		E66DEF7223B90E5E003470C0 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66DEF7123B90E5E003470C0 /* OptionRow.swift */; };
 		E679C90723C7C093003362B4 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679C90623C7C093003362B4 /* AccountViewModel.swift */; };
+		E6A6427123D8938F00733CB4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427023D8938F00733CB4 /* ImagePicker.swift */; };
+		E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */; };
 		E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E423AE276B0003F107 /* RoundedButton.swift */; };
 		E6B756E823AE44610003F107 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E723AE44610003F107 /* RegisterView.swift */; };
 		E6B756EE23AE6E0B0003F107 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */; };
@@ -83,6 +85,8 @@
 		E66C145323B4F664007FD7ED /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		E66DEF7123B90E5E003470C0 /* OptionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRow.swift; sourceTree = "<group>"; };
 		E679C90623C7C093003362B4 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		E6A6427023D8938F00733CB4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirStorageManager.swift; sourceTree = "<group>"; };
 		E6B756E423AE276B0003F107 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E6B756E723AE44610003F107 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E6B756EC23AE6CAE0003F107 /* HomeShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeShare.entitlements; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			children = (
 				E63E158623B7CA5A0056F2AC /* AccountView.swift */,
 				E679C90623C7C093003362B4 /* AccountViewModel.swift */,
+				E66DEF7123B90E5E003470C0 /* OptionRow.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -239,11 +244,11 @@
 		E653C10923991DE600EBB56F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E66DEF7123B90E5E003470C0 /* OptionRow.swift */,
 				E6B756E423AE276B0003F107 /* RoundedButton.swift */,
 				E63E157E23B516B90056F2AC /* ActivityIndicator.swift */,
 				E63E158023B517150056F2AC /* LoadingView.swift */,
 				E63E158823B7D5740056F2AC /* StickyImage.swift */,
+				E6A6427023D8938F00733CB4 /* ImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			children = (
 				E6B756F123AE79700003F107 /* FirAuthManager.swift */,
 				E6167BD923CE182700C77935 /* FirDatabaseManager.swift */,
+				E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -445,10 +451,12 @@
 				E6167BDC23CE21B600C77935 /* HostingRow.swift in Sources */,
 				E6167BDE23CE228E00C77935 /* HostingViewModel.swift in Sources */,
 				E64A334B23CCD67900618987 /* InboxRowView.swift in Sources */,
+				E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */,
 				E64A334D23CCD7E700618987 /* InboxModel.swift in Sources */,
 				E63E158723B7CA5A0056F2AC /* AccountView.swift in Sources */,
 				E647366123CE258E0034CE0B /* AddAccommodationView.swift in Sources */,
 				E653C10823991D8C00EBB56F /* ColorPalette.swift in Sources */,
+				E6A6427123D8938F00733CB4 /* ImagePicker.swift in Sources */,
 				E679C90723C7C093003362B4 /* AccountViewModel.swift in Sources */,
 				E647366323CE267F0034CE0B /* AddAccommodationViewModel.swift in Sources */,
 				E66DEF7223B90E5E003470C0 /* OptionRow.swift in Sources */,
