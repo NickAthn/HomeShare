@@ -28,7 +28,7 @@ class FirStorageManager: ObservableObject {
         if let uploadData = image.jpegData(compressionQuality: 0.5) {
             imagePath.putData(uploadData, metadata: nil) { metadata, error in
                 if error != nil {
-                    print("🐞 Storage Error: \(error)")
+                    print("🐞 Storage Error: \(String(describing: error))")
                     completion(nil)
                 } else {
                     imagePath.downloadURL { url, error in
@@ -37,6 +37,27 @@ class FirStorageManager: ObservableObject {
                     
                 }
             }
+        }
+    }
+    
+    func download(imageWithURL: String, completion: @escaping (_ image: UIImage?) -> Void) {
+        let imageStorageRef = Storage.storage().reference(forURL: imageWithURL)
+        imageStorageRef.downloadURL { (url, error) in
+            guard let imageURL = url, error == nil else {
+                completion(nil)
+                return
+            }
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: imageURL) { data, response, error in
+                if error != nil {
+                    print("🐞 Storage Error: \(String(describing: error))")
+                    completion(nil)
+                } else {
+                    let image = UIImage(data: data!)
+                    completion(image)
+                }
+            }
+            dataTask.resume()
         }
     }
 

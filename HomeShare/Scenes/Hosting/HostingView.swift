@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 struct HostingView: View {
-    // SWIFT BUG: Everytime a sheet is pressented a new viewModel gets initialised without the old one being deallocated. No workaround is sufficient, waiting for update.
+    // SWIFT BUG: Everytime a sheet is pressented a new viewModel gets initialised without the old one being deallocated. No workaround is sufficient, waiting for update. Temporary solution is to re-run the neccesary functions from the viewModel onComplete.
     @ObservedObject private var viewModel: HostingViewModel = HostingViewModel()
     @State var showAddAccommodation = false
     

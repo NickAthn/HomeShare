@@ -12,13 +12,15 @@ import Firebase
 struct Accommodation: Identifiable {
     var id: String
     var address: String
+    var imageURL: String
     var ownerID: String
     
     init?(snapshot: DataSnapshot) {
         guard
             let value = snapshot.value as? [String: Any],
             let address = value["address"] as? String,
-            let ownerID = value["userID"] as? String
+            let ownerID = value["userID"] as? String,
+            let imageURL = value["imageURL"] as? String
             else {
                 return nil
             }
@@ -26,6 +28,6 @@ struct Accommodation: Identifiable {
         self.id = snapshot.key
         self.address = address
         self.ownerID = ownerID
+        self.imageURL = imageURL
     }
-
 }
