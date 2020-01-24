@@ -12,6 +12,7 @@ struct AddAccommodationView: View {
     @State private var address: String = ""
     
     @ObservedObject var viewModel: AddAccommodationViewModel = AddAccommodationViewModel()
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -30,7 +31,12 @@ struct AddAccommodationView: View {
                 .padding()
                 .background(Color.Token.fieldDefault)
                 .cornerRadius(8)
-            RoundedButton(title: "Submit", action: {self.viewModel.saveAccommodation(address: self.address)})
+            RoundedButton(title: "Submit", action: {
+                self.viewModel.saveAccommodation(address: self.address) {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                
+            })
         }
         .padding()
         .sheet(isPresented: self.$viewModel.showImagePicker, onDismiss: viewModel.loadImage) {

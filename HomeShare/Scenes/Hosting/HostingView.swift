@@ -18,7 +18,7 @@ struct HostingView: View {
         List(viewModel.accommodations) { accommodation in
             HostingRow(accommodation: accommodation)
         }
-        .sheet(isPresented: self.$showAddAccommodation, onDismiss: {self.viewModel.loadAccommodations()}) {
+        .sheet(isPresented: self.$showAddAccommodation, onDismiss: self.viewModel.loadAccommodations) {
             AddAccommodationView()
         }
         .onAppear{
