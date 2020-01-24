@@ -11,7 +11,7 @@ import Combine
 import Firebase
 
 class LoginViewModel: ObservableObject {
-    let didChange = PassthroughSubject<Void, Never>()
+    let didChange = ObservableObjectPublisher()
 
     // MARK: OUTPUT
     @Published var isLoading = false

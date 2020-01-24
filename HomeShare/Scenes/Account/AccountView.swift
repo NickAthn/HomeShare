@@ -18,7 +18,7 @@ struct AccountView: View {
             ScrollView {
                 // MARK: - Navigation Links
                 NavigationLink(destination: HostingView(), isActive: self.$viewModel.showHostingView) {EmptyView()}.hidden()
-                
+            
                 VStack(alignment: .leading, spacing: 0) {
                     
                     ZStack(alignment: .bottomLeading) {

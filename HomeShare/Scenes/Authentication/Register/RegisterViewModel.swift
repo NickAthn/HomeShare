@@ -11,7 +11,7 @@ import Firebase
 
 
 class RegisterViewModel: ObservableObject{
-    let didChange = PassthroughSubject<Void, Never>()
+    let didChange = ObservableObjectPublisher()
     
     // MARK: OUTPUT
     @Published var isErrorShown: Bool = false
