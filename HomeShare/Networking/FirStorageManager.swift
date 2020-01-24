@@ -18,9 +18,6 @@ class FirStorageManager: ObservableObject {
 
     // MARK: - Storage Reference's
     var baseRef: StorageReference = Storage.storage().reference()
-    var userRef: StorageReference {
-        return baseRef.child("\(FirAuthManager.shared.session!.uid)")
-    }
 
     // MARK: - Data
     func upload(_ image: UIImage, completion: @escaping (_ url: URL?) -> Void) {

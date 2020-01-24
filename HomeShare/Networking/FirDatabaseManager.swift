@@ -22,8 +22,14 @@ class FirDatabaseManager: ObservableObject {
     var accRef: DatabaseReference {
         return baseRef.child("accommodations")
     }
+    // MARK: - Handles
+    var accRefHandle: DatabaseHandle!
     
-    // MARK: - Accomodations
+    func removeAllActiveObservers() {
+        accRef.removeObserver(withHandle: accRefHandle)
+    }
+    
+    // MARK: - Accomodations Functions
     func createAccommodation(imageURL: URL, address: String) {
         let currentUserID = FirAuthManager.shared.session?.uid
         let accRef = baseRef.child("accommodations")
@@ -39,8 +45,9 @@ class FirDatabaseManager: ObservableObject {
     
     func fetchAccommodations(completion: @escaping (_ result: [Accommodation]) -> Void) {
         var allAccom: [Accommodation] = []
-        
-        accRef.observe(.value) { (snapshot) in
+        // In case of multiple observers it removes the previous one to avoid memmory leaks
+       
+        accRefHandle = accRef.observe(.value) { (snapshot) in
             allAccom.removeAll()
             for child in snapshot.children {
                 if let childSnap = child as? DataSnapshot {
@@ -52,8 +59,8 @@ class FirDatabaseManager: ObservableObject {
             completion(allAccom)
         }
     }
+        
     
-
     
     // MARK: - Authenitcation/User
     func createUser(withEmail: String, id: String) {

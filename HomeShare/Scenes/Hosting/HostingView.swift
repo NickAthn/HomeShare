@@ -21,13 +21,13 @@ struct HostingView: View {
         .sheet(isPresented: self.$showAddAccommodation, onDismiss: self.viewModel.loadAccommodations) {
             AddAccommodationView()
         }
-        .onAppear{
-            self.viewModel.loadAccommodations()
-        }
+        .onAppear(perform: self.viewModel.loadAccommodations)
+        .onDisappear(perform: self.viewModel.stopLoadingAccommodations)
         .navigationBarTitle("Hosting")
         .navigationBarItems(trailing: Button("Add") {
             self.showAddAccommodation.toggle()
         })
+    
     }
     
     

@@ -25,6 +25,9 @@ class HostingViewModel: ObservableObject {
             }
         }
     }
+    func stopLoadingAccommodations() {
+        FirDatabaseManager.shared.removeAllActiveObservers()
+    }
 }
 
 }
