@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C4BB8A2EDE4776ACF13F338 /* Pods_HomeShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F35EF397E7703AEDCF0E592 /* Pods_HomeShare.framework */; };
+		E6006A6C23DB5E9D008DB3E4 /* GoogleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6006A6B23DB5E9D008DB3E4 /* GoogleLoginButton.swift */; };
 		E60AFB132397D0DC00211C28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60AFB122397D0DC00211C28 /* AppDelegate.swift */; };
 		E60AFB152397D0DC00211C28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60AFB142397D0DC00211C28 /* SceneDelegate.swift */; };
 		E60AFB172397D0DC00211C28 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60AFB162397D0DC00211C28 /* LoginView.swift */; };
@@ -18,6 +19,7 @@
 		E6167BDC23CE21B600C77935 /* HostingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6167BDB23CE21B600C77935 /* HostingRow.swift */; };
 		E6167BDE23CE228E00C77935 /* HostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6167BDD23CE228E00C77935 /* HostingViewModel.swift */; };
 		E61FD863239E8EC5003C8E1B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61FD862239E8EC5003C8E1B /* DashboardView.swift */; };
+		E62AD42123DC5E68002C61F9 /* Seperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62AD42023DC5E68002C61F9 /* Seperator.swift */; };
 		E63E157F23B516B90056F2AC /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E157E23B516B90056F2AC /* ActivityIndicator.swift */; };
 		E63E158123B517150056F2AC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E158023B517150056F2AC /* LoadingView.swift */; };
 		E63E158723B7CA5A0056F2AC /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E158623B7CA5A0056F2AC /* AccountView.swift */; };
@@ -42,11 +44,11 @@
 		E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C145323B4F664007FD7ED /* MainTabView.swift */; };
 		E66DEF7223B90E5E003470C0 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66DEF7123B90E5E003470C0 /* OptionRow.swift */; };
 		E679C90723C7C093003362B4 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679C90623C7C093003362B4 /* AccountViewModel.swift */; };
+		E681C91823DC530800697C7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E681C91723DC530800697C7C /* GoogleService-Info.plist */; };
 		E6A6427123D8938F00733CB4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427023D8938F00733CB4 /* ImagePicker.swift */; };
 		E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */; };
 		E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E423AE276B0003F107 /* RoundedButton.swift */; };
 		E6B756E823AE44610003F107 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E723AE44610003F107 /* RegisterView.swift */; };
-		E6B756EE23AE6E0B0003F107 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */; };
 		E6B756F223AE79700003F107 /* FirAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756F123AE79700003F107 /* FirAuthManager.swift */; };
 		E6B756F523AE7AD10003F107 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756F423AE7AD10003F107 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,7 @@
 		6D8DD3F4FF8B3DFA511E22E9 /* Pods-HomeShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeShare.debug.xcconfig"; path = "Target Support Files/Pods-HomeShare/Pods-HomeShare.debug.xcconfig"; sourceTree = "<group>"; };
 		8F35EF397E7703AEDCF0E592 /* Pods_HomeShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5552327D2BB8E70F5AFD8C9 /* Pods-HomeShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeShare.release.xcconfig"; path = "Target Support Files/Pods-HomeShare/Pods-HomeShare.release.xcconfig"; sourceTree = "<group>"; };
+		E6006A6B23DB5E9D008DB3E4 /* GoogleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginButton.swift; sourceTree = "<group>"; };
 		E60AFB0F2397D0DC00211C28 /* HomeShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60AFB122397D0DC00211C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E60AFB142397D0DC00211C28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		E6167BDB23CE21B600C77935 /* HostingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingRow.swift; sourceTree = "<group>"; };
 		E6167BDD23CE228E00C77935 /* HostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingViewModel.swift; sourceTree = "<group>"; };
 		E61FD862239E8EC5003C8E1B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		E62AD42023DC5E68002C61F9 /* Seperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seperator.swift; sourceTree = "<group>"; };
 		E63E157E23B516B90056F2AC /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		E63E158023B517150056F2AC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E63E158623B7CA5A0056F2AC /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
@@ -91,12 +95,12 @@
 		E66C145323B4F664007FD7ED /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		E66DEF7123B90E5E003470C0 /* OptionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRow.swift; sourceTree = "<group>"; };
 		E679C90623C7C093003362B4 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		E681C91723DC530800697C7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6A6427023D8938F00733CB4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirStorageManager.swift; sourceTree = "<group>"; };
 		E6B756E423AE276B0003F107 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E6B756E723AE44610003F107 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E6B756EC23AE6CAE0003F107 /* HomeShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeShare.entitlements; sourceTree = "<group>"; };
-		E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6B756F123AE79700003F107 /* FirAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirAuthManager.swift; sourceTree = "<group>"; };
 		E6B756F423AE7AD10003F107 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,8 +166,8 @@
 				E6B756F323AE7AC40003F107 /* Models */,
 				E60AFB182397D0DE00211C28 /* Assets.xcassets */,
 				E60AFB1D2397D0DE00211C28 /* LaunchScreen.storyboard */,
+				E681C91723DC530800697C7C /* GoogleService-Info.plist */,
 				E60AFB202397D0DE00211C28 /* Info.plist */,
-				E6B756ED23AE6E0B0003F107 /* GoogleService-Info.plist */,
 				E60AFB1A2397D0DE00211C28 /* Preview Content */,
 			);
 			path = HomeShare;
@@ -205,6 +209,14 @@
 				E61FD862239E8EC5003C8E1B /* DashboardView.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		E62AD42323DC731A002C61F9 /* Google Sign-In */ = {
+			isa = PBXGroup;
+			children = (
+				E6006A6B23DB5E9D008DB3E4 /* GoogleLoginButton.swift */,
+			);
+			path = "Google Sign-In";
 			sourceTree = "<group>";
 		};
 		E63E158323B7CA2D0056F2AC /* Account */ = {
@@ -250,6 +262,7 @@
 		E653C10923991DE600EBB56F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E62AD42323DC731A002C61F9 /* Google Sign-In */,
 				E653CF2C23DB42B60093D064 /* Modifiers */,
 				E6B756E423AE276B0003F107 /* RoundedButton.swift */,
 				E63E157E23B516B90056F2AC /* ActivityIndicator.swift */,
@@ -257,6 +270,7 @@
 				E653CF2F23DB4C5D0093D064 /* TextView.swift */,
 				E63E158823B7D5740056F2AC /* StickyImage.swift */,
 				E6A6427023D8938F00733CB4 /* ImagePicker.swift */,
+				E62AD42023DC5E68002C61F9 /* Seperator.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -354,6 +368,7 @@
 				E60AFB0C2397D0DC00211C28 /* Frameworks */,
 				E60AFB0D2397D0DC00211C28 /* Resources */,
 				F85A92FBB3785CB3A5F1D741 /* [CP] Embed Pods Frameworks */,
+				2262D5845D8E5707258B9D06 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -404,7 +419,7 @@
 			files = (
 				E60AFB1F2397D0DE00211C28 /* LaunchScreen.storyboard in Resources */,
 				E60AFB1C2397D0DE00211C28 /* Preview Assets.xcassets in Resources */,
-				E6B756EE23AE6E0B0003F107 /* GoogleService-Info.plist in Resources */,
+				E681C91823DC530800697C7C /* GoogleService-Info.plist in Resources */,
 				E60AFB192397D0DE00211C28 /* Assets.xcassets in Resources */,
 				E662758A239A61C9002D8B0B /* ColorPalette.xcassets in Resources */,
 			);
@@ -413,6 +428,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2262D5845D8E5707258B9D06 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeShare/Pods-HomeShare-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeShare/Pods-HomeShare-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomeShare/Pods-HomeShare-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5B9C01459374AB2877B184CC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,7 +502,9 @@
 				E64A334B23CCD67900618987 /* InboxRowView.swift in Sources */,
 				E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */,
 				E64A334D23CCD7E700618987 /* InboxModel.swift in Sources */,
+				E62AD42123DC5E68002C61F9 /* Seperator.swift in Sources */,
 				E653CF3223DB4F7D0093D064 /* Color+Extensions.swift in Sources */,
+				E6006A6C23DB5E9D008DB3E4 /* GoogleLoginButton.swift in Sources */,
 				E63E158723B7CA5A0056F2AC /* AccountView.swift in Sources */,
 				E653CF2E23DB438C0093D064 /* MainTextField.swift in Sources */,
 				E647366123CE258E0034CE0B /* AddAccommodationView.swift in Sources */,

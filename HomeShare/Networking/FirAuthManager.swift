@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 import Firebase
+import GoogleSignIn
 
 
 class FirAuthManager: ObservableObject {

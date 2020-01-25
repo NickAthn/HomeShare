@@ -17,13 +17,15 @@ struct RoundedButton: View {
             Spacer()
             Text(title)
                 .font(.system(size: 20, weight: .bold, design: .default))
+                .frame(height: 45)
+
             Spacer()
         }
         .buttonStyle(BorderlessButtonStyle())
-        .padding(10)
         .background(Color.Token.buttonHighlight)
         .cornerRadius(8)
         .foregroundColor(.white)
+
     }
 }
 
@@ -32,7 +34,7 @@ struct RoundedButton_Previews: PreviewProvider {
     static var previews: some View {
         RoundedButton(title: "Test") {
             print("")
-        }
+        }.padding()
     }
 }
 #endif

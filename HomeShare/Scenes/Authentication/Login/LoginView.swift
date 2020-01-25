@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import GoogleSignIn
 
 struct LoginView: View {
     // MARK: - PROPERTIES
@@ -55,9 +56,13 @@ struct LoginView: View {
                             Button("Forget Password") {self.forgotPassword()}
                                 .foregroundColor(Color.Token.inactive)
                         }.padding(.top)
-
-                    }.padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
-                        .onAppear(perform: self.viewModel.startListener)
+                        
+                        Seperator()
+                        
+                        GoogleLoginButton()
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
+                    .onAppear(perform: self.viewModel.startListener)
                 }
                 .alert(isPresented: self.$viewModel.isErrorShown) {
                     Alert(title: Text(self.viewModel.errorMessage))
@@ -65,7 +70,6 @@ struct LoginView: View {
             }
         }
     }
-    
     
     // MARK: - ACTIONS    
     func login() {
@@ -77,7 +81,6 @@ struct LoginView: View {
     func forgotPassword() {
         print("🐞 Forgot Password Pressed")
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
