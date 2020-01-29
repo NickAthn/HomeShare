@@ -19,7 +19,6 @@ struct OptionRow: View {
     @State var title: String = "Title"
     @State var style: OptionRowStyle
     @State var action: (()->()) = {}
-    
 
     var body: some View {
         return Button(action: {self.action()}){
@@ -65,15 +64,15 @@ fileprivate struct NormalView: View {
                 Spacer()
                 Image(systemName: "chevron.right")
                     .padding(.trailing)
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color(.sRGB, red: 60/255, green: 60/255, blue: 60/255, opacity: 0.5))
             }
             .padding(.top)
             .padding(.leading)
             
             Rectangle()
-                .frame(height: 0.5)
+                .frame(height: 1)
                 .padding(.leading, 17)
-                .foregroundColor(.gray)
+                .foregroundColor(Color(.sRGB, red: 60/255, green: 60/255, blue: 60/255, opacity: 0.29))
         }
     }
 
@@ -93,9 +92,9 @@ fileprivate struct ButtonView: View {
             .padding(.leading)
             
             Rectangle()
-                .frame(height: 0.5)
+                .frame(height: 1)
                 .padding(.leading, 17)
-                .foregroundColor(.gray)
+                .foregroundColor(Color(.sRGB, red: 60/255, green: 60/255, blue: 60/255, opacity: 0.29))
         }
     }
 }
@@ -114,8 +113,8 @@ fileprivate struct AlertButtonView: View {
             .padding(.leading)
             
             Rectangle()
-                .frame(height: 0.5)
-                .foregroundColor(.gray)
+                .frame(height: 1)
+                .foregroundColor(Color(.sRGB, red: 60/255, green: 60/255, blue: 60/255, opacity: 0.29))
         }
     }
 }

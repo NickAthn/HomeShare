@@ -18,7 +18,8 @@ struct AccountView: View {
             ScrollView {
                 // MARK: - Navigation Links
                 NavigationLink(destination: HostingView(), isActive: self.$viewModel.showHostingView) {EmptyView()}.hidden()
-            
+                NavigationLink(destination: ProfileView(), isActive: self.$viewModel.showProfileView) {EmptyView()}.hidden()
+
                 VStack(alignment: .leading, spacing: 0) {
                     
                     ZStack(alignment: .bottomLeading) {
@@ -52,6 +53,9 @@ struct AccountView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 0.2) {
+                        OptionRow(title: "Profile", style: .normal) {
+                            self.viewModel.showProfileView.toggle()
+                        }
                         OptionRow(title: "Hosting", style: .normal) {
                             self.viewModel.showHostingView.toggle()
                         }

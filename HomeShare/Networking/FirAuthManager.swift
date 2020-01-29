@@ -72,6 +72,17 @@ class FirAuthManager: ObservableObject {
         }
     }
     
+    func singIn(withCredential: AuthCredential, completion: @escaping AuthDataResultCallback) {
+        Auth.auth().signIn(with: withCredential) { authResult, error in
+            if error == nil {
+               completion(authResult, nil)
+            } else {
+                completion(nil, error)
+                print("🐞 Firebase Error: \(String(describing: error))")
+            }
+        }
+    }
+    
     func signOut() -> Bool {
         do {
             try Auth.auth().signOut()

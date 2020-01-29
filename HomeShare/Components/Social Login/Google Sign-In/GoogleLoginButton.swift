@@ -56,6 +56,7 @@ struct SocialLogin: UIViewRepresentable {
         return UIView()
     }
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<SocialLogin>) {}
+    
     func attemptLoginGoogle() {
         GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.last?.rootViewController
         GIDSignIn.sharedInstance()?.signIn()

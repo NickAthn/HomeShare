@@ -45,12 +45,15 @@
 		E66DEF7223B90E5E003470C0 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66DEF7123B90E5E003470C0 /* OptionRow.swift */; };
 		E679C90723C7C093003362B4 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679C90623C7C093003362B4 /* AccountViewModel.swift */; };
 		E681C91823DC530800697C7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E681C91723DC530800697C7C /* GoogleService-Info.plist */; };
+		E689B38C23E11EAE00F80724 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689B38B23E11EAE00F80724 /* Row.swift */; };
 		E6A6427123D8938F00733CB4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427023D8938F00733CB4 /* ImagePicker.swift */; };
 		E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */; };
 		E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E423AE276B0003F107 /* RoundedButton.swift */; };
 		E6B756E823AE44610003F107 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E723AE44610003F107 /* RegisterView.swift */; };
 		E6B756F223AE79700003F107 /* FirAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756F123AE79700003F107 /* FirAuthManager.swift */; };
 		E6B756F523AE7AD10003F107 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756F423AE7AD10003F107 /* User.swift */; };
+		E6FB686423DE0DF10054888D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FB686323DE0DF10054888D /* ProfileView.swift */; };
+		E6FB686F23DE18890054888D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FB686E23DE18890054888D /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +99,7 @@
 		E66DEF7123B90E5E003470C0 /* OptionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRow.swift; sourceTree = "<group>"; };
 		E679C90623C7C093003362B4 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		E681C91723DC530800697C7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E689B38B23E11EAE00F80724 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		E6A6427023D8938F00733CB4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirStorageManager.swift; sourceTree = "<group>"; };
 		E6B756E423AE276B0003F107 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 		E6B756EC23AE6CAE0003F107 /* HomeShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeShare.entitlements; sourceTree = "<group>"; };
 		E6B756F123AE79700003F107 /* FirAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirAuthManager.swift; sourceTree = "<group>"; };
 		E6B756F423AE7AD10003F107 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E6FB686323DE0DF10054888D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E6FB686E23DE18890054888D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +167,7 @@
 				E66C144F23B25797007FD7ED /* Extensions */,
 				E6B756F023AE76070003F107 /* Networking */,
 				E61FD85F239E8E92003C8E1B /* Scenes */,
+				E653CF2C23DB42B60093D064 /* Modifiers */,
 				E653C10923991DE600EBB56F /* Components */,
 				E653C10423991D4800EBB56F /* DesignSystem */,
 				E6B756F323AE7AC40003F107 /* Models */,
@@ -184,6 +191,7 @@
 		E61FD85F239E8E92003C8E1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E6FB686223DE0DE40054888D /* Profile */,
 				E64A334123CCD1A500618987 /* Inbox */,
 				E66650EC23CA36DB00942756 /* Hosting */,
 				E66C145223B4F616007FD7ED /* MainTab */,
@@ -219,12 +227,19 @@
 			path = "Google Sign-In";
 			sourceTree = "<group>";
 		};
+		E62AD42423DC796F002C61F9 /* Social Login */ = {
+			isa = PBXGroup;
+			children = (
+				E62AD42323DC731A002C61F9 /* Google Sign-In */,
+			);
+			path = "Social Login";
+			sourceTree = "<group>";
+		};
 		E63E158323B7CA2D0056F2AC /* Account */ = {
 			isa = PBXGroup;
 			children = (
 				E63E158623B7CA5A0056F2AC /* AccountView.swift */,
 				E679C90623C7C093003362B4 /* AccountViewModel.swift */,
-				E66DEF7123B90E5E003470C0 /* OptionRow.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -262,8 +277,8 @@
 		E653C10923991DE600EBB56F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E62AD42323DC731A002C61F9 /* Google Sign-In */,
-				E653CF2C23DB42B60093D064 /* Modifiers */,
+				E6FB686523DE13B00054888D /* Specific */,
+				E62AD42423DC796F002C61F9 /* Social Login */,
 				E6B756E423AE276B0003F107 /* RoundedButton.swift */,
 				E63E157E23B516B90056F2AC /* ActivityIndicator.swift */,
 				E63E158023B517150056F2AC /* LoadingView.swift */,
@@ -271,6 +286,8 @@
 				E63E158823B7D5740056F2AC /* StickyImage.swift */,
 				E6A6427023D8938F00733CB4 /* ImagePicker.swift */,
 				E62AD42023DC5E68002C61F9 /* Seperator.swift */,
+				E66DEF7123B90E5E003470C0 /* OptionRow.swift */,
+				E689B38B23E11EAE00F80724 /* Row.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -351,9 +368,25 @@
 			isa = PBXGroup;
 			children = (
 				E6B756F423AE7AD10003F107 /* User.swift */,
+				E6FB686E23DE18890054888D /* Profile.swift */,
 				E64A333C23CCD04200618987 /* Accommodation.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E6FB686223DE0DE40054888D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E6FB686323DE0DF10054888D /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E6FB686523DE13B00054888D /* Specific */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Specific;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +525,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6B756F223AE79700003F107 /* FirAuthManager.swift in Sources */,
+				E689B38C23E11EAE00F80724 /* Row.swift in Sources */,
+				E6FB686423DE0DF10054888D /* ProfileView.swift in Sources */,
 				E63E158923B7D5740056F2AC /* StickyImage.swift in Sources */,
 				E63E157F23B516B90056F2AC /* ActivityIndicator.swift in Sources */,
 				E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */,
@@ -515,6 +550,7 @@
 				E66DEF7223B90E5E003470C0 /* OptionRow.swift in Sources */,
 				E64384D323AF68D70021D190 /* LoginViewModel.swift in Sources */,
 				E63E158123B517150056F2AC /* LoadingView.swift in Sources */,
+				E6FB686F23DE18890054888D /* Profile.swift in Sources */,
 				E64A333D23CCD04200618987 /* Accommodation.swift in Sources */,
 				E61FD863239E8EC5003C8E1B /* DashboardView.swift in Sources */,
 				E60AFB132397D0DC00211C28 /* AppDelegate.swift in Sources */,

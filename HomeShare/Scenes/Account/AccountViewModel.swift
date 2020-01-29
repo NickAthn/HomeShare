@@ -17,6 +17,8 @@ class AccountViewModel: ObservableObject {
 
     // MARK: NAVIGATION
     @Published var showHostingView = false
+    @Published var showProfileView = false
+
 
     func signOut() {
         FirAuthManager.shared.signOut()
