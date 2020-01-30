@@ -24,7 +24,7 @@ class FirStorageManager: ObservableObject {
         let timestamp = NSDate().timeIntervalSince1970 // Epoch Time
         let imageName:String = String("\(timestamp).jpg")
         
-        guard let userID = FirAuthManager.shared.session?.uid else {
+        guard let userID = FirebaseService.shared.session?.uid else {
             completion(nil)
             return
         }

@@ -15,7 +15,6 @@
 		E60AFB192397D0DE00211C28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60AFB182397D0DE00211C28 /* Assets.xcassets */; };
 		E60AFB1C2397D0DE00211C28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60AFB1B2397D0DE00211C28 /* Preview Assets.xcassets */; };
 		E60AFB1F2397D0DE00211C28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60AFB1D2397D0DE00211C28 /* LaunchScreen.storyboard */; };
-		E6167BDA23CE182700C77935 /* FirDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6167BD923CE182700C77935 /* FirDatabaseManager.swift */; };
 		E61FD863239E8EC5003C8E1B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61FD862239E8EC5003C8E1B /* DashboardView.swift */; };
 		E62AD42123DC5E68002C61F9 /* Seperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62AD42023DC5E68002C61F9 /* Seperator.swift */; };
 		E63E157F23B516B90056F2AC /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E157E23B516B90056F2AC /* ActivityIndicator.swift */; };
@@ -49,7 +48,6 @@
 		E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */; };
 		E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E423AE276B0003F107 /* RoundedButton.swift */; };
 		E6B756E823AE44610003F107 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E723AE44610003F107 /* RegisterView.swift */; };
-		E6B756F223AE79700003F107 /* FirAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756F123AE79700003F107 /* FirAuthManager.swift */; };
 		E6B756F523AE7AD10003F107 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756F423AE7AD10003F107 /* User.swift */; };
 		E6FB686F23DE18890054888D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FB686E23DE18890054888D /* Profile.swift */; };
 /* End PBXBuildFile section */
@@ -67,7 +65,6 @@
 		E60AFB1B2397D0DE00211C28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E60AFB1E2397D0DE00211C28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E60AFB202397D0DE00211C28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6167BD923CE182700C77935 /* FirDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirDatabaseManager.swift; sourceTree = "<group>"; };
 		E61FD862239E8EC5003C8E1B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		E62AD42023DC5E68002C61F9 /* Seperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seperator.swift; sourceTree = "<group>"; };
 		E63E157E23B516B90056F2AC /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -102,7 +99,6 @@
 		E6B756E423AE276B0003F107 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E6B756E723AE44610003F107 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E6B756EC23AE6CAE0003F107 /* HomeShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeShare.entitlements; sourceTree = "<group>"; };
-		E6B756F123AE79700003F107 /* FirAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirAuthManager.swift; sourceTree = "<group>"; };
 		E6B756F423AE7AD10003F107 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E6FB686E23DE18890054888D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -351,8 +347,6 @@
 			isa = PBXGroup;
 			children = (
 				E67F0F3D23E343D0002E6942 /* FirebaseService.swift */,
-				E6B756F123AE79700003F107 /* FirAuthManager.swift */,
-				E6167BD923CE182700C77935 /* FirDatabaseManager.swift */,
 				E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */,
 			);
 			path = Networking;
@@ -518,7 +512,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6B756F223AE79700003F107 /* FirAuthManager.swift in Sources */,
 				E689B38C23E11EAE00F80724 /* Row.swift in Sources */,
 				E63E158923B7D5740056F2AC /* StickyImage.swift in Sources */,
 				E67F0F3B23E34087002E6942 /* ProfileEditView.swift in Sources */,
@@ -551,7 +544,6 @@
 				E668A66823AF9F900030741D /* RegisterViewModel.swift in Sources */,
 				E6B756E823AE44610003F107 /* RegisterView.swift in Sources */,
 				E67F0F3723E3407E002E6942 /* ProfileViewModel.swift in Sources */,
-				E6167BDA23CE182700C77935 /* FirDatabaseManager.swift in Sources */,
 				E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */,
 				E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */,
 				E6B756F523AE7AD10003F107 /* User.swift in Sources */,

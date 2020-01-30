@@ -80,9 +80,7 @@ class FirebaseService: ObservableObject {
         Auth.auth().currentUser?.delete() { error in
             if error != nil {
                 print(error as Any)
-            } else {
-                FirDatabaseManager.shared.deleteUser(withID: userID)
-            }
+            } 
         }
     }
     
@@ -98,3 +96,15 @@ class FirebaseService: ObservableObject {
 
 
 }
+
+//// MARK: - Authenitcation/User
+//func createUser(withEmail: String, id: String) {
+//    baseRef.child("users").child(id).setValue(withEmail)
+//}
+//
+//func deleteUser(withID: String) {
+//    let userRef = baseRef.child("users").child(withID)
+//    userRef.removeValue() { error, _ in
+//        print("🐞 FirDatabase Error: \(String(describing: error))")
+//    }
+//}
