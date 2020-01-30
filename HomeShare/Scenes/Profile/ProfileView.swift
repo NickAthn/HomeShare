@@ -22,10 +22,10 @@ struct ProfileView: View {
                         .frame(height: 300)
                     
                     VStack(alignment: .leading) {
-                        Text("Nikolaos Athanasiou")
+                        Text("\(viewModel.profile.firstName) \(viewModel.profile.lastName)" )
                             .foregroundColor(.white)
                             .font(.system(size: 24, weight: .black, design: .default))
-                        Text("Messini, Peloponnisos, Greece")
+                        Text("\(viewModel.profile.home.address)")
                             .foregroundColor(.white)
                             .font(.system(size: 17, weight: .bold, design: .default))
                     }
