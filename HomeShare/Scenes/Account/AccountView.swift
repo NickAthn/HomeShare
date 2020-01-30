@@ -17,7 +17,7 @@ struct AccountView: View {
         NavigationView {
             ScrollView {
                 // MARK: - Navigation Links
-//                NavigationLink(destination: ProfileView(), isActive: self.$viewModel.showProfileView) {EmptyView()}.hidden()
+                NavigationLink(destination: ProfileView(), isActive: self.$viewModel.showProfileView) {EmptyView()}.hidden()
 
                 VStack(alignment: .leading, spacing: 0) {
                     
