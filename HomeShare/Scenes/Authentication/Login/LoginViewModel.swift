@@ -11,8 +11,8 @@ import Combine
 import Firebase
 
 class LoginViewModel: ObservableObject {
-    let didChange = ObservableObjectPublisher()
-
+    private var cancellables: [AnyCancellable] = []
+    
     // MARK: OUTPUT
     @Published var isLoading = false
     @Published var isErrorShown = false
@@ -22,41 +22,34 @@ class LoginViewModel: ObservableObject {
     // MARK: NAVIGATION
     @Published var showRegisterModal = false
 
-    private var cancellables: [AnyCancellable] = []
-
     
     // MARK: - METHODS
     func startListener() {
-        FirAuthManager.shared.listen()
-
-        let trackingSubjectStream = FirAuthManager.shared.didChange.sink { firebase in
-            if firebase.session != nil {
+        FirebaseService.shared.startSessionListener()
+        
+        let authTracker = FirebaseService.shared.$session.sink { session in
+            if session != nil {
                 self.isUserAuthenticated = true
             } else {
                 self.isUserAuthenticated = false
             }
         }
         
-        cancellables += [
-            trackingSubjectStream
-        ]
-
+        cancellables += [ authTracker ]
     }
     
     
     func login(mail: String, password: String) {
-        if FirAuthManager.shared.session == nil {
+        if FirebaseService.shared.session == nil {
             self.isLoading = true
-            FirAuthManager.shared.signIn(withEmail: mail, password: password) { result, error in
+            FirebaseService.shared.signIn(withEmail: mail, password: password) { result, error in
                 self.isLoading = false
                 if error != nil {
                     self.isErrorShown = true
-                    self.errorMessage = FirAuthManager.shared.getErrorDescription(error!)
+                    self.errorMessage = FirebaseService.shared.getErrorDescription(error!)
                 }
             }
-        } else {
-//            self.isUserAuthenticated = true
-        }
+        } 
     }
 }
 

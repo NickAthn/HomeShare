@@ -42,6 +42,7 @@
 		E67F0F3723E3407E002E6942 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F3523E3407E002E6942 /* ProfileViewModel.swift */; };
 		E67F0F3B23E34087002E6942 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F3923E34087002E6942 /* ProfileEditView.swift */; };
 		E67F0F3C23E34087002E6942 /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F3A23E34087002E6942 /* ProfileEditViewModel.swift */; };
+		E67F0F3E23E343D0002E6942 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F3D23E343D0002E6942 /* FirebaseService.swift */; };
 		E681C91823DC530800697C7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E681C91723DC530800697C7C /* GoogleService-Info.plist */; };
 		E689B38C23E11EAE00F80724 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689B38B23E11EAE00F80724 /* Row.swift */; };
 		E6A6427123D8938F00733CB4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427023D8938F00733CB4 /* ImagePicker.swift */; };
@@ -93,6 +94,7 @@
 		E67F0F3523E3407E002E6942 /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E67F0F3923E34087002E6942 /* ProfileEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		E67F0F3A23E34087002E6942 /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
+		E67F0F3D23E343D0002E6942 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		E681C91723DC530800697C7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E689B38B23E11EAE00F80724 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		E6A6427023D8938F00733CB4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 		E6B756F023AE76070003F107 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E67F0F3D23E343D0002E6942 /* FirebaseService.swift */,
 				E6B756F123AE79700003F107 /* FirAuthManager.swift */,
 				E6167BD923CE182700C77935 /* FirDatabaseManager.swift */,
 				E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */,
@@ -522,6 +525,7 @@
 				E63E157F23B516B90056F2AC /* ActivityIndicator.swift in Sources */,
 				E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */,
 				E64A334323CCD1C500618987 /* InboxView.swift in Sources */,
+				E67F0F3E23E343D0002E6942 /* FirebaseService.swift in Sources */,
 				E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */,
 				E64A334B23CCD67900618987 /* InboxRowView.swift in Sources */,
 				E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */,

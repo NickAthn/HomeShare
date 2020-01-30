@@ -18,17 +18,17 @@ class RegisterViewModel: ObservableObject{
     @Published var errorMessage: String = ""
 
     func register(mail: String, password: String, firstName: String, lastName: String) {
-        FirAuthManager.shared.createUser(withEmail: mail, password: password) { result, error in
+        FirebaseService.shared.createUser(withEmail: mail, password: password) { result, error in
             if error != nil {
                 self.isErrorShown = true
-                self.errorMessage = FirAuthManager.shared.getErrorDescription(error!)
+                self.errorMessage = FirebaseService.shared.getErrorDescription(error!)
             }
             let changeRequest = result?.user.createProfileChangeRequest()
             changeRequest?.displayName = firstName + " " + lastName
             changeRequest?.commitChanges { error in
                 if error != nil {
                     self.isErrorShown = true
-                    self.errorMessage = FirAuthManager.shared.getErrorDescription(error!)
+                    self.errorMessage = FirebaseService.shared.getErrorDescription(error!)
                 }
             }
         }
