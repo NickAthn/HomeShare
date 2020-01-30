@@ -26,6 +26,17 @@ enum GuestStatus: String, CaseIterable, Codable {
     meetUp
 }
 
+extension GuestStatus {
+    func getDescription() -> String {
+        switch self {
+            case .accepting: return "Accepting Guests"
+            case .maybeAccepting: return "Maybe Accepting Guests"
+            case .meetUp: return "Meet up"
+            case .notAccepting: return "Not Accepting Guests"
+        }
+    }
+}
+
 struct Profile: FirebaseModal {
     var uid: String
     var firstName: String
@@ -52,6 +63,7 @@ struct Profile: FirebaseModal {
     }
     
     static var templateProfile = Profile(uid: "loading...", firstName: "loading...", lastName: "loading...", home: Home(address: "loading..."))
+    
 }
 
 struct Home: Codable {
