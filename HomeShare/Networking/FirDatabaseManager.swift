@@ -29,36 +29,6 @@ class FirDatabaseManager: ObservableObject {
         accRef.removeObserver(withHandle: accRefHandle)
     }
     
-    // MARK: - Accomodations Functions
-    func createAccommodation(imageURL: URL, address: String) {
-        let currentUserID = FirAuthManager.shared.session?.uid
-        let accRef = baseRef.child("accommodations")
-        let accKey = accRef.childByAutoId().key
-        let accommodation =
-            ["userID": currentUserID,
-             "address": address,
-             "imageURL": imageURL.absoluteString
-        ]
-        
-        accRef.child(accKey!).setValue(accommodation)
-    }
-    
-    func fetchAccommodations(completion: @escaping (_ result: [Accommodation]) -> Void) {
-        var allAccom: [Accommodation] = []
-        // In case of multiple observers it removes the previous one to avoid memmory leaks
-       
-        accRefHandle = accRef.observe(.value) { (snapshot) in
-            allAccom.removeAll()
-            for child in snapshot.children {
-                if let childSnap = child as? DataSnapshot {
-                    if let newAcc = Accommodation(snapshot: childSnap) {
-                        allAccom.append(newAcc)
-                    }
-                }
-            }
-            completion(allAccom)
-        }
-    }
         
     
     

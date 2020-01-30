@@ -8,11 +8,12 @@
 
 import Foundation
 import Firebase
+import CodableFirebase
 
-class User: Identifiable {
-    var uid: String
-    var email: String?
-    var displayName: String?
+struct User: Codable {
+    let uid: String
+    let email: String?
+    let displayName: String?
 
     init(uid: String, displayName: String?, email: String?) {
         self.uid = uid
@@ -24,6 +25,10 @@ class User: Identifiable {
         uid = authData.uid
         email = authData.email!
         displayName = authData.displayName
+    }
+    
+    func toData()-> Any {
+        return try! FirebaseEncoder().encode(self)
     }
 
 }
