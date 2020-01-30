@@ -49,6 +49,8 @@
 		E67F0F4923E357B0002E6942 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F4823E357B0002E6942 /* UIApplication+Extensions.swift */; };
 		E67F0F4B23E35809002E6942 /* ResignKeyboardOnDragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F4A23E35809002E6942 /* ResignKeyboardOnDragGesture.swift */; };
 		E67F0F4D23E35858002E6942 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F4C23E35858002E6942 /* View+Extensions.swift */; };
+		E67F0F4F23E35DB5002E6942 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F4E23E35DB5002E6942 /* SearchBar.swift */; };
+		E67F0F5123E35F54002E6942 /* SearchViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F5023E35F54002E6942 /* SearchViewRow.swift */; };
 		E681C91823DC530800697C7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E681C91723DC530800697C7C /* GoogleService-Info.plist */; };
 		E6A6427123D8938F00733CB4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427023D8938F00733CB4 /* ImagePicker.swift */; };
 		E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */; };
@@ -105,6 +107,8 @@
 		E67F0F4823E357B0002E6942 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		E67F0F4A23E35809002E6942 /* ResignKeyboardOnDragGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignKeyboardOnDragGesture.swift; sourceTree = "<group>"; };
 		E67F0F4C23E35858002E6942 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		E67F0F4E23E35DB5002E6942 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		E67F0F5023E35F54002E6942 /* SearchViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewRow.swift; sourceTree = "<group>"; };
 		E681C91723DC530800697C7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6A6427023D8938F00733CB4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirStorageManager.swift; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 				E6A6427023D8938F00733CB4 /* ImagePicker.swift */,
 				E62AD42023DC5E68002C61F9 /* Seperator.swift */,
 				E66DEF7123B90E5E003470C0 /* OptionRow.swift */,
+				E67F0F4E23E35DB5002E6942 /* SearchBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 			children = (
 				E67F0F4423E356FB002E6942 /* SearchView.swift */,
 				E67F0F4623E35704002E6942 /* SearchViewModel.swift */,
+				E67F0F5023E35F54002E6942 /* SearchViewRow.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -542,11 +548,13 @@
 				E67F0F3B23E34087002E6942 /* ProfileEditView.swift in Sources */,
 				E63E157F23B516B90056F2AC /* ActivityIndicator.swift in Sources */,
 				E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */,
+				E67F0F5123E35F54002E6942 /* SearchViewRow.swift in Sources */,
 				E64A334323CCD1C500618987 /* InboxView.swift in Sources */,
 				E67F0F4D23E35858002E6942 /* View+Extensions.swift in Sources */,
 				E67F0F4B23E35809002E6942 /* ResignKeyboardOnDragGesture.swift in Sources */,
 				E67F0F3E23E343D0002E6942 /* FirebaseService.swift in Sources */,
 				E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */,
+				E67F0F4F23E35DB5002E6942 /* SearchBar.swift in Sources */,
 				E64A334B23CCD67900618987 /* InboxRowView.swift in Sources */,
 				E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */,
 				E64A334D23CCD7E700618987 /* InboxModel.swift in Sources */,

@@ -12,4 +12,7 @@ class SearchViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     @Published var showCancelButton: Bool = false
+    
+    
+    
 }
