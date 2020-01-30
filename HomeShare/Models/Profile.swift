@@ -26,8 +26,8 @@ enum GuestStatus: String, CaseIterable, Codable {
     meetUp
 }
 
-struct Profile: Codable {
-    var id: String
+struct Profile: FirebaseModal {
+    var uid: String
     var firstName: String
     var lastName: String
     
@@ -35,21 +35,32 @@ struct Profile: Codable {
     
     var home: Home
     
-    var description: String?
-    var havePets: Bool?
-    var haveChildren: Bool?
-    var smoker: Bool?
+    var description: String = ""
+    var havePets: Bool? = nil
+    var haveChildren: Bool? = nil
+    var smoker: Bool? = nil
+    
+    func toData()-> Any {
+        return try! FirebaseEncoder().encode(self)
+    }
+    func path() -> String {
+        return Profile.pathFor(uid: self.uid)
+    }
+    
+    static func pathFor(uid: String) -> String {
+        return [FirebasePaths.profiles.rawValue, uid].joined(separator: FirebasePathSeparator)
+    }
 }
 
 struct Home: Codable {
     var address: String
     
-    var maxGuests: Int?
-    var petsAllowed: Bool?
-    var smokingAllowed: Bool?
-    var kidFriendly: Bool?
-    var wheelChairAccessible: Bool?
-    var sleepingArrangments: SleepingArrangments?
+    var maxGuests: Int? = nil
+    var petsAllowed: Bool? = nil
+    var smokingAllowed: Bool? = nil
+    var kidFriendly: Bool? = nil
+    var wheelChairAccessible: Bool? = nil
+    var sleepingArrangments: SleepingArrangments? = nil
     
-    var receiveSameDayRequests: Bool?
+    var receiveSameDayRequests: Bool? = nil
 }

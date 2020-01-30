@@ -26,9 +26,4 @@ struct User: Codable {
         email = authData.email!
         displayName = authData.displayName
     }
-    
-    func toData()-> Any {
-        return try! FirebaseEncoder().encode(self)
-    }
-
 }

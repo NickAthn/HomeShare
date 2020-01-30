@@ -67,7 +67,7 @@ class FirebaseService: ObservableObject {
             }
         }
     }
-    
+        
     func signOut() {
         do {
             try? Auth.auth().signOut()
@@ -84,7 +84,9 @@ class FirebaseService: ObservableObject {
         }
     }
     
-    // Error Handling
+    
+    
+    // MARK: - Error Handling
     func getErrorDescription(_ error: Error)->String {
         if let errorCode = AuthErrorCode(rawValue: error._code) {
             print("🚫", errorCode.errorMessage)
