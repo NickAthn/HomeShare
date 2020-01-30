@@ -22,7 +22,7 @@ enum GuestStatus: String, CaseIterable, Codable {
     case
     accepting,
     maybeAccepting,
-    motAccepting,
+    notAccepting,
     meetUp
 }
 
