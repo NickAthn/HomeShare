@@ -93,7 +93,7 @@ struct ProfileView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(.green)
                                     .frame(width: 25)
-                                Text(self.viewModel.profile.guestStatus.rawValue)
+                                Text(self.viewModel.profile.guestStatus.getDescription())
                                     .foregroundColor(.green)
                                     .font(.system(size: 17, weight:.medium, design: .rounded))
                             }
@@ -152,15 +152,17 @@ struct ProfileView: View {
                     // MARK: - Section Description & More
                     ZStack(alignment: .leading) {
                         VStack(alignment: .leading) {
-                            // Headline
-                            Text("Description")
-                                .font(.headline)
-                                .padding(.leading, 7)
-                            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget enim mattis, pellentesque nisl quis, consequat lorem. Quisque pellentesque commodo nisl, sed convallis ligula aliquet at. In gravida tristique nisi eu porta. Pellentesque rhoncus at tortor eu ornare. Suspendisse suscipit maximus lacus id pulvinar. Phasellus ullamcorper orci vel massa aliquet scelerisque. Vestibulum sed enim ante.Integer scelerisque fermentum justo, quis luctus purus hendrerit vitae. Sed non nibh ac augue bibendum mattis. Ut in sodales quam. Nulla fermentum mollis urna, eu tempus ex lobortis at. Curabitur finibus nisi velit, ut fermentum orci gravida sit amet. Mauris nec ex sapien. Pellentesque ultrices ullamcorper purus.")
-                                .multilineTextAlignment(.leading)
-                                .padding([.leading,.trailing], 12)
-                                .padding(.top, 5)
-                                .font(.system(size: 17, weight: .light, design: .rounded))
+                            // Description
+                            if viewModel.profile.description != "" {
+                                Text("Description")
+                                    .font(.headline)
+                                    .padding(.leading, 7)
+                                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget enim mattis, pellentesque nisl quis, consequat lorem. Quisque pellentesque commodo nisl, sed convallis ligula aliquet at. In gravida tristique nisi eu porta. Pellentesque rhoncus at tortor eu ornare. Suspendisse suscipit maximus lacus id pulvinar. Phasellus ullamcorper orci vel massa aliquet scelerisque. Vestibulum sed enim ante.Integer scelerisque fermentum justo, quis luctus purus hendrerit vitae. Sed non nibh ac augue bibendum mattis. Ut in sodales quam. Nulla fermentum mollis urna, eu tempus ex lobortis at. Curabitur finibus nisi velit, ut fermentum orci gravida sit amet. Mauris nec ex sapien. Pellentesque ultrices ullamcorper purus.")
+                                    .multilineTextAlignment(.leading)
+                                    .padding([.leading,.trailing], 12)
+                                    .padding(.top, 5)
+                                    .font(.system(size: 17, weight: .light, design: .rounded))
+                            }
                             // Options
                             VStack(alignment: .leading) {
                                 OptionRow(title: "House Information & Rules", style: .normal)
@@ -183,7 +185,7 @@ struct ProfileView: View {
         .sheet(isPresented: self.$showEditModal) {
             ProfileEditView()
         }
-        .onAppear(perform: viewModel.fetchProfile)
+//        .onAppear(perform: viewModel.fetchProfile)
     }
 
 }
