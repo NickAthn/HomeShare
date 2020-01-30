@@ -44,8 +44,12 @@
 		E67F0F3E23E343D0002E6942 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F3D23E343D0002E6942 /* FirebaseService.swift */; };
 		E67F0F4023E34ACA002E6942 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F3F23E34ACA002E6942 /* FirebaseModel.swift */; };
 		E67F0F4223E351A2002E6942 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F4123E351A2002E6942 /* FirebaseConstants.swift */; };
+		E67F0F4523E356FB002E6942 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F4423E356FB002E6942 /* SearchView.swift */; };
+		E67F0F4723E35704002E6942 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F4623E35704002E6942 /* SearchViewModel.swift */; };
+		E67F0F4923E357B0002E6942 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F4823E357B0002E6942 /* UIApplication+Extensions.swift */; };
+		E67F0F4B23E35809002E6942 /* ResignKeyboardOnDragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F4A23E35809002E6942 /* ResignKeyboardOnDragGesture.swift */; };
+		E67F0F4D23E35858002E6942 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F0F4C23E35858002E6942 /* View+Extensions.swift */; };
 		E681C91823DC530800697C7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E681C91723DC530800697C7C /* GoogleService-Info.plist */; };
-		E689B38C23E11EAE00F80724 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689B38B23E11EAE00F80724 /* Row.swift */; };
 		E6A6427123D8938F00733CB4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427023D8938F00733CB4 /* ImagePicker.swift */; };
 		E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */; };
 		E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B756E423AE276B0003F107 /* RoundedButton.swift */; };
@@ -96,8 +100,12 @@
 		E67F0F3D23E343D0002E6942 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		E67F0F3F23E34ACA002E6942 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 		E67F0F4123E351A2002E6942 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
+		E67F0F4423E356FB002E6942 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		E67F0F4623E35704002E6942 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		E67F0F4823E357B0002E6942 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		E67F0F4A23E35809002E6942 /* ResignKeyboardOnDragGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignKeyboardOnDragGesture.swift; sourceTree = "<group>"; };
+		E67F0F4C23E35858002E6942 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		E681C91723DC530800697C7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E689B38B23E11EAE00F80724 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		E6A6427023D8938F00733CB4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirStorageManager.swift; sourceTree = "<group>"; };
 		E6B756E423AE276B0003F107 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -187,6 +195,7 @@
 		E61FD85F239E8E92003C8E1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E67F0F4323E356ED002E6942 /* Search */,
 				E67F0F3823E34087002E6942 /* ProfileEdit */,
 				E6FB686223DE0DE40054888D /* Profile */,
 				E64A334123CCD1A500618987 /* Inbox */,
@@ -275,7 +284,6 @@
 				E6A6427023D8938F00733CB4 /* ImagePicker.swift */,
 				E62AD42023DC5E68002C61F9 /* Seperator.swift */,
 				E66DEF7123B90E5E003470C0 /* OptionRow.swift */,
-				E689B38B23E11EAE00F80724 /* Row.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -284,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				E653CF2D23DB438C0093D064 /* MainTextField.swift */,
+				E67F0F4A23E35809002E6942 /* ResignKeyboardOnDragGesture.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -317,6 +326,8 @@
 			children = (
 				E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */,
 				E653CF3123DB4F7D0093D064 /* Color+Extensions.swift */,
+				E67F0F4823E357B0002E6942 /* UIApplication+Extensions.swift */,
+				E67F0F4C23E35858002E6942 /* View+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -336,6 +347,15 @@
 				E67F0F3A23E34087002E6942 /* ProfileEditViewModel.swift */,
 			);
 			path = ProfileEdit;
+			sourceTree = "<group>";
+		};
+		E67F0F4323E356ED002E6942 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E67F0F4423E356FB002E6942 /* SearchView.swift */,
+				E67F0F4623E35704002E6942 /* SearchViewModel.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		E6B756E623AE444F0003F107 /* Register */ = {
@@ -518,12 +538,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E689B38C23E11EAE00F80724 /* Row.swift in Sources */,
 				E63E158923B7D5740056F2AC /* StickyImage.swift in Sources */,
 				E67F0F3B23E34087002E6942 /* ProfileEditView.swift in Sources */,
 				E63E157F23B516B90056F2AC /* ActivityIndicator.swift in Sources */,
 				E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */,
 				E64A334323CCD1C500618987 /* InboxView.swift in Sources */,
+				E67F0F4D23E35858002E6942 /* View+Extensions.swift in Sources */,
+				E67F0F4B23E35809002E6942 /* ResignKeyboardOnDragGesture.swift in Sources */,
 				E67F0F3E23E343D0002E6942 /* FirebaseService.swift in Sources */,
 				E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */,
 				E64A334B23CCD67900618987 /* InboxRowView.swift in Sources */,
@@ -536,6 +557,7 @@
 				E63E158723B7CA5A0056F2AC /* AccountView.swift in Sources */,
 				E653CF2E23DB438C0093D064 /* MainTextField.swift in Sources */,
 				E653C10823991D8C00EBB56F /* ColorPalette.swift in Sources */,
+				E67F0F4923E357B0002E6942 /* UIApplication+Extensions.swift in Sources */,
 				E6A6427123D8938F00733CB4 /* ImagePicker.swift in Sources */,
 				E679C90723C7C093003362B4 /* AccountViewModel.swift in Sources */,
 				E66DEF7223B90E5E003470C0 /* OptionRow.swift in Sources */,
@@ -545,6 +567,7 @@
 				E61FD863239E8EC5003C8E1B /* DashboardView.swift in Sources */,
 				E60AFB132397D0DC00211C28 /* AppDelegate.swift in Sources */,
 				E653CF3023DB4C5D0093D064 /* TextView.swift in Sources */,
+				E67F0F4723E35704002E6942 /* SearchViewModel.swift in Sources */,
 				E60AFB152397D0DC00211C28 /* SceneDelegate.swift in Sources */,
 				E67F0F4023E34ACA002E6942 /* FirebaseModel.swift in Sources */,
 				E67F0F4223E351A2002E6942 /* FirebaseConstants.swift in Sources */,
@@ -553,6 +576,7 @@
 				E6B756E823AE44610003F107 /* RegisterView.swift in Sources */,
 				E67F0F3723E3407E002E6942 /* ProfileViewModel.swift in Sources */,
 				E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */,
+				E67F0F4523E356FB002E6942 /* SearchView.swift in Sources */,
 				E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */,
 				E6B756F523AE7AD10003F107 /* User.swift in Sources */,
 				E67F0F3C23E34087002E6942 /* ProfileEditViewModel.swift in Sources */,
