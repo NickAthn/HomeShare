@@ -23,14 +23,17 @@ class RegisterViewModel: ObservableObject{
                 self.isErrorShown = true
                 self.errorMessage = FirebaseService.shared.getErrorDescription(error!)
             }
-            let changeRequest = result?.user.createProfileChangeRequest()
-            changeRequest?.displayName = firstName + " " + lastName
-            changeRequest?.commitChanges { error in
-                if error != nil {
-                    self.isErrorShown = true
-                    self.errorMessage = FirebaseService.shared.getErrorDescription(error!)
-                }
-            }
+            guard let userID = result?.user.uid else {return}
+            let newUserProfile = Profile(uid: userID, firstName: firstName, lastName: lastName, home: Home(address: ""))
+            FirebaseService.shared.update(profile: newUserProfile) {_ in }
+//            let changeRequest = result?.user.createProfileChangeRequest()
+//            changeRequest?.displayName = firstName + " " + lastName
+//            changeRequest?.commitChanges { error in
+//                if error != nil {
+//                    self.isErrorShown = true
+//                    self.errorMessage = FirebaseService.shared.getErrorDescription(error!)
+//                }
+//            }
         }
     }
 

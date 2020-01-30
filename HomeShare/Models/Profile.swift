@@ -39,7 +39,7 @@ struct Profile: FirebaseModal {
     var havePets: Bool? = nil
     var haveChildren: Bool? = nil
     var smoker: Bool? = nil
-    
+        
     func toData()-> Any {
         return try! FirebaseEncoder().encode(self)
     }
@@ -50,6 +50,8 @@ struct Profile: FirebaseModal {
     static func pathFor(uid: String) -> String {
         return [FirebasePaths.profiles.rawValue, uid].joined(separator: FirebasePathSeparator)
     }
+    
+    static var templateProfile = Profile(uid: "loading...", firstName: "loading...", lastName: "loading...", home: Home(address: "loading..."))
 }
 
 struct Home: Codable {

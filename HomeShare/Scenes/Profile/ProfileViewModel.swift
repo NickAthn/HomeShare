@@ -14,9 +14,16 @@ class ProfileViewModel: ObservableObject {
     
     // MARK: - OUTPUT
     @Published var guestStatusMessage: String = ""
-    
-    func fetchData() {
+    @Published var profile: Profile = Profile.templateProfile
+
+    func fetchProfile() {
+        FirebaseService.shared.fetchProfileForCurrentUser { profile in
+            if let profile = profile {
+                self.profile = profile
+            }
+        }
     }
+    
     func update(guestStatus: GuestStatus?){
         switch guestStatus {
             case .accepting:

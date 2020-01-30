@@ -12,6 +12,13 @@ import Combine
 class ProfileEditViewModel: ObservableObject {
 
     // MARK: - OUTPUT
-    @Published var selectedGuestStatus: GuestStatus = .notAccepting
-    
+//    @Published var selectedGuestStatus: GuestStatus = self.p
+    @Published var profile: Profile!
+    func fetchProfile() {
+        FirebaseService.shared.fetchProfileForCurrentUser { profile in
+            if let profile = profile {
+                self.profile = profile
+            }
+        }
+    }
 }

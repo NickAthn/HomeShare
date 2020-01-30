@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import CodableFirebase
 
 class FirebaseService: ObservableObject {
     static let shared = FirebaseService()
@@ -79,8 +80,33 @@ class FirebaseService: ObservableObject {
         Auth.auth().currentUser?.delete() { error in
             if error != nil {
                 print(error as Any)
-            } 
+            }
         }
+    }
+    
+    func fetchProfileForCurrentUser(completion: @escaping (_ profile: Profile?) -> Void) {
+        guard let currentUser = session else {
+            completion(nil)
+            return
+        }
+        let profilePath = Profile.pathFor(uid: currentUser.uid)
+        Database.database().reference(withPath: profilePath).observe(.value) { (snapshot) in
+            guard let snapshotValue = snapshot.value else {
+                completion(nil)
+                return
+            }
+            
+            do {
+                let profile = try FirebaseDecoder().decode(Profile.self, from: snapshotValue)
+                completion(profile)
+            } catch {
+                completion(nil)
+            }
+        }
+    }
+    func update(profile: Profile, completion: @escaping (_ success: Bool)-> Void) {
+        let profileData = profile.toData()
+        Database.database().reference(withPath: profile.path()).setValue(profileData)
     }
     
     

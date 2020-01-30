@@ -21,7 +21,7 @@ struct ProfileEditView: View {
                 }
                 
                 Section {
-                    Picker(selection: self.$viewModel.selectedGuestStatus, label: Text("Status")) {
+                    Picker(selection: self.$viewModel.profile.guestStatus, label: Text("Status")) {
                         ForEach(0 ..< GuestStatus.allCases.count) {
                             Text(GuestStatus.allCases[$0].rawValue).tag($0)
                         }
@@ -31,6 +31,7 @@ struct ProfileEditView: View {
             }
             .navigationBarTitle("Edit Profile")
             .navigationBarItems(trailing: Button("Done", action: save))
+            .onAppear(perform: viewModel.fetchProfile)
         }
     }
     

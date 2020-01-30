@@ -93,7 +93,7 @@ struct ProfileView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(.green)
                                     .frame(width: 25)
-                                Text("self.viewModel.guestStatusMessage")
+                                Text(self.viewModel.profile.guestStatus.rawValue)
                                     .foregroundColor(.green)
                                     .font(.system(size: 17, weight:.medium, design: .rounded))
                             }
@@ -171,7 +171,7 @@ struct ProfileView: View {
                     }
                     .padding(.top, 12)
                     .background(Color.white)
-
+                
                 }
             }
         }
@@ -183,6 +183,7 @@ struct ProfileView: View {
         .sheet(isPresented: self.$showEditModal) {
             ProfileEditView()
         }
+        .onAppear(perform: viewModel.fetchProfile)
     }
 
 }
