@@ -8,29 +8,29 @@
 
 import SwiftUI
 
-enum OptionRowStyle: Int, Codable {
+enum SelectableCellStyle: Int, Codable {
     case
     normal,
     button,
     alertButton
 }
 
-struct OptionRow: View {
+struct SelectableCell: View {
     @State var title: String = "Title"
-    @State var style: OptionRowStyle
+    @State var style: SelectableCellStyle
     @State var action: (()->()) = {}
 
     var body: some View {
-        return Button(action: {self.action()}){
-            OptionView(title: title, style: style)
+        return Button(action: {self.action()}) {
+            SelectableCellView(title: title, style: style)
         }.background(Color.white)
         
     }
 }
 
-struct OptionView: View {
+struct SelectableCellView: View {
     @State var title: String = "Title"
-    @State var style: OptionRowStyle = .normal
+    @State var style: SelectableCellStyle = .normal
     
     var body: some View {
         switch style {
@@ -120,9 +120,9 @@ fileprivate struct AlertButtonView: View {
 }
 
 #if DEBUG
-struct OptionRow_Previews: PreviewProvider {
+struct SelectableCell_Previews: PreviewProvider {
     static var previews: some View {
-        OptionRow(style: .alertButton)
+        SelectableCell(style: .alertButton)
     }
 }
 #endif

@@ -165,9 +165,9 @@ struct ProfileView: View {
                             }
                             // Options
                             VStack(alignment: .leading) {
-                                OptionRow(title: "House Information & Rules", style: .normal)
-                                OptionRow(title: "Save Profile", style: .normal)
-                                OptionRow(title: "Share link to the Profile", style: .normal)
+                                SelectableCell(title: "House Information & Rules", style: .normal)
+                                SelectableCell(title: "Save Profile", style: .normal)
+                                SelectableCell(title: "Share link to the Profile", style: .normal)
                             }
                         }
                     }

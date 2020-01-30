@@ -52,17 +52,17 @@ struct AccountView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 0.2) {
-                        OptionRow(title: "Profile", style: .normal) {
+                        SelectableCell(title: "Profile", style: .normal) {
                             self.viewModel.showProfileView.toggle()
                         }
-                        OptionRow(title: "Hosting", style: .normal) {
+                        SelectableCell(title: "Hosting", style: .normal) {
                             self.viewModel.showHostingView.toggle()
                         }
-                        OptionRow(title: "Notifications", style: .normal)
-                        OptionRow(title: "Bookmarked", style: .normal)
-                        OptionRow(title: "Log Out", style: .button) {self.viewModel.signOut()}
+                        SelectableCell(title: "Notifications", style: .normal)
+                        SelectableCell(title: "Bookmarked", style: .normal)
+                        SelectableCell(title: "Log Out", style: .button) {self.viewModel.signOut()}
                         
-                        OptionRow(title: "Delete Account", style: .alertButton) {
+                        SelectableCell(title: "Delete Account", style: .alertButton) {
                             self.viewModel.isDeleteAlertShown.toggle()
                         }.alert(isPresented: $viewModel.isDeleteAlertShown ) {
                             Alert(title: Text("DANGER ZONE"),
@@ -82,7 +82,7 @@ struct AccountView: View {
                             .frame(height: 0.5)
                             .foregroundColor(.gray)
 
-                        OptionRow(title: "Sumbit a ticket", style: .normal)
+                        SelectableCell(title: "Sumbit a ticket", style: .normal)
                     }
                 }.background(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
                 
