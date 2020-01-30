@@ -16,6 +16,11 @@ struct MainTabView: View {
                     Image(systemName: "circle.bottomthird.split")
                     Text("Dashboard")
                 }
+            SearchView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+            }
             InboxView()
                 .tabItem {
                     Image(systemName: "tray")
