@@ -157,7 +157,7 @@ struct ProfileView: View {
                                 Text("Description")
                                     .font(.headline)
                                     .padding(.leading, 7)
-                                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget enim mattis, pellentesque nisl quis, consequat lorem. Quisque pellentesque commodo nisl, sed convallis ligula aliquet at. In gravida tristique nisi eu porta. Pellentesque rhoncus at tortor eu ornare. Suspendisse suscipit maximus lacus id pulvinar. Phasellus ullamcorper orci vel massa aliquet scelerisque. Vestibulum sed enim ante.Integer scelerisque fermentum justo, quis luctus purus hendrerit vitae. Sed non nibh ac augue bibendum mattis. Ut in sodales quam. Nulla fermentum mollis urna, eu tempus ex lobortis at. Curabitur finibus nisi velit, ut fermentum orci gravida sit amet. Mauris nec ex sapien. Pellentesque ultrices ullamcorper purus.")
+                                Text(viewModel.profile.description)
                                     .multilineTextAlignment(.leading)
                                     .padding([.leading,.trailing], 12)
                                     .padding(.top, 5)

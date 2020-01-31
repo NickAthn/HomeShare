@@ -27,18 +27,12 @@ struct ProfileEditView: View {
                     NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
                         Text("About me")
                     }
-                    NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
-                        Text("About me")
-                    }
-                    NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
-                        Text("About me")
-                    }
-
                 }
                                 
             }
             .navigationBarTitle("Edit Profile")
-            .navigationBarItems(trailing: Button("Done", action: save))
+            .navigationBarItems(trailing: Button("Save", action: save))
+        
         }
     }
     
