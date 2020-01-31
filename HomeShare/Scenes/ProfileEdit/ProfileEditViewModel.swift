@@ -15,7 +15,7 @@ class ProfileEditViewModel: ObservableObject {
 //    @Published var selectedGuestStatus: GuestStatus = self.p
     @Published var profile: Profile = Profile.templateProfile
     @Published var statusPickerSelection = 0
-    
+
     init() {
         fetchProfile()
     }
@@ -30,6 +30,7 @@ class ProfileEditViewModel: ObservableObject {
     }
     
     func saveProfileChanges() {
+        print(profile.description)
         profile.guestStatus = GuestStatus.allCases[statusPickerSelection]
         FirebaseService.shared.stopFetching(profile: profile)
         FirebaseService.shared.update(profile: self.profile) { success in}

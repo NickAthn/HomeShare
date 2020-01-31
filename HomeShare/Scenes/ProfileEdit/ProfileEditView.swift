@@ -35,8 +35,6 @@ struct ProfileEditView: View {
                     }
 
                 }
-                TextField("First Name", text: self.$viewModel.profile.firstName)
-
                                 
             }
             .navigationBarTitle("Edit Profile")
@@ -55,8 +53,29 @@ struct AboutMeEditView: View {
     @ObservedObject var viewModel: ProfileEditViewModel
     var body: some View {
         Form {
-            TextField("First Name", text: self.$viewModel.profile.firstName)
-            TextField("Last Name", text: self.$viewModel.profile.firstName)
-        }
+            Section(header: Text("Name")) {
+                HStack {
+                    Text("First")
+                        .frame(width: 50,alignment: .leading)
+                        .padding(.trailing, 10)
+                    Spacer()
+                    TextField("Required", text: self.$viewModel.profile.firstName)
+                }
+                HStack {
+                    Text("Last").padding(.trailing)
+                        .frame(width: 50,alignment: .leading)
+                        .padding(.trailing, 10)
+                    Spacer()
+                    TextField("Required", text: self.$viewModel.profile.lastName)
+                }
+            }
+            
+            Section(header: Text("Description")) {
+                VStack {
+                    TextView(text: self.$viewModel.profile.description)
+                    .frame(height: 200)
+                }
+            }
+        }.navigationBarTitle("About Me", displayMode: .inline)
     }
 }
