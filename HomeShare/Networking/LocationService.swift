@@ -21,18 +21,30 @@ class LocationService: NSObject, ObservableObject {
     
     private var cancellables: [AnyCancellable] = []
 
-    func getLocationFrom(address: String) {
-        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+    func getAddressFrom(addressString: String, completion: @escaping (_ address: Address?)-> Void) {
+        var address = Address()
+        geoCoder.geocodeAddressString(addressString) { (placemarks, error) in
             guard
                 let placemarks = placemarks,
-                let _ = placemarks.first?.location
-                
+                let found = placemarks.first
             else {
                 // handle no location found
                 return
             }
-
-            // Use your location
+            if let city = found.locality {
+                address.city = city
+            }
+            if let country = found.country {
+                address.country = country
+            }
+            if let postalCode = found.postalCode {
+                address.postalCode = postalCode
+            }
+            if let region = found.administrativeArea {
+                address.region = region
+            }
+            
+            completion(address)
         }
 
     }

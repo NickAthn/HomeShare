@@ -30,4 +30,13 @@ class AddressSearchViewModel: ObservableObject {
         cancellables += [ stream ]
 
     }
+    
+    func getFormatFor(_ addressString: String, completion: @escaping (Address)-> Void) {
+        locationService.getAddressFrom(addressString: addressString) { address in
+            
+            if let address = address {
+                completion(address)
+            }
+        }
+    }
 }

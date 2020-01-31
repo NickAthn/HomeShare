@@ -14,6 +14,7 @@ struct ProfileEditView: View {
 
     var body: some View {
         NavigationView {
+            
             Form {
                 Section {
                     Picker(selection: self.$viewModel.statusPickerSelection, label: Text("Status")) {
@@ -27,8 +28,12 @@ struct ProfileEditView: View {
                     NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
                         Text("About me")
                     }
-                    NavigationLink(destination: AddressSearchView()) {
-                        Text("Address")
+                    NavigationLink(destination: AddressSearchView(selectedAddress: self.$viewModel.profile.home.address, isActive: self.$viewModel.isActive), isActive: self.$viewModel.isActive){
+                        HStack {
+                            Text("Address")
+                            Spacer()
+                            Text(self.viewModel.profile.home.address.getDescription()).font(.body).foregroundColor(.secondary)
+                        }
                     }
                 }
                                 

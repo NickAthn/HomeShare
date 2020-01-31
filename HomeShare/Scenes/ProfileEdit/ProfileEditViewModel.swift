@@ -15,7 +15,10 @@ class ProfileEditViewModel: ObservableObject {
 //    @Published var selectedGuestStatus: GuestStatus = self.p
     @Published var profile: Profile = Profile.templateProfile
     @Published var statusPickerSelection = 0
-
+    
+    // Generic Bool to be used on many view to dismish them when called
+    @Published var isActive = false
+    
     init() {
         fetchProfile()
     }
