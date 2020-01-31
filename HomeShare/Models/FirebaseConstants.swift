@@ -13,4 +13,5 @@ let FirebaseEmptyValue = "null"
 
 enum FirebasePaths: String {
     case profiles
+    case geoHash
 }

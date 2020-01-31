@@ -36,6 +36,7 @@ class ProfileEditViewModel: ObservableObject {
         print(profile.description)
         profile.guestStatus = GuestStatus.allCases[statusPickerSelection]
         FirebaseService.shared.stopFetching(profile: profile)
+        FirebaseService.shared.setUserLocation(address: profile.home.address)
         FirebaseService.shared.update(profile: self.profile) { success in}
     }
 }

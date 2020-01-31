@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import CodableFirebase
+import GeoFire
 
 class FirebaseService: ObservableObject {
     static let shared = FirebaseService()
@@ -115,7 +116,17 @@ class FirebaseService: ObservableObject {
         
         Database.database().reference(withPath: profile.path()).setValue(profileData)
     }
-    
+    func setUserLocation(address: Address) {
+        let geofireRef = Database.database().reference().child(FirebasePaths.geoHash.rawValue)
+        let geoFire = GeoFire(firebaseRef: geofireRef)
+        let locationService = LocationService()
+        locationService.getLocationFrom(address: address) { location in
+            if let location = location {
+                print(location)
+                geoFire.setLocation(CLLocation(latitude: 37.7853889, longitude: -122.4056973), forKey: self.session!.uid)
+            }
+        }
+    }
     
     
     // MARK: - Error Handling

@@ -49,6 +49,20 @@ class LocationService: NSObject, ObservableObject {
 
     }
     
+    func getLocationFrom(address: Address, completion: @escaping (CLLocation?)-> Void) {
+        geoCoder.geocodeAddressString(address.getDescription()) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let found = placemarks.first
+            else {
+                // handle no location found
+                completion(nil)
+                return
+            }
+            completion(found.location)
+        }
+    }
+    
     func bind(text: Published<String>.Publisher){
         completer.delegate = self
         let stream = text.sink { text in
