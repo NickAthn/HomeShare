@@ -76,6 +76,40 @@ class LocationService: NSObject, ObservableObject {
             completion(found.location)
         }
     }
+    
+    func searchLocationgWith(addressString: String, completion: @escaping (CLLocation?)-> Void){
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = addressString
+        
+        let search = MKLocalSearch(request: request)
+        
+        search.start() {(response, error) in
+            if let results = response {
+            
+                if let err = error {
+                    print("Error occurred in search: \(err.localizedDescription)")
+                } else if results.mapItems.count == 0 {
+                    print("No matches found")
+                } else {
+                    print("Matches found")
+                    
+//                    for item in results.mapItems {
+//                        print("Name = \(item.name ?? "No match")")
+//                        print("Phone = \(item.phoneNumber ?? "No Match")")
+//
+//                        item.placemark.coordinate
+//                    }
+                    guard let coordinates = results.mapItems.first?.placemark.coordinate else {
+                        completion(nil)
+                        return
+                    }
+                    
+                    completion(CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude))
+                }
+            }
+        }
+
+    }
 
 
     func bind(text: Published<String>.Publisher){
@@ -90,9 +124,12 @@ class LocationService: NSObject, ObservableObject {
 
 extension LocationService: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        
         let addresses = completer.results.map { result in
             result.title + ", " + result.subtitle
+            
         }
+        
         suggestions = addresses
     }
 

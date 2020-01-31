@@ -148,18 +148,18 @@ class FirebaseService: ObservableObject {
         let geofireRef = Database.database().reference().child(FirebasePaths.geoHash.rawValue)
         let geoFire = GeoFire(firebaseRef: geofireRef)
         let locationService = LocationService()
-        locationService.getLocationFrom(addressString: address) { location in
+        locationService.searchLocationgWith(addressString: address) { location in
             if let location = location {
                 let center = location
-                // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
-                var circleQuery = geoFire.query(at: center, withRadius: 1)
+                // Query locations at [37.7832889, -122.4056973] with a radius of 30km
+                var circleQuery = geoFire.query(at: center, withRadius: 30)
                 
                 // Query location by region
                 let span =  MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
                 let region = MKCoordinateRegion(center: center.coordinate, span: span)
                 let regionQuery = geoFire.query(with: region)
                 
-                var _ = regionQuery.observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
+                var _ = circleQuery.observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
                     print("Key '\(String(describing: key))' entered the search area and is at location '\(String(describing: location))'")
                     self.fetchProfile(forUID: key) { (profile) in
                         if let profile = profile {
