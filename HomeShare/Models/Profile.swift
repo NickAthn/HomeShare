@@ -18,7 +18,7 @@ enum SleepingArrangments: String, Codable {
     sharedSleepingSurface
 }
 
-enum GuestStatus: String, CaseIterable, Codable {
+enum GuestStatus: Int, CaseIterable, Codable {
     case
     accepting,
     maybeAccepting,

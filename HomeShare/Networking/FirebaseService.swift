@@ -104,8 +104,15 @@ class FirebaseService: ObservableObject {
             }
         }
     }
+    
+    func stopFetching(profile: Profile) {
+        Database.database().reference(withPath: profile.path()).removeAllObservers()
+    }
+    
     func update(profile: Profile, completion: @escaping (_ success: Bool)-> Void) {
         let profileData = profile.toData()
+        print(profile.path())
+        
         Database.database().reference(withPath: profile.path()).setValue(profileData)
     }
     

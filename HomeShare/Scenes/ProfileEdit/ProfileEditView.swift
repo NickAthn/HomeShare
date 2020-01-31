@@ -10,39 +10,53 @@ import SwiftUI
 
 struct ProfileEditView: View {
     @ObservedObject var viewModel: ProfileEditViewModel = ProfileEditViewModel()
-
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Your Info")) {
-                    Text("Test")
+                Section {
+                    Picker(selection: self.$viewModel.statusPickerSelection, label: Text("Status")) {
+                        ForEach(0..<GuestStatus.allCases.count, id: \.self) { index in
+                            Text(GuestStatus.allCases[index].getDescription()).tag(index)
+                        }
+                    }.id(0)
                 }
                 
                 Section {
-                    Picker(selection: self.$viewModel.profile.guestStatus, label: Text("Status")) {
-                        ForEach(0 ..< GuestStatus.allCases.count) {
-                            Text(GuestStatus.allCases[$0].rawValue).tag($0)
-                        }
+                    NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
+                        Text("About me")
                     }
+                    NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
+                        Text("About me")
+                    }
+                    NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
+                        Text("About me")
+                    }
+
                 }
-                
+                TextField("First Name", text: self.$viewModel.profile.firstName)
+
+                                
             }
             .navigationBarTitle("Edit Profile")
             .navigationBarItems(trailing: Button("Done", action: save))
-            .onAppear(perform: viewModel.fetchProfile)
         }
     }
     
     func save() {
+        viewModel.saveProfileChanges()
         presentationMode.wrappedValue.dismiss()
     }
 
 }
 
-struct ProfileEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileEditView()
+struct AboutMeEditView: View {
+    @ObservedObject var viewModel: ProfileEditViewModel
+    var body: some View {
+        Form {
+            TextField("First Name", text: self.$viewModel.profile.firstName)
+            TextField("Last Name", text: self.$viewModel.profile.firstName)
+        }
     }
 }
