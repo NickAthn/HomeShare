@@ -185,7 +185,7 @@
 				E60AFB122397D0DC00211C28 /* AppDelegate.swift */,
 				E60AFB142397D0DC00211C28 /* SceneDelegate.swift */,
 				E66C144F23B25797007FD7ED /* Extensions */,
-				E6B756F023AE76070003F107 /* Networking */,
+				E6B756F023AE76070003F107 /* Services */,
 				E61FD85F239E8E92003C8E1B /* Scenes */,
 				E653CF2C23DB42B60093D064 /* Modifiers */,
 				E653C10923991DE600EBB56F /* Components */,
@@ -396,14 +396,14 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
-		E6B756F023AE76070003F107 /* Networking */ = {
+		E6B756F023AE76070003F107 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				E67F0F3D23E343D0002E6942 /* FirebaseService.swift */,
 				E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */,
 				E6560CF523E3BA7400257470 /* LocationService.swift */,
 			);
-			path = Networking;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E6B756F323AE7AC40003F107 /* Models */ = {

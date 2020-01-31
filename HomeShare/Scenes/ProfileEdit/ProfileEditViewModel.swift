@@ -45,14 +45,14 @@ class ProfileEditViewModel: ObservableObject {
                     }
                     self.initialImage = image
                 } else {
-                    self.initialImage = nil
+                    self.initialImage = self.profileImage
                 }
                 }
         }
     }
     
     func uploadProfileImage(completion: @escaping ()->Void) {
-        if initialImage != profileImage && initialImage != nil {
+        if initialImage != profileImage {
             FirStorageManager.shared.upload(profileImage!) { (url) in
                 self.profile.profileImageURL = url!.absoluteString
                 completion()

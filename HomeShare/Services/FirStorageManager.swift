@@ -31,7 +31,7 @@ class FirStorageManager: ObservableObject {
         
         let imagePath = baseRef.child(userID).child(imageName)
         
-        if let uploadData = image.jpegData(compressionQuality: 0.5) {
+        if let uploadData = image.jpegData(compressionQuality: 0) {
             imagePath.putData(uploadData, metadata: nil) { metadata, error in
                 if error != nil {
                     print("🐞 Storage Error: \(String(describing: error))")
