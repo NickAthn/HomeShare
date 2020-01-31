@@ -38,6 +38,7 @@ extension GuestStatus {
 }
 
 struct Profile: FirebaseModal {
+
     var uid: String
     var firstName: String
     var lastName: String
@@ -64,6 +65,16 @@ struct Profile: FirebaseModal {
     
     static var templateProfile = Profile(uid: "loading...", firstName: "loading...", lastName: "loading...")
     
+}
+// Conforming to hashable and Equatable protocol
+extension Profile: Hashable {
+    static func == (lhs: Profile, rhs: Profile) -> Bool {
+        return lhs.uid == rhs.uid ?  true : false
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uid)
+    }
 }
 
 struct Home: Codable {

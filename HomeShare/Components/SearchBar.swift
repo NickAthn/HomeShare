@@ -12,6 +12,7 @@ import SwiftUI
 struct SearchBar: View {
     @Binding var searchText: String
     @Binding var showCancelButton: Bool
+    var onCommit: ()->Void = {}
     
     var body: some View {
         HStack {
@@ -21,7 +22,7 @@ struct SearchBar: View {
                 TextField("search", text: $searchText, onEditingChanged: { isEditing in
                     self.showCancelButton = true
                 }, onCommit: {
-                    print("onCommit")
+                    self.onCommit()
                 }).foregroundColor(.primary)
 
                 Button(action: {

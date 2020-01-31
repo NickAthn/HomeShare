@@ -15,8 +15,31 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 // Search view
-                SearchBar(searchText: self.$viewModel.searchText, showCancelButton: self.$viewModel.showCancelButton)
+                SearchBar(searchText: self.$viewModel.searchText, showCancelButton: self.$viewModel.showCancelButton) {
+                    self.viewModel.isSearchCommited = true
+                }
+                if viewModel.showSuggestions {
+                    List {
+                        // Filtered list of names
+                        ForEach(viewModel.autoSuggestions, id:\.self) { suggestion in
+                            Text(suggestion).onTapGesture {
+                                self.viewModel.searchText = suggestion
+                            }
+                        }
+                    }
+                    .resignKeyboardOnDragGesture()
+                } else if viewModel.isSearchCommited {
+                    List {
+                        // Filtered list of names
+                        ForEach(viewModel.displayedProfiles, id:\.self) { profile in
+                            SearchViewRow(withProfile: profile)
+                        }
+                    }
 
+                } else {
+                    // Just in case of empty view to put the search bar on top
+                    Spacer()
+                }
             }.navigationBarTitle("Search")
         }
     }

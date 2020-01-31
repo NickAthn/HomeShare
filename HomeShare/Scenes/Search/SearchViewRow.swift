@@ -8,16 +8,30 @@
 
 import SwiftUI
 //
-//struct SearchViewRow: View {
-//    @ObservedObject var viewModel: SearchViewModel = SearchViewModel()
-//    
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                // Search view
-//                
-//                
-//            }.navigationBarTitle("Search")
-//        }
-//    }
-//}
+struct SearchViewRow: View {
+    var withProfile: Profile
+    
+    var body: some View {
+        VStack {
+            ZStack(alignment: .bottomLeading) {
+                Image("exampleImage")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 200)
+                    .cornerRadius(10)
+                    .clipped()
+                VStack(alignment: .leading) {
+                    Text("\(withProfile.firstName) \(withProfile.lastName)" )
+                        .foregroundColor(.white)
+                        .font(.system(size: 24, weight: .black, design: .default))
+                    Text("\(withProfile.home.address.getDescription())")
+                        .foregroundColor(.white)
+                        .font(.system(size: 17, weight: .bold, design: .default))
+                }
+                .padding(.leading)
+                .padding(.bottom)
+            }
+            Text("Reviews to be")
+        }
+    }
+}
