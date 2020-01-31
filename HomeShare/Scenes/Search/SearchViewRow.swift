@@ -20,6 +20,7 @@ struct SearchViewRow: View {
             VStack {
                 ZStack(alignment: .bottomLeading) {
                     Image(uiImage: viewModel.profileImage)
+                        .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 200)

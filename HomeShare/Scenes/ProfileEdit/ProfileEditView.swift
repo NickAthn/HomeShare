@@ -21,13 +21,14 @@ struct ProfileEditView: View {
                         Image(uiImage: self.viewModel.profileImage ?? UIImage(named: "genericProfileImage")!)
                             .renderingMode(.original)
                             .resizable()
-                            .aspectRatio(1, contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150, height: 150)
+                            .clipped()
                             .cornerRadius(.infinity)
-                            .frame(height: 200)
 //                            .mask(Rectangle().padding(.bottom, 10).foregroundColor(.black))
                         }
                 }
-                .padding(.top)
+                .padding(.top, 25)
                 
                 Form {
                     Section {
