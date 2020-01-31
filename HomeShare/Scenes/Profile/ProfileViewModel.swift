@@ -17,7 +17,7 @@ class ProfileViewModel: ObservableObject {
     @Published var profile: Profile = Profile.templateProfile
     
     @Published var isViewOnly: Bool
-    
+    @Published var profileImage: UIImage = UIImage(named: "genericProfileImage")!
     init(){
         isViewOnly = false
         fetchProfile()
@@ -25,12 +25,28 @@ class ProfileViewModel: ObservableObject {
     init(profile: Profile){
         self.profile = profile
         isViewOnly = true
+        self.loadProfileImage()
+    }
+    
+    func loadProfileImage() {
+        if profile.profileImageURL != "" {
+            FirStorageManager.shared.download(imageWithURL: profile.profileImageURL) { (image) in
+                if image != nil {
+                    DispatchQueue.main.async {
+                        if let image = image {
+                            self.profileImage = image
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func fetchProfile() {
         FirebaseService.shared.fetchProfileForCurrentUser { profile in
             if let profile = profile {
                 self.profile = profile
+                self.loadProfileImage()
                 print(profile.description)
             }
         }

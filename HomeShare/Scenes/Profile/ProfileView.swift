@@ -25,7 +25,7 @@ struct ProfileView: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Profile Image
                 ZStack(alignment: .bottomLeading) {
-                    StickyImage()
+                    StickyImage(image: Image(uiImage: viewModel.profileImage))
                         .frame(height: 300)
                     
                     VStack(alignment: .leading) {
