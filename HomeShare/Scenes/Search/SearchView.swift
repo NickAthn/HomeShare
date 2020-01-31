@@ -15,8 +15,8 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 // Search view
-                SearchBar(searchText: viewModel.searchText, showCancelButton: viewModel.showCancelButton)
-                
+                SearchBar(searchText: self.$viewModel.searchText, showCancelButton: self.$viewModel.showCancelButton)
+
             }.navigationBarTitle("Search")
         }
     }

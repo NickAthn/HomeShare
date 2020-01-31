@@ -32,6 +32,10 @@
 		E653CF3023DB4C5D0093D064 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653CF2F23DB4C5D0093D064 /* TextView.swift */; };
 		E653CF3223DB4F7D0093D064 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653CF3123DB4F7D0093D064 /* Color+Extensions.swift */; };
 		E6560CF423E39C4F00257470 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6560CF323E39C4F00257470 /* Option.swift */; };
+		E6560CF623E3BA7400257470 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6560CF523E3BA7400257470 /* LocationService.swift */; };
+		E6560CF923E3BD5900257470 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6560CF823E3BD5900257470 /* MapView.swift */; };
+		E6560CFC23E3BDE600257470 /* AddressSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6560CFB23E3BDE600257470 /* AddressSearchView.swift */; };
+		E6560CFE23E3C17F00257470 /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6560CFD23E3C17F00257470 /* AddressSearchViewModel.swift */; };
 		E662758A239A61C9002D8B0B /* ColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6627589239A61C9002D8B0B /* ColorPalette.xcassets */; };
 		E668A66823AF9F900030741D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E668A66723AF9F900030741D /* RegisterViewModel.swift */; };
 		E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */; };
@@ -91,6 +95,10 @@
 		E653CF2F23DB4C5D0093D064 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		E653CF3123DB4F7D0093D064 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		E6560CF323E39C4F00257470 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		E6560CF523E3BA7400257470 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		E6560CF823E3BD5900257470 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E6560CFB23E3BDE600257470 /* AddressSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchView.swift; sourceTree = "<group>"; };
+		E6560CFD23E3C17F00257470 /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
 		E6627589239A61C9002D8B0B /* ColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalette.xcassets; sourceTree = "<group>"; };
 		E668A66723AF9F900030741D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+ErrorDescriptions.swift"; sourceTree = "<group>"; };
@@ -201,6 +209,7 @@
 		E61FD85F239E8E92003C8E1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E6560CFA23E3BDC600257470 /* AddressSearch */,
 				E67F0F4323E356ED002E6942 /* Search */,
 				E67F0F3823E34087002E6942 /* ProfileEdit */,
 				E6FB686223DE0DE40054888D /* Profile */,
@@ -291,6 +300,7 @@
 				E62AD42023DC5E68002C61F9 /* Seperator.swift */,
 				E66DEF7123B90E5E003470C0 /* SelectableCell.swift */,
 				E67F0F4E23E35DB5002E6942 /* SearchBar.swift */,
+				E6560CF823E3BD5900257470 /* MapView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -302,6 +312,15 @@
 				E67F0F4A23E35809002E6942 /* ResignKeyboardOnDragGesture.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		E6560CFA23E3BDC600257470 /* AddressSearch */ = {
+			isa = PBXGroup;
+			children = (
+				E6560CFB23E3BDE600257470 /* AddressSearchView.swift */,
+				E6560CFD23E3C17F00257470 /* AddressSearchViewModel.swift */,
+			);
+			path = AddressSearch;
 			sourceTree = "<group>";
 		};
 		E6627588239A61AF002D8B0B /* Assets */ = {
@@ -380,6 +399,7 @@
 			children = (
 				E67F0F3D23E343D0002E6942 /* FirebaseService.swift */,
 				E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */,
+				E6560CF523E3BA7400257470 /* LocationService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -548,6 +568,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63E158923B7D5740056F2AC /* StickyImage.swift in Sources */,
+				E6560CFE23E3C17F00257470 /* AddressSearchViewModel.swift in Sources */,
+				E6560CF923E3BD5900257470 /* MapView.swift in Sources */,
 				E67F0F3B23E34087002E6942 /* ProfileEditView.swift in Sources */,
 				E63E157F23B516B90056F2AC /* ActivityIndicator.swift in Sources */,
 				E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */,
@@ -581,12 +603,14 @@
 				E67F0F4723E35704002E6942 /* SearchViewModel.swift in Sources */,
 				E60AFB152397D0DC00211C28 /* SceneDelegate.swift in Sources */,
 				E67F0F4023E34ACA002E6942 /* FirebaseModel.swift in Sources */,
+				E6560CF623E3BA7400257470 /* LocationService.swift in Sources */,
 				E67F0F4223E351A2002E6942 /* FirebaseConstants.swift in Sources */,
 				E60AFB172397D0DC00211C28 /* LoginView.swift in Sources */,
 				E6560CF423E39C4F00257470 /* Option.swift in Sources */,
 				E668A66823AF9F900030741D /* RegisterViewModel.swift in Sources */,
 				E6B756E823AE44610003F107 /* RegisterView.swift in Sources */,
 				E67F0F3723E3407E002E6942 /* ProfileViewModel.swift in Sources */,
+				E6560CFC23E3BDE600257470 /* AddressSearchView.swift in Sources */,
 				E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */,
 				E67F0F4523E356FB002E6942 /* SearchView.swift in Sources */,
 				E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */,

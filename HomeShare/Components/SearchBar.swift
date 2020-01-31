@@ -8,9 +8,10 @@
 
 import SwiftUI
 
+
 struct SearchBar: View {
-    @State var searchText = ""
-    @State var showCancelButton = false
+    @Binding var searchText: String
+    @Binding var showCancelButton: Bool
     
     var body: some View {
         HStack {
@@ -45,11 +46,5 @@ struct SearchBar: View {
         }
         .padding(.horizontal)
         .navigationBarHidden(self.showCancelButton) // .animation(.default) // animation does not work properly
-    }
-}
-
-struct SearchBar_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchBar()
     }
 }
