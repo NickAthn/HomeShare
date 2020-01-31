@@ -191,6 +191,9 @@ struct ProfileView: View {
         .navigationBarItems(trailing: Button(action: {self.showEditModal.toggle()}) {
             if !viewModel.isViewOnly {
                 Image(systemName: "pencil.and.ellipsis.rectangle")
+                    .frame(minWidth: 25)
+                    .contentShape(Rectangle())
+
             } // Temproray until finding a way to dynamical set the bar items from the viewModel
         })
         .sheet(isPresented: self.$showEditModal) {
