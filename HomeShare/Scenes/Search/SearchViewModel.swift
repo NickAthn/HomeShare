@@ -17,10 +17,17 @@ class SearchViewModel: ObservableObject {
         didSet {
             showSuggestions = true
             isSearchCommited = false
+            displayedProfiles = []
         }
     }
-    @Published var showCancelButton: Bool = false
-    @Published var displayedProfiles: [Profile] = [Profile(uid: "afafa", firstName: "nicik", lastName: "Hansome")]
+    @Published var showCancelButton: Bool = false {
+        didSet {
+            if self.showCancelButton == false {
+                showSuggestions = false
+            }
+        }
+    }
+    @Published var displayedProfiles: [Profile] = []
     
     @Published var autoSuggestions: [String] = []
     @Published var showSuggestions: Bool = false
