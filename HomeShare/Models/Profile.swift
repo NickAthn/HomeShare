@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import CodableFirebase
+import SwiftUI
 
 enum SleepingArrangments: String, Codable {
     case
@@ -34,6 +35,15 @@ extension GuestStatus {
             case .meetUp: return "Meet up"
             case .notAccepting: return "Not Accepting Guests"
         }
+    }
+    func getColor() -> Color {
+        switch self {
+            case .accepting: return .green
+            case .maybeAccepting: return .secondary
+            case .meetUp: return .yellow
+            case .notAccepting: return .red
+        }
+
     }
 }
 

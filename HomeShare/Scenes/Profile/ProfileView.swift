@@ -98,10 +98,10 @@ struct ProfileView: View {
                                 Image("sofaIcon")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .foregroundColor(.green)
+                                    .foregroundColor(self.viewModel.profile.guestStatus.getColor())
                                     .frame(width: 25)
                                 Text(self.viewModel.profile.guestStatus.getDescription())
-                                    .foregroundColor(.green)
+                                    .foregroundColor(self.viewModel.profile.guestStatus.getColor())
                                     .font(.system(size: 17, weight:.medium, design: .rounded))
                             }
                             .padding([.leading,.trailing], 12)
