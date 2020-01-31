@@ -109,6 +109,22 @@ class FirebaseService: ObservableObject {
     func stopFetching(profile: Profile) {
         Database.database().reference(withPath: profile.path()).removeAllObservers()
     }
+    func fetchProfile(forUID: String, completion: @escaping (_ profile: Profile?) -> Void) {
+        let profilePath = Profile.pathFor(uid: forUID)
+        Database.database().reference(withPath: profilePath).observeSingleEvent(of: .value) { (snapshot) in
+            guard let snapshotValue = snapshot.value else {
+                completion(nil)
+                return
+            }
+            
+            do {
+                let profile = try FirebaseDecoder().decode(Profile.self, from: snapshotValue)
+                completion(profile)
+            } catch {
+                completion(nil)
+            }
+        }
+    }
     
     func update(profile: Profile, completion: @escaping (_ success: Bool)-> Void) {
         let profileData = profile.toData()
@@ -123,9 +139,39 @@ class FirebaseService: ObservableObject {
         locationService.getLocationFrom(address: address) { location in
             if let location = location {
                 print(location)
-                geoFire.setLocation(CLLocation(latitude: 37.7853889, longitude: -122.4056973), forKey: self.session!.uid)
+                geoFire.setLocation(location, forKey: self.session!.uid)
             }
         }
+    }
+    func getProfiles(for address: String, completion: @escaping ([Profile])->Void){
+        var foundProfiles: [Profile] = []
+        let geofireRef = Database.database().reference().child(FirebasePaths.geoHash.rawValue)
+        let geoFire = GeoFire(firebaseRef: geofireRef)
+        let locationService = LocationService()
+        locationService.getLocationFrom(addressString: address) { location in
+            if let location = location {
+                let center = location
+                // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
+                var circleQuery = geoFire.query(at: center, withRadius: 1)
+                
+                // Query location by region
+                let span =  MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+                let region = MKCoordinateRegion(center: center.coordinate, span: span)
+                let regionQuery = geoFire.query(with: region)
+                
+                var _ = regionQuery.observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
+                    print("Key '\(String(describing: key))' entered the search area and is at location '\(String(describing: location))'")
+                    self.fetchProfile(forUID: key) { (profile) in
+                        if let profile = profile {
+                            foundProfiles.append(profile)
+                            completion(foundProfiles)
+                        }
+                    }
+                })
+
+            }
+        }
+
     }
     
     

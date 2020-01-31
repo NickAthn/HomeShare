@@ -28,6 +28,7 @@ class SearchViewModel: ObservableObject {
         didSet {
             if self.isSearchCommited == true {
                 showSuggestions = false
+                getProfiles()
             }
         }
     }
@@ -41,6 +42,12 @@ class SearchViewModel: ObservableObject {
             self.autoSuggestions = suggestions
         }
         cancellables += [ stream ]
+    }
+    
+    func getProfiles() {
+        FirebaseService.shared.getProfiles(for: searchText) { profiles in
+            self.displayedProfiles = profiles
+        }
     }
 
 }
