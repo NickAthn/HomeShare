@@ -8,39 +8,56 @@
 
 import SwiftUI
 
+
 struct ProfileEditView: View {
     @ObservedObject var viewModel: ProfileEditViewModel = ProfileEditViewModel()
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         NavigationView {
-            
-            Form {
-                Section {
-                    Picker(selection: self.$viewModel.statusPickerSelection, label: Text("Status")) {
-                        ForEach(0..<GuestStatus.allCases.count, id: \.self) { index in
-                            Text(GuestStatus.allCases[index].getDescription()).tag(index)
+            VStack {
+                Button(action: {self.viewModel.showImagePicker.toggle()}) {
+                    ZStack(alignment: .bottom) {
+                        Image(uiImage: self.viewModel.profileImage ?? UIImage(named: "genericProfileImage")!)
+                            .renderingMode(.original)
+                            .resizable()
+                            .aspectRatio(1, contentMode: .fit)
+                            .cornerRadius(.infinity)
+                            .frame(height: 200)
+//                            .mask(Rectangle().padding(.bottom, 10).foregroundColor(.black))
                         }
-                    }.id(0)
                 }
+                .padding(.top)
                 
-                Section {
-                    NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
-                        Text("About me")
+                Form {
+                    Section {
+                        Picker(selection: self.$viewModel.statusPickerSelection, label: Text("Status")) {
+                            ForEach(0..<GuestStatus.allCases.count, id: \.self) { index in
+                                Text(GuestStatus.allCases[index].getDescription()).tag(index)
+                            }
+                        }.id(0)
                     }
-                    NavigationLink(destination: AddressSearchView(selectedAddress: self.$viewModel.profile.home.address, isActive: self.$viewModel.isActive), isActive: self.$viewModel.isActive){
-                        HStack {
-                            Text("Address")
-                            Spacer()
-                            Text(self.viewModel.profile.home.address.getDescription()).font(.body).foregroundColor(.secondary)
+                    
+                    Section {
+                        NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
+                            Text("About me")
+                        }
+                        NavigationLink(destination: AddressSearchView(selectedAddress: self.$viewModel.profile.home.address, isActive: self.$viewModel.isActive), isActive: self.$viewModel.isActive){
+                            HStack {
+                                Text("Address")
+                                Spacer()
+                                Text(self.viewModel.profile.home.address.getDescription()).font(.body).foregroundColor(.secondary)
+                            }
                         }
                     }
+                                    
                 }
-                                
+                .navigationBarTitle("Edit Profile")
+                .navigationBarItems(trailing: Button("Save", action: save))
+            }.sheet(isPresented: self.$viewModel.showImagePicker) {
+                ImagePicker(image: self.$viewModel.profileImage)
             }
-            .navigationBarTitle("Edit Profile")
-            .navigationBarItems(trailing: Button("Save", action: save))
-        
+            .background(Color(red: 242/255, green: 242/255, blue: 247/255))
         }
     }
     

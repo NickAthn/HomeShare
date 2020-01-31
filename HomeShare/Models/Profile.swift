@@ -43,6 +43,8 @@ struct Profile: FirebaseModal {
     var firstName: String
     var lastName: String
     
+    var profileImageURL: String = ""
+    
     var guestStatus: GuestStatus = .accepting
     
     var home: Home = .init()

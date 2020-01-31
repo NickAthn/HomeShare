@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class ProfileEditViewModel: ObservableObject {
 
@@ -18,6 +19,10 @@ class ProfileEditViewModel: ObservableObject {
     
     // Generic Bool to be used on many view to dismish them when called
     @Published var isActive = false
+    @Published var showImagePicker = false
+    
+    var initialImage: UIImage!
+    @Published var profileImage: UIImage? = UIImage(named: "genericProfileImage")
     
     init() {
         fetchProfile()
@@ -27,16 +32,41 @@ class ProfileEditViewModel: ObservableObject {
             if let profile = profile {
                 self.profile = profile
                 self.statusPickerSelection = profile.guestStatus.rawValue
-                
+                self.loadProfileImage()
             }
         }
     }
-    
+    func loadProfileImage() {
+        if profile.profileImageURL != "" {
+            FirStorageManager.shared.download(imageWithURL: profile.profileImageURL) { (image) in
+                if image != nil {
+                    DispatchQueue.main.async {
+                        self.profileImage = image
+                    }
+                    self.initialImage = image
+                } else {
+                    self.initialImage = nil
+                }
+                }
+        }
+    }
+    func uploadProfileImage(completion: @escaping ()->Void) {
+        if initialImage != profileImage && initialImage != nil {
+            FirStorageManager.shared.upload(profileImage!) { (url) in
+                self.profile.profileImageURL = url!.absoluteString
+                completion()
+            }
+        } else {
+            completion()
+        }
+    }
     func saveProfileChanges() {
         print(profile.description)
         profile.guestStatus = GuestStatus.allCases[statusPickerSelection]
         FirebaseService.shared.stopFetching(profile: profile)
-        FirebaseService.shared.setUserLocation(address: profile.home.address)
-        FirebaseService.shared.update(profile: self.profile) { success in}
+        uploadProfileImage() {
+            FirebaseService.shared.setUserLocation(address: self.profile.home.address)
+            FirebaseService.shared.update(profile: self.profile) { success in}
+        }
     }
 }

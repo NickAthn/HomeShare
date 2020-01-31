@@ -173,8 +173,7 @@ class FirebaseService: ObservableObject {
         }
 
     }
-    
-    
+        
     // MARK: - Error Handling
     func getErrorDescription(_ error: Error)->String {
         if let errorCode = AuthErrorCode(rawValue: error._code) {
