@@ -95,7 +95,7 @@ struct ProfileView: View {
                             
                             // MARK: Guest Status
                             HStack {
-                                Image(systemName: "person.3.fill")
+                                Image("sofaIcon")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(.green)
@@ -134,7 +134,7 @@ struct ProfileView: View {
                                     Text("From Greece Athens")
                                 }
                                 HStack {
-                                    Image(systemName: "mappin.and.ellipse")
+                                    Image("genderIcon")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 20)
