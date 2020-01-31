@@ -25,7 +25,7 @@ struct ProfileView: View {
                         Text("\(viewModel.profile.firstName) \(viewModel.profile.lastName)" )
                             .foregroundColor(.white)
                             .font(.system(size: 24, weight: .black, design: .default))
-                        Text("\(viewModel.profile.home.address)")
+                        Text("\(viewModel.profile.home.address.getDescription())")
                             .foregroundColor(.white)
                             .font(.system(size: 17, weight: .bold, design: .default))
                     }

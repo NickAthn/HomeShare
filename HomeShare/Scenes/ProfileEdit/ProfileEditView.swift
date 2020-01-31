@@ -27,6 +27,9 @@ struct ProfileEditView: View {
                     NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
                         Text("About me")
                     }
+                    NavigationLink(destination: AddressSearchView()) {
+                        Text("Address")
+                    }
                 }
                                 
             }

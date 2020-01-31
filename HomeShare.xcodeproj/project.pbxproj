@@ -36,6 +36,7 @@
 		E6560CF923E3BD5900257470 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6560CF823E3BD5900257470 /* MapView.swift */; };
 		E6560CFC23E3BDE600257470 /* AddressSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6560CFB23E3BDE600257470 /* AddressSearchView.swift */; };
 		E6560CFE23E3C17F00257470 /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6560CFD23E3C17F00257470 /* AddressSearchViewModel.swift */; };
+		E6560D0223E42EB000257470 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6560D0123E42EB000257470 /* Address.swift */; };
 		E662758A239A61C9002D8B0B /* ColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6627589239A61C9002D8B0B /* ColorPalette.xcassets */; };
 		E668A66823AF9F900030741D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E668A66723AF9F900030741D /* RegisterViewModel.swift */; };
 		E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */; };
@@ -99,6 +100,7 @@
 		E6560CF823E3BD5900257470 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E6560CFB23E3BDE600257470 /* AddressSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchView.swift; sourceTree = "<group>"; };
 		E6560CFD23E3C17F00257470 /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
+		E6560D0123E42EB000257470 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		E6627589239A61C9002D8B0B /* ColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalette.xcassets; sourceTree = "<group>"; };
 		E668A66723AF9F900030741D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E66C145023B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+ErrorDescriptions.swift"; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 			children = (
 				E6B756F423AE7AD10003F107 /* User.swift */,
 				E6FB686E23DE18890054888D /* Profile.swift */,
+				E6560D0123E42EB000257470 /* Address.swift */,
 				E67F0F3F23E34ACA002E6942 /* FirebaseModel.swift */,
 				E67F0F4123E351A2002E6942 /* FirebaseConstants.swift */,
 				E6560CF323E39C4F00257470 /* Option.swift */,
@@ -579,6 +582,7 @@
 				E67F0F4B23E35809002E6942 /* ResignKeyboardOnDragGesture.swift in Sources */,
 				E67F0F3E23E343D0002E6942 /* FirebaseService.swift in Sources */,
 				E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */,
+				E6560D0223E42EB000257470 /* Address.swift in Sources */,
 				E67F0F4F23E35DB5002E6942 /* SearchBar.swift in Sources */,
 				E64A334B23CCD67900618987 /* InboxRowView.swift in Sources */,
 				E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */,

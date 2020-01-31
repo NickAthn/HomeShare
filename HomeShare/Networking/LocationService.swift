@@ -17,18 +17,16 @@ class LocationService: NSObject, ObservableObject {
     
     let completer = MKLocalSearchCompleter()
     var queryFragment: String = ""
-    
     @Published var suggestions: [String] = []
     
     private var cancellables: [AnyCancellable] = []
 
-    func getLocation() {
-        let address = ""
-        
+    func getLocationFrom(address: String) {
         geoCoder.geocodeAddressString(address) { (placemarks, error) in
             guard
                 let placemarks = placemarks,
                 let _ = placemarks.first?.location
+                
             else {
                 // handle no location found
                 return
@@ -53,10 +51,8 @@ extension LocationService: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         let addresses = completer.results.map { result in
             result.title + ", " + result.subtitle
-            
         }
         suggestions = addresses
-        // use addresses, e.g. update model and call `tableView.reloadData()
     }
 
 

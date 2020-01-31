@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AddressSearchView: View {
     @ObservedObject var viewModel: AddressSearchViewModel = AddressSearchViewModel()
-
+    
     var body: some View {
         VStack {
             SearchBar(searchText: self.$viewModel.searchText, showCancelButton: self.$viewModel.showCancelButton)

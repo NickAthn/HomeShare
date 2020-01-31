@@ -44,7 +44,7 @@ struct Profile: FirebaseModal {
     
     var guestStatus: GuestStatus = .accepting
     
-    var home: Home
+    var home: Home = .init()
     
     var description: String = ""
     var havePets: Bool? = nil
@@ -62,12 +62,12 @@ struct Profile: FirebaseModal {
         return [FirebasePaths.profiles.rawValue, uid].joined(separator: FirebasePathSeparator)
     }
     
-    static var templateProfile = Profile(uid: "loading...", firstName: "loading...", lastName: "loading...", home: Home(address: "loading..."))
+    static var templateProfile = Profile(uid: "loading...", firstName: "loading...", lastName: "loading...")
     
 }
 
 struct Home: Codable {
-    var address: String
+    var address: Address = .init()
     
     var maxGuests: Int? = nil
     var petsAllowed: Bool? = nil
