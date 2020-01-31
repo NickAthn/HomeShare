@@ -12,7 +12,7 @@ struct SearchViewRow: View {
     var withProfile: Profile
 
     var body: some View {
-        NavigationLink (destination: EmptyView()) {
+        NavigationLink (destination: ProfileView(profile: withProfile)) {
             VStack {
                 ZStack(alignment: .bottomLeading) {
                     Image("exampleImage")
@@ -32,7 +32,7 @@ struct SearchViewRow: View {
                     .padding(.leading)
                     .padding(.bottom)
                 }
-            }.padding(.trailing, -15)
+            }.padding(.trailing, -15) // TODO: Delete after finding another way to remove the disclosure inidcator
         }
     }
 }

@@ -9,9 +9,16 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @ObservedObject var viewModel: ProfileViewModel = ProfileViewModel()
+    @ObservedObject var viewModel: ProfileViewModel
     @State var showEditModal: Bool = false // Due to SwiftUI Bug this cannot be stores in the viewModel as it deallocates
-
+    
+    init() {
+        viewModel = ProfileViewModel()
+    }
+    init(profile: Profile) {
+        viewModel = ProfileViewModel(profile: profile)
+    }
+    
     var body: some View {
         ScrollView {
 
@@ -166,8 +173,10 @@ struct ProfileView: View {
                             // Options
                             VStack(alignment: .leading) {
                                 SelectableCell(title: "House Information & Rules", style: .normal)
-                                SelectableCell(title: "Save Profile", style: .normal)
-                                SelectableCell(title: "Share link to the Profile", style: .normal)
+                                if viewModel.isViewOnly {
+                                    SelectableCell(title: "Save Profile", style: .normal)
+                                    SelectableCell(title: "Share link to the Profile", style: .normal)
+                                }
                             }
                         }
                     }
@@ -180,7 +189,9 @@ struct ProfileView: View {
         .navigationBarTitle("Profile", displayMode: .inline)
         .background(Color(red: 242/255, green: 242/255, blue: 247/255))
         .navigationBarItems(trailing: Button(action: {self.showEditModal.toggle()}) {
-            Image(systemName: "pencil.and.ellipsis.rectangle")
+            if !viewModel.isViewOnly {
+                Image(systemName: "pencil.and.ellipsis.rectangle")
+            } // Temproray until finding a way to dynamical set the bar items from the viewModel
         })
         .sheet(isPresented: self.$showEditModal) {
             ProfileEditView()

@@ -15,9 +15,18 @@ class ProfileViewModel: ObservableObject {
     // MARK: - OUTPUT
     @Published var guestStatusMessage: String = ""
     @Published var profile: Profile = Profile.templateProfile
+    
+    @Published var isViewOnly: Bool
+    
     init(){
+        isViewOnly = false
         fetchProfile()
     }
+    init(profile: Profile){
+        self.profile = profile
+        isViewOnly = true
+    }
+    
     func fetchProfile() {
         FirebaseService.shared.fetchProfileForCurrentUser { profile in
             if let profile = profile {
