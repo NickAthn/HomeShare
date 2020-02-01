@@ -15,6 +15,16 @@ struct Address: Codable {
     var postalCode: String = ""
     
     func getDescription() -> String {
-        return "\(city), \(region), \(country)"
+        var description: String = ""
+        if city != "" {
+            description += "\(city), "
+        }
+        if region != "" {
+            description += "\(region), "
+        }
+        if country != "" {
+            description += "\(country), "
+        }
+        return description
     }
 }

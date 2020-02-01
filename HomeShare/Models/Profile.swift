@@ -75,7 +75,7 @@ struct Profile: FirebaseModal {
         return [FirebasePaths.profiles.rawValue, uid].joined(separator: FirebasePathSeparator)
     }
     
-    static var templateProfile = Profile(uid: "loading...", firstName: "loading...", lastName: "loading...")
+    static var templateProfile = Profile(uid: "loading... ", firstName: "loading... ", lastName: "loading... ")
     
 }
 // Conforming to hashable and Equatable protocol
