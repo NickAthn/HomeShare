@@ -20,27 +20,29 @@ struct RegisterView: View {
     @ObservedObject var viewModel: RegisterViewModel = RegisterViewModel()
 
     var body: some View {
-        VStack(spacing: 10) {
-            Image("logo").padding()
-            
-            Group {
-                HStack {
-                    TextField("First Name",text: $firstName)
-                    TextField("Last Name",text: $lastName)
+        ScrollView {
+            VStack(spacing: 10) {
+                Image("logo").padding()
+                
+                Group {
+                    HStack {
+                        TextField("First Name",text: $firstName)
+                        TextField("Last Name",text: $lastName)
+                    }
+                    TextField("Email", text: $email)
+                    SecureField("Password", text: $password)
+                    SecureField("Re-Enter Password", text: $passwordConfirmation)
                 }
-                TextField("Email", text: $email)
-                SecureField("Password", text: $password)
-                SecureField("Re-Enter Password", text: $passwordConfirmation)
+                .padding()
+                .background(Color.Token.fieldDefault)
+                .cornerRadius(8)
+                
+                RoundedButton(title: "Register"){self.register()}
             }
-            .padding()
-            .background(Color.Token.fieldDefault)
-            .cornerRadius(8)
-            
-            RoundedButton(title: "Register"){self.register()}
-        }
-        .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
-        .alert(isPresented: $viewModel.isErrorShown) {
-            Alert(title: Text(viewModel.errorMessage))
+            .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
+            .alert(isPresented: $viewModel.isErrorShown) {
+                Alert(title: Text(viewModel.errorMessage))
+            }
         }
     }
     
