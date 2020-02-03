@@ -67,7 +67,7 @@ class ProfileEditViewModel: ObservableObject {
         FirebaseService.shared.stopFetching(profile: profile)
         uploadProfileImage() {
             FirebaseService.shared.setUserLocation(address: self.profile.home.address)
-            FirebaseService.shared.update(profile: self.profile) { success in}
+            FirebaseService.shared.update(profile: self.profile)
         }
     }
 }

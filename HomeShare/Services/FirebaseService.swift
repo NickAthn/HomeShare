@@ -24,6 +24,7 @@ class FirebaseService: ObservableObject {
                 print("🐞 Got user: \(user)")
                 guard let authUser = auth.currentUser else { return }
                 self.session = User(authData: authUser)
+                self.update(user: self.session!) // Updates the db entity
             } else {
                 self.session = nil
             }
@@ -109,6 +110,7 @@ class FirebaseService: ObservableObject {
     func stopFetching(profile: Profile) {
         Database.database().reference(withPath: profile.path()).removeAllObservers()
     }
+    
     func fetchProfile(forUID: String, completion: @escaping (_ profile: Profile?) -> Void) {
         let profilePath = Profile.pathFor(uid: forUID)
         Database.database().reference(withPath: profilePath).observeSingleEvent(of: .value) { (snapshot) in
@@ -126,12 +128,33 @@ class FirebaseService: ObservableObject {
         }
     }
     
-    func update(profile: Profile, completion: @escaping (_ success: Bool)-> Void) {
+    func update(profile: Profile) {
         let profileData = profile.toData()
-        print(profile.path())
-        
         Database.database().reference(withPath: profile.path()).setValue(profileData)
     }
+    
+    func fetchUser(forUID: String, completion: @escaping (_ profile: User?) -> Void ) {
+        let userPath = User.pathFor(uid: forUID)
+        Database.database().reference(withPath: userPath).observeSingleEvent(of: .value) { (snapshot) in
+            guard let snapshotValue = snapshot.value else {
+                completion(nil)
+                return
+            }
+            
+            do {
+                let user = try FirebaseDecoder().decode(User.self, from: snapshotValue)
+                completion(user)
+            } catch {
+                completion(nil)
+            }
+        }
+    }
+    
+    func update(user: User) {
+        let userData = user.toData()
+        Database.database().reference(withPath: user.path()).setValue(userData)
+    }
+    
     func setUserLocation(address: Address) {
         let geofireRef = Database.database().reference().child(FirebasePaths.geoHash.rawValue)
         let geoFire = GeoFire(firebaseRef: geofireRef)

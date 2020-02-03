@@ -44,10 +44,11 @@ struct ProfileView: View {
                 ZStack(alignment: .leading) {
                     Rectangle()
                         .frame(height: 30)
-                        .foregroundColor(.green)
+                        .foregroundColor(viewModel.currentUser.verificationStatus.color)
                     HStack {
-                        Image("verified_account")
-                        Text("Verified Account")
+                        viewModel.currentUser.verificationStatus.image
+                            .foregroundColor(.white)
+                        Text(viewModel.currentUser.verificationStatus.description)
                             .foregroundColor(.white)
                             .font(.system(size: 17, weight: .bold, design: .default))
                     }.padding(.leading, 6)

@@ -12,22 +12,49 @@ import Combine
 
 class ProfileViewModel: ObservableObject {
     
-    // MARK: - OUTPUT
     @Published var guestStatusMessage: String = ""
-    @Published var profile: Profile = Profile.templateProfile
-    
-    @Published var isViewOnly: Bool
     @Published var profileImage: UIImage = UIImage(named: "genericProfileImage")!
+
+    @Published var profile: Profile = Profile.templateProfile
+    @Published var currentUser: User = User.templateProfile
+
+    @Published var isViewOnly: Bool
+    
+    
+    // Initilise with the logged in user
     init(){
         isViewOnly = false
-        fetchProfile()
+        setup()
     }
+    // Initilise with the given user
     init(profile: Profile){
         self.profile = profile
         isViewOnly = true
-        self.loadProfileImage()
+        setup()
     }
     
+    func setup() {
+        if isViewOnly {
+            self.loadProfileImage()
+            self.fetchUser()
+        } else {
+            currentUser = FirebaseService.shared.session!
+            fetchProfile()
+        }
+    }
+    
+    // Fetch Current User Profile
+    func fetchProfile() {
+        FirebaseService.shared.fetchProfileForCurrentUser { profile in
+            if let profile = profile {
+                self.profile = profile
+                self.loadProfileImage()
+                print(profile.description)
+            }
+        }
+    }
+        
+    // Load Image with the store profile property
     func loadProfileImage() {
         if profile.profileImageURL != "" {
             FirStorageManager.shared.download(imageWithURL: profile.profileImageURL) { (image) in
@@ -42,14 +69,13 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-    func fetchProfile() {
-        FirebaseService.shared.fetchProfileForCurrentUser { profile in
-            if let profile = profile {
-                self.profile = profile
-                self.loadProfileImage()
-                print(profile.description)
+    // Fetch User entity
+    func fetchUser() {
+        FirebaseService.shared.fetchUser(forUID: profile.uid) { (user) in
+            if let user = user {
+                self.currentUser = user
             }
         }
     }
-        
+
 }

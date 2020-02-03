@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import SwiftUI
+import UIKit
 
 let FirebasePathSeparator = "/"
 let FirebaseEmptyValue = "null"
@@ -14,4 +16,7 @@ let FirebaseEmptyValue = "null"
 enum FirebasePaths: String {
     case profiles
     case geoHash
+    case users
 }
+
+

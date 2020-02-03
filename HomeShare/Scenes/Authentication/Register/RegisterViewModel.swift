@@ -25,7 +25,7 @@ class RegisterViewModel: ObservableObject{
             }
             guard let userID = result?.user.uid else {return}
             let newUserProfile = Profile(uid: userID, firstName: firstName, lastName: lastName)
-            FirebaseService.shared.update(profile: newUserProfile) {_ in }
+            FirebaseService.shared.update(profile: newUserProfile)
 //            let changeRequest = result?.user.createProfileChangeRequest()
 //            changeRequest?.displayName = firstName + " " + lastName
 //            changeRequest?.commitChanges { error in
