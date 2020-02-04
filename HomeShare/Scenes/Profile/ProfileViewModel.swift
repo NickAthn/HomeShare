@@ -78,4 +78,8 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
+    // ViewOnly Methods
+    func sendMessage() {
+        
+    }
 }
