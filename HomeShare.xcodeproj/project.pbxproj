@@ -70,6 +70,7 @@
 		E6B66AC323EB045E00706532 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC223EB045E00706532 /* ConversationViewModel.swift */; };
 		E6B66AC523EB2C7000706532 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC423EB2C7000706532 /* MessageRow.swift */; };
 		E6B66AC723EB37C000706532 /* AutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC623EB37C000706532 /* AutoScrollView.swift */; };
+		E6B66AC923EB3A5600706532 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC823EB3A5600706532 /* KeyboardResponder.swift */; };
 		E6B672DC23E9DB8F00446914 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B672DB23E9DB8F00446914 /* AddReviewViewModel.swift */; };
 		E6B672DE23E9E68000446914 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B672DD23E9E68000446914 /* Review.swift */; };
 		E6B672E023E9E81500446914 /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B672DF23E9E81500446914 /* ReviewsViewModel.swift */; };
@@ -147,6 +148,7 @@
 		E6B66AC223EB045E00706532 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
 		E6B66AC423EB2C7000706532 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
 		E6B66AC623EB37C000706532 /* AutoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoScrollView.swift; sourceTree = "<group>"; };
+		E6B66AC823EB3A5600706532 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 		E6B672DB23E9DB8F00446914 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
 		E6B672DD23E9E68000446914 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		E6B672DF23E9E81500446914 /* ReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				E67F0F4E23E35DB5002E6942 /* SearchBar.swift */,
 				E6560CF823E3BD5900257470 /* MapView.swift */,
 				E6B66AC623EB37C000706532 /* AutoScrollView.swift */,
+				E6B66AC823EB3A5600706532 /* KeyboardResponder.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */,
 				E64A334D23CCD7E700618987 /* InboxModel.swift in Sources */,
 				E62AD42123DC5E68002C61F9 /* Seperator.swift in Sources */,
+				E6B66AC923EB3A5600706532 /* KeyboardResponder.swift in Sources */,
 				E653CF3223DB4F7D0093D064 /* Color+Extensions.swift in Sources */,
 				E67F0F3623E3407E002E6942 /* ProfileView.swift in Sources */,
 				E6006A6C23DB5E9D008DB3E4 /* GoogleLoginButton.swift in Sources */,

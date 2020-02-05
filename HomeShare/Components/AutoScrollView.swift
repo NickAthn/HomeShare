@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct AutoScrollView<Content>: View where Content: View {
+    @Binding var extraOffset: CGFloat
+    
     var axes: Axis.Set = .vertical
     var reversed: Bool = false
     var scrollToEnd: Bool = false
@@ -38,7 +40,7 @@ struct AutoScrollView<Content>: View where Content: View {
             self.updateHeight(with: $0, outerHeight: geometry.size.height)
         }
         .frame(height: geometry.size.height, alignment: (reversed ? .bottom : .top))
-        .offset(y: contentOffset + scrollOffset)
+        .offset(y: contentOffset + scrollOffset - extraOffset)
         .animation(.easeInOut)
         .background(Color.white)
         .gesture(DragGesture()
