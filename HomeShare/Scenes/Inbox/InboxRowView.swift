@@ -9,26 +9,60 @@
 import SwiftUI
 
 struct InboxRowView: View {
-    var inboxData: InboxModel
+    @ObservedObject var viewModel: InboxRowViewModel
+    
+    init(conversation: Conversation){
+        self.viewModel = InboxRowViewModel(conversation: conversation)
+    }
     
     var body: some View {
         HStack {
-            Image("exampleImage")
+            Image(uiImage: self.viewModel.uiImage)
                 .resizable()
+                .aspectRatio(1, contentMode: .fill)
                 .frame(width: 50, height: 50)
                 .cornerRadius(.infinity)
             VStack(alignment: .leading){
-                Text("Title")
+                Text(self.viewModel.title)
                     .font(.headline)
-                Text("Description")
+                    .foregroundColor(.black)
+                Text(self.viewModel.lastMessage)
+                    .foregroundColor(.black)
                     .font(.body)
             }
         }
     }
 }
 
-struct InboxRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        InboxRowView(inboxData: InboxModel(title: "afej", description: "aef", avatar: "aef"))
+class InboxRowViewModel: ObservableObject {
+    @Published var conversation: Conversation
+    @Published var title: String = ""
+    @Published var lastMessage: String = ""
+    @Published var uiImage: UIImage = UIImage(named: "genericProfileImage")!
+    
+    init(conversation: Conversation){
+        self.conversation = conversation
+        self.lastMessage = conversation.lastMessage ?? ""
+        self.fetchData()
     }
+    
+    func fetchData() {
+        guard let currentUserID = FirebaseService.shared.session?.uid else { return }
+        FirebaseService.shared.fetchProfile(forUID: conversation.userIDs.filter{$0 != currentUserID}.first!) { (profile) in
+            if let profile = profile {
+                self.title = profile.getFullName()
+                
+                if profile.profileImageURL != "" {
+                    FirStorageManager.shared.download(imageWithURL: profile.profileImageURL) { image in
+                        if let image = image {
+                            DispatchQueue.main.async {
+                                self.uiImage = image
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

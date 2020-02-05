@@ -78,13 +78,13 @@ class MessagingService: ObservableObject {
     
     
     func fetchConverastions(for profile: Profile, completion: @escaping (_ profile: [Conversation]) -> Void) {
-        
+        var conversations: [Conversation] = []
+
         guard let conversationsIDS = profile.conversations else {
             completion([])
             return
         }
         for conversationID in conversationsIDS {
-            var conversations: [Conversation] = []
             Database.database().reference(withPath: Conversation.pathFor(id: conversationID)).observe(.value) { (snapshot) in
                 guard let snapshotValue = snapshot.value else {
                     return

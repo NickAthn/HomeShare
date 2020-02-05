@@ -12,6 +12,20 @@ import Combine
 class InboxViewModel: ObservableObject {
     let didChange = PassthroughSubject<Void, Never>()
     
+    @Published var conversations: [Conversation] = []
     
+    init() {
+        self.fetchConversations()
+    }
+    
+    func fetchConversations() {
+        FirebaseService.shared.fetchProfileForCurrentUser { (profile) in
+            if let profile = profile {
+                MessagingService.shared.fetchConverastions(for: profile) { (conversations) in
+                    self.conversations = conversations
+                }
+            }
+        }
+    }
 }
 

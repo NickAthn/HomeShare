@@ -9,7 +9,7 @@
 import Foundation
 import CodableFirebase
 
-struct Conversation: Codable {
+struct Conversation: Codable, Identifiable {
     
     var id: String = UUID().uuidString
     var userIDs = [String]()

@@ -73,6 +73,10 @@ struct Profile: FirebaseModal {
         return Profile.pathFor(uid: self.uid)
     }
     
+    func getFullName() -> String {
+        return "\(firstName) \(lastName)"
+    }
+    
     static func pathFor(uid: String) -> String {
         return [FirebasePaths.profiles.rawValue, uid].joined(separator: FirebasePathSeparator)
     }
