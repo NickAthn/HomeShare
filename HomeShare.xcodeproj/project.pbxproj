@@ -69,6 +69,7 @@
 		E6B66AC123EB03E200706532 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC023EB03E200706532 /* ConversationView.swift */; };
 		E6B66AC323EB045E00706532 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC223EB045E00706532 /* ConversationViewModel.swift */; };
 		E6B66AC523EB2C7000706532 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC423EB2C7000706532 /* MessageRow.swift */; };
+		E6B66AC723EB37C000706532 /* AutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC623EB37C000706532 /* AutoScrollView.swift */; };
 		E6B672DC23E9DB8F00446914 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B672DB23E9DB8F00446914 /* AddReviewViewModel.swift */; };
 		E6B672DE23E9E68000446914 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B672DD23E9E68000446914 /* Review.swift */; };
 		E6B672E023E9E81500446914 /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B672DF23E9E81500446914 /* ReviewsViewModel.swift */; };
@@ -145,6 +146,7 @@
 		E6B66AC023EB03E200706532 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
 		E6B66AC223EB045E00706532 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
 		E6B66AC423EB2C7000706532 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
+		E6B66AC623EB37C000706532 /* AutoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoScrollView.swift; sourceTree = "<group>"; };
 		E6B672DB23E9DB8F00446914 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
 		E6B672DD23E9E68000446914 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		E6B672DF23E9E81500446914 /* ReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				E66DEF7123B90E5E003470C0 /* SelectableCell.swift */,
 				E67F0F4E23E35DB5002E6942 /* SearchBar.swift */,
 				E6560CF823E3BD5900257470 /* MapView.swift */,
+				E6B66AC623EB37C000706532 /* AutoScrollView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				E66C145123B25812007FD7ED /* AuthErrorCode+ErrorDescriptions.swift in Sources */,
 				E6560D0223E42EB000257470 /* Address.swift in Sources */,
 				E67F0F4F23E35DB5002E6942 /* SearchBar.swift in Sources */,
+				E6B66AC723EB37C000706532 /* AutoScrollView.swift in Sources */,
 				E64A334B23CCD67900618987 /* InboxRowView.swift in Sources */,
 				E6A6427323D8A57A00733CB4 /* FirStorageManager.swift in Sources */,
 				E64A334D23CCD7E700618987 /* InboxModel.swift in Sources */,

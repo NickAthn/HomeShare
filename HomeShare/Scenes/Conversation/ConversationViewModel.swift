@@ -43,9 +43,18 @@ class ConversationViewModel: ObservableObject {
         MessagingService.shared.fetchMessages(from: conversation) { (messages) in
             if let messages = messages {
                 self.messages = messages
+                self.listenForNewMessages()
             }
             
         }
     }
-
+    func listenForNewMessages(){
+        MessagingService.shared.fetchNewMessages(from: conversation) { (message) in
+            if let message = message {
+                if !self.messages.contains(message) {
+                    self.messages.append(message)
+                }
+            }
+        }
+    }
 }

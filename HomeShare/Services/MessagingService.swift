@@ -118,7 +118,9 @@ class MessagingService: ObservableObject {
     
     func fetchMessages(from conversation: Conversation, completion: @escaping (_ profile: [Message]?) -> Void) {
         var messages: [Message] = []
-        Database.database().reference(withPath: conversation.messagesPath()).observe(.value) { (snapshot) in
+        let query = Database.database().reference(withPath: conversation.messagesPath()).queryOrdered(byChild: "timestamp")
+        query.observeSingleEvent(of: .value) { (snapshot) in
+            print(snapshot)
             for child in snapshot.children.allObjects {
                 let snap = child as! DataSnapshot
                 guard let snapValue = snap.value else {
@@ -134,5 +136,21 @@ class MessagingService: ObservableObject {
                 }
             }
         }
+    }
+    
+    func fetchNewMessages(from conversation: Conversation, completion: @escaping (_ profile: Message?) -> Void){
+        let query = Database.database().reference(withPath: conversation.messagesPath()).queryOrdered(byChild: "timestamp")
+        query.observe(.childAdded){ (snapshot) in
+            print(snapshot)
+            guard let snapshotValue = snapshot.value else {
+                return
+            }
+            do {
+                let message = try FirebaseDecoder().decode(Message.self, from: snapshotValue)
+                completion(message)
+            } catch {
+            }
+        }
+
     }
 }

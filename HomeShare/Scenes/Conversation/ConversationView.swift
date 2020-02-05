@@ -19,9 +19,9 @@ struct ConversationView: View {
     
     var body: some View {
         VStack {
-            ScrollView {
-                ForEach(viewModel.messages, id:\.self) { message in
-                    MessageRow(message: message)
+            AutoScrollView(scrollToEnd: true) {
+                ForEach(self.viewModel.messages, id:\.self) { message in
+                    MessageRow(senderID: FirebaseService.shared.session!.uid, message: message)
                 }
             }
 
@@ -31,7 +31,7 @@ struct ConversationView: View {
                     Text("Send")
                 }
             }
-        }
+        }.padding([.leading,.trailing])
 
     }
 }

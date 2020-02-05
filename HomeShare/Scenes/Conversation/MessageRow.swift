@@ -9,11 +9,28 @@
 import SwiftUI
 
 struct MessageRow: View {
-    var alignment: HorizontalAlignment = .leading
+    var senderID: String
+    var alignment: HorizontalAlignment {
+        get {
+            if senderID == message.ownerID {
+                return .trailing
+            } else {
+                return .leading
+            }
+        }
+    }
     var message: Message
     var body: some View {
         VStack(alignment: alignment) {
+            HStack{
+                Spacer()
+            }
             Text(message.content)
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.blue)
+                .cornerRadius(20)
         }
     }
 }
+
