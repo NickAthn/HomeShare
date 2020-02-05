@@ -63,6 +63,12 @@
 		E6A9E57623E992DB00ACFA4D /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A9E57523E992DB00ACFA4D /* ReviewsView.swift */; };
 		E6A9E57923E992EF00ACFA4D /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A9E57823E992EF00ACFA4D /* AddReviewView.swift */; };
 		E6A9E57B23E9955300ACFA4D /* ReviewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A9E57A23E9955300ACFA4D /* ReviewsRow.swift */; };
+		E6B66ABA23EAFEE600706532 /* MessagingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AB923EAFEE600706532 /* MessagingService.swift */; };
+		E6B66ABC23EAFF5600706532 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66ABB23EAFF5600706532 /* Message.swift */; };
+		E6B66ABE23EB000C00706532 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66ABD23EB000C00706532 /* Conversation.swift */; };
+		E6B66AC123EB03E200706532 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC023EB03E200706532 /* ConversationView.swift */; };
+		E6B66AC323EB045E00706532 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC223EB045E00706532 /* ConversationViewModel.swift */; };
+		E6B66AC523EB2C7000706532 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B66AC423EB2C7000706532 /* MessageRow.swift */; };
 		E6B672DC23E9DB8F00446914 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B672DB23E9DB8F00446914 /* AddReviewViewModel.swift */; };
 		E6B672DE23E9E68000446914 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B672DD23E9E68000446914 /* Review.swift */; };
 		E6B672E023E9E81500446914 /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B672DF23E9E81500446914 /* ReviewsViewModel.swift */; };
@@ -133,6 +139,12 @@
 		E6A9E57523E992DB00ACFA4D /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
 		E6A9E57823E992EF00ACFA4D /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		E6A9E57A23E9955300ACFA4D /* ReviewsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsRow.swift; sourceTree = "<group>"; };
+		E6B66AB923EAFEE600706532 /* MessagingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingService.swift; sourceTree = "<group>"; };
+		E6B66ABB23EAFF5600706532 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		E6B66ABD23EB000C00706532 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		E6B66AC023EB03E200706532 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		E6B66AC223EB045E00706532 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
+		E6B66AC423EB2C7000706532 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
 		E6B672DB23E9DB8F00446914 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
 		E6B672DD23E9E68000446914 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		E6B672DF23E9E81500446914 /* ReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
@@ -223,6 +235,7 @@
 		E61FD85F239E8E92003C8E1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E6B66ABF23EB03C600706532 /* Conversation */,
 				E6A9E57723E992DF00ACFA4D /* AddReview */,
 				E6A9E57423E992CB00ACFA4D /* Reviews */,
 				E6560CFA23E3BDC600257470 /* AddressSearch */,
@@ -230,7 +243,6 @@
 				E67F0F3823E34087002E6942 /* ProfileEdit */,
 				E6FB686223DE0DE40054888D /* Profile */,
 				E64A334123CCD1A500618987 /* Inbox */,
-				E66650EC23CA36DB00942756 /* Hosting */,
 				E66C145223B4F616007FD7ED /* MainTab */,
 				E63E158323B7CA2D0056F2AC /* Account */,
 				E61FD861239E8EA9003C8E1B /* Dashboard */,
@@ -356,13 +368,6 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
-		E66650EC23CA36DB00942756 /* Hosting */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Hosting;
-			sourceTree = "<group>";
-		};
 		E66C144F23B25797007FD7ED /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +424,16 @@
 			path = AddReview;
 			sourceTree = "<group>";
 		};
+		E6B66ABF23EB03C600706532 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				E6B66AC023EB03E200706532 /* ConversationView.swift */,
+				E6B66AC223EB045E00706532 /* ConversationViewModel.swift */,
+				E6B66AC423EB2C7000706532 /* MessageRow.swift */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
 		E6B756E623AE444F0003F107 /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +449,7 @@
 				E67F0F3D23E343D0002E6942 /* FirebaseService.swift */,
 				E6A6427223D8A57A00733CB4 /* FirStorageManager.swift */,
 				E6560CF523E3BA7400257470 /* LocationService.swift */,
+				E6B66AB923EAFEE600706532 /* MessagingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -448,6 +464,8 @@
 				E6560CF323E39C4F00257470 /* Option.swift */,
 				E67F0F3F23E34ACA002E6942 /* FirebaseModel.swift */,
 				E67F0F4123E351A2002E6942 /* FirebaseConstants.swift */,
+				E6B66ABB23EAFF5600706532 /* Message.swift */,
+				E6B66ABD23EB000C00706532 /* Conversation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -611,9 +629,11 @@
 				E63E157F23B516B90056F2AC /* ActivityIndicator.swift in Sources */,
 				E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */,
 				E6B672DC23E9DB8F00446914 /* AddReviewViewModel.swift in Sources */,
+				E6B66AC323EB045E00706532 /* ConversationViewModel.swift in Sources */,
 				E67F0F5123E35F54002E6942 /* SearchViewRow.swift in Sources */,
 				E64A334323CCD1C500618987 /* InboxView.swift in Sources */,
 				E6B672DE23E9E68000446914 /* Review.swift in Sources */,
+				E6B66AC523EB2C7000706532 /* MessageRow.swift in Sources */,
 				E67F0F4D23E35858002E6942 /* View+Extensions.swift in Sources */,
 				E67F0F4B23E35809002E6942 /* ResignKeyboardOnDragGesture.swift in Sources */,
 				E67F0F3E23E343D0002E6942 /* FirebaseService.swift in Sources */,
@@ -643,6 +663,8 @@
 				E60AFB132397D0DC00211C28 /* AppDelegate.swift in Sources */,
 				E653CF3023DB4C5D0093D064 /* TextView.swift in Sources */,
 				E67F0F4723E35704002E6942 /* SearchViewModel.swift in Sources */,
+				E6B66ABC23EAFF5600706532 /* Message.swift in Sources */,
+				E6B66AC123EB03E200706532 /* ConversationView.swift in Sources */,
 				E60AFB152397D0DC00211C28 /* SceneDelegate.swift in Sources */,
 				E67F0F4023E34ACA002E6942 /* FirebaseModel.swift in Sources */,
 				E6560CF623E3BA7400257470 /* LocationService.swift in Sources */,
@@ -651,6 +673,7 @@
 				E6560CF423E39C4F00257470 /* Option.swift in Sources */,
 				E668A66823AF9F900030741D /* RegisterViewModel.swift in Sources */,
 				E6B756E823AE44610003F107 /* RegisterView.swift in Sources */,
+				E6B66ABE23EB000C00706532 /* Conversation.swift in Sources */,
 				E67F0F3723E3407E002E6942 /* ProfileViewModel.swift in Sources */,
 				E6A9E57623E992DB00ACFA4D /* ReviewsView.swift in Sources */,
 				E6560CFC23E3BDE600257470 /* AddressSearchView.swift in Sources */,
@@ -658,6 +681,7 @@
 				E67F0F4523E356FB002E6942 /* SearchView.swift in Sources */,
 				E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */,
 				E6B672E023E9E81500446914 /* ReviewsViewModel.swift in Sources */,
+				E6B66ABA23EAFEE600706532 /* MessagingService.swift in Sources */,
 				E6B756F523AE7AD10003F107 /* User.swift in Sources */,
 				E67F0F3C23E34087002E6942 /* ProfileEditViewModel.swift in Sources */,
 				E653C10623991D6600EBB56F /* Typography.swift in Sources */,

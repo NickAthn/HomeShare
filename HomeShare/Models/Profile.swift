@@ -59,6 +59,7 @@ struct Profile: FirebaseModal {
     
     var home: Home = .init()
     var reviewIDS: [String]? = []
+    var conversations: [String]? = []
     
     var description: String = ""
     var havePets: Bool? = nil

@@ -11,7 +11,8 @@ import SwiftUI
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
     @State var showEditModal: Bool = false // Due to SwiftUI Bug this cannot be stores in the viewModel as it deallocates
-    
+    @State var showConversation: Bool = false // Due to SwiftUI Bug this cannot be stores in the viewModel as it deallocates
+
     init() {
         viewModel = ProfileViewModel()
     }
@@ -20,7 +21,7 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        VStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     // Profile Image
@@ -169,7 +170,7 @@ struct ProfileView: View {
             }
             
             if viewModel.isViewOnly {
-                Button(action: self.viewModel.sendMessage) {
+                Button(action: {self.showConversation.toggle()}) {
                     HStack {
                         Spacer()
                         Image(systemName: "envelope.fill")
@@ -185,6 +186,8 @@ struct ProfileView: View {
                 .background(Color.Token.textHighlight)
                 
             }
+        }.sheet(isPresented: self.$showConversation) {
+            ConversationView(to: self.viewModel.profile)
         }
     } 
 

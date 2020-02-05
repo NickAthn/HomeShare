@@ -19,7 +19,8 @@ class ProfileViewModel: ObservableObject {
     @Published var currentUser: User = User.templateProfile
 
     @Published var isViewOnly: Bool
-    
+
+
     
     // Initilise with the logged in user
     init(){
@@ -76,10 +77,5 @@ class ProfileViewModel: ObservableObject {
                 self.currentUser = user
             }
         }
-    }
-
-    // ViewOnly Methods
-    func sendMessage() {
-        
     }
 }
