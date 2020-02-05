@@ -58,6 +58,7 @@ struct Profile: FirebaseModal {
     var guestStatus: GuestStatus = .accepting
     
     var home: Home = .init()
+    var reviews: [Review]?
     
     var description: String = ""
     var havePets: Bool? = nil

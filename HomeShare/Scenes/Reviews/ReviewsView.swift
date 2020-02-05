@@ -9,7 +9,11 @@
 import SwiftUI
 
 struct ReviewsView: View {
-    @ObservedObject var viewModel: ReviewsViewModel = ReviewsViewModel()
+    @ObservedObject var viewModel: ReviewsViewModel
+    
+    init(profile: Profile, isViewOnly: Bool) {
+        viewModel = ReviewsViewModel(profile: profile, isViewOnly: isViewOnly)
+    }
 
     var body: some View {
         ScrollView {
@@ -88,13 +92,7 @@ struct ReviewsView: View {
         }
         .padding([.leading,.trailing])
         .navigationBarTitle("Likes & Reviews")
-        .sheet(isPresented: self.$viewModel.showAddReviewModal ) { AddReviewView() }
-        
+        .sheet(isPresented: self.$viewModel.showAddReviewModal ) { AddReviewView(profile: self.viewModel.profile, isViewOnly: self.viewModel.isViewOnly) }
     }
 }
 
-struct ReviewsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReviewsView()
-    }
-}

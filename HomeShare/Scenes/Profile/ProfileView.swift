@@ -59,7 +59,7 @@ struct ProfileView: View {
                         ZStack(alignment: .leading) {
                             VStack(alignment: .leading, spacing: 15) {
                                 // MARK: Reviews
-                                ReviewsRow()
+                                ReviewsRow(isViewOnly: viewModel.isViewOnly, profile: viewModel.profile)
                                 
                                 // MARK: Guest Status
                                 HStack {

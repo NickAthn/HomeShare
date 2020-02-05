@@ -7,9 +7,18 @@
 //
 
 import Foundation
+import CodableFirebase
 
 struct Review: Codable {
-    var isLiked: Bool
-    var title: String?
-    var description: String?
+    var id: String = ""
+    var reviewerID: String
+    
+    var isLiked: Bool = false
+    var title: String? = ""
+    var description: String? = ""
+        
+    func toData()-> Any {
+        return try! FirebaseEncoder().encode(self)
+    }
+
 }

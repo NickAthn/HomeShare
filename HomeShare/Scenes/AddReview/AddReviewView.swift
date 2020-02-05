@@ -9,7 +9,11 @@
 import SwiftUI
 
 struct AddReviewView: View {
-    @ObservedObject var viewModel: AddReviewViewModel = AddReviewViewModel()
+    @ObservedObject var viewModel: AddReviewViewModel
+
+    init(profile: Profile, isViewOnly: Bool) {
+        viewModel = AddReviewViewModel(profile: profile, isViewOnly: isViewOnly)
+    }
 
     var body: some View {
         NavigationView {
@@ -61,10 +65,4 @@ struct AddReviewView: View {
         }
     }
     
-}
-
-struct AddReviewView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddReviewView()
-    }
 }

@@ -132,6 +132,25 @@ class FirebaseService: ObservableObject {
         let profileData = profile.toData()
         Database.database().reference(withPath: profile.path()).setValue(profileData)
     }
+    func updateReview(profile: Profile, review: Review) {
+        var review = review // To make it editable
+        
+        let profilePath = Database.database().reference(withPath: profile.path())
+        let reviewsPath = profilePath.child("reviews")
+        
+        
+        if review.id == "" {
+            // Then the review is new
+            let reviewPath = reviewsPath.childByAutoId()
+            guard let reviewID = reviewPath.key else { return  }
+            review.id = reviewID
+            reviewPath.setValue(review.toData())
+        } else {
+            // Reviews needs updating
+            let reviewPath = reviewsPath.child(review.id)
+            reviewPath.setValue(review.toData())
+        }
+    }
     
     func fetchUser(forUID: String, completion: @escaping (_ profile: User?) -> Void ) {
         let userPath = User.pathFor(uid: forUID)

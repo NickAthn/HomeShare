@@ -11,8 +11,11 @@ import SwiftUI
 struct ReviewsRow: View {
     @State var showReviews: Bool = false
     
+    var isViewOnly: Bool
+    var profile: Profile
+    
     var body: some View {
-        NavigationLink(destination: ReviewsView()){
+        NavigationLink(destination: ReviewsView(profile: profile, isViewOnly: isViewOnly)){
             HStack {
                 Image(systemName: "quote.bubble.fill")
                     .resizable()
