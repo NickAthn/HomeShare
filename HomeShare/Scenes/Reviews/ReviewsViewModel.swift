@@ -14,6 +14,7 @@ class ReviewsViewModel: ObservableObject {
     let profile: Profile
     let isViewOnly: Bool
 
+    var reviews: [Review] = []
     @Published var showAddReviewModal: Bool = false
     @Published var isLikePressed: Bool = false {
         willSet {
@@ -26,9 +27,9 @@ class ReviewsViewModel: ObservableObject {
         }
     }
     
-    init(profile: Profile, isViewOnly: Bool) {
+    init(profile: Profile, isViewOnly: Bool, reviews: [Review]) {
         self.profile = profile
         self.isViewOnly = isViewOnly
+        self.reviews = reviews
     }
-
 }

@@ -17,6 +17,7 @@ enum FirebasePaths: String {
     case profiles
     case geoHash
     case users
+    case reviews
 }
 
 

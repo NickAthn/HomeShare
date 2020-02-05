@@ -11,8 +11,7 @@ import Combine
 
 class AddReviewViewModel: ObservableObject {
     let profile: Profile
-    let isViewOnly: Bool
-    
+
     @Published var title: String = ""
     @Published var desc: String = ""
     
@@ -35,9 +34,8 @@ class AddReviewViewModel: ObservableObject {
     
     @Published var isSendButtonDisabled: Bool = true
     
-    init(profile: Profile, isViewOnly: Bool) {
+    init(profile: Profile) {
         self.profile = profile
-        self.isViewOnly = isViewOnly
     }
     
     func updateSendButton() {
@@ -50,7 +48,7 @@ class AddReviewViewModel: ObservableObject {
     
     func send() {
         guard let currentUser = FirebaseService.shared.session else { return }
-        var review = Review(reviewerID: currentUser.uid)
+        var review = Review(from: currentUser.uid, to: profile.uid)
         
         if title != "" {
             review.title = title

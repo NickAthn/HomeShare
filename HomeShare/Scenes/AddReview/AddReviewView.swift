@@ -10,9 +10,10 @@ import SwiftUI
 
 struct AddReviewView: View {
     @ObservedObject var viewModel: AddReviewViewModel
+    @Environment(\.presentationMode) var presentationMode
 
-    init(profile: Profile, isViewOnly: Bool) {
-        viewModel = AddReviewViewModel(profile: profile, isViewOnly: isViewOnly)
+    init(profile: Profile) {
+        viewModel = AddReviewViewModel(profile: profile)
     }
 
     var body: some View {
@@ -60,9 +61,14 @@ struct AddReviewView: View {
                     .frame(height: 400)
             }
             .navigationBarTitle("Write a Review")
-            .navigationBarItems(trailing: Button(action: self.viewModel.send) {Text("Send")}.disabled(viewModel.isSendButtonDisabled) )
+            .navigationBarItems(trailing: Button(action: self.submitReview) {Text("Send")}.disabled(viewModel.isSendButtonDisabled) )
             .padding([.leading,.trailing])
         }
+    }
+    
+    func submitReview() {
+        viewModel.send()
+        presentationMode.wrappedValue.dismiss()
     }
     
 }

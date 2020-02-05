@@ -10,9 +10,10 @@ import SwiftUI
 
 struct ReviewsView: View {
     @ObservedObject var viewModel: ReviewsViewModel
-    
-    init(profile: Profile, isViewOnly: Bool) {
-        viewModel = ReviewsViewModel(profile: profile, isViewOnly: isViewOnly)
+    var reviews: [Review] = []
+    init(profile: Profile, isViewOnly: Bool, reviews: [Review]) {
+        viewModel = ReviewsViewModel(profile: profile, isViewOnly: isViewOnly, reviews: reviews)
+        self.reviews = reviews
     }
 
     var body: some View {
@@ -72,27 +73,33 @@ struct ReviewsView: View {
             }
             Spacer().frame(height: 30)
             
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Title")
-                        .font(.headline)
-                    Spacer()
-                    Image("hand.thumbsdown.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundColor(.red)
-                        .frame(width: 20)
-
-                }
-                Text("Decritption goes here")
-            }
-            .padding(20)
-            .background(Color.Token.fieldDefault)
-            .cornerRadius(10)
+            
         }
         .padding([.leading,.trailing])
         .navigationBarTitle("Likes & Reviews")
-        .sheet(isPresented: self.$viewModel.showAddReviewModal ) { AddReviewView(profile: self.viewModel.profile, isViewOnly: self.viewModel.isViewOnly) }
+        .sheet(isPresented: self.$viewModel.showAddReviewModal ) { AddReviewView(profile: self.viewModel.profile) }
     }
 }
 
+struct ReviewDisplayRow: View {
+    let review: Review
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Title")
+                    .font(.headline)
+                Spacer()
+                Image("hand.thumbsdown.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.red)
+                    .frame(width: 20)
+
+            }
+            Text("Decritption goes here")
+        }
+        .padding(20)
+        .background(Color.Token.fieldDefault)
+        .cornerRadius(10)
+    }
+}

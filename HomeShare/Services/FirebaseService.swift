@@ -102,6 +102,7 @@ class FirebaseService: ObservableObject {
                 let profile = try FirebaseDecoder().decode(Profile.self, from: snapshotValue)
                 completion(profile)
             } catch {
+                print("🐞 Decoding Error: \(error)")
                 completion(nil)
             }
         }
@@ -128,6 +129,27 @@ class FirebaseService: ObservableObject {
         }
     }
     
+    func fetchReviews(ids: [String], completion: @escaping (_ reviews: [Review]?) -> Void) {
+        var reviews: [Review] = []
+        for id in ids {
+            Database.database().reference(withPath: Review.pathFor(id: id)).observeSingleEvent(of: .value) { (snapshot) in
+                guard let snapshotValue = snapshot.value else {
+                    completion(nil)
+                    return
+                }
+                do {
+                    let review = try FirebaseDecoder().decode(Review.self, from: snapshotValue)
+                    reviews.append(review)
+                    completion(reviews)
+                } catch {
+                    print("🐞 Decoding Error: \(error)")
+                }
+
+                
+            }
+        }
+    }
+    
     func update(profile: Profile) {
         let profileData = profile.toData()
         Database.database().reference(withPath: profile.path()).setValue(profileData)
@@ -135,19 +157,24 @@ class FirebaseService: ObservableObject {
     func updateReview(profile: Profile, review: Review) {
         var review = review // To make it editable
         
-        let profilePath = Database.database().reference(withPath: profile.path())
-        let reviewsPath = profilePath.child("reviews")
-        
-        
         if review.id == "" {
             // Then the review is new
-            let reviewPath = reviewsPath.childByAutoId()
+            let reviewPath = Database.database().reference(withPath: FirebasePaths.reviews.rawValue).childByAutoId()
             guard let reviewID = reviewPath.key else { return  }
             review.id = reviewID
             reviewPath.setValue(review.toData())
+            
+            // Add review to user profile
+            var profile = profile
+            if profile.reviewIDS == nil {
+                profile.reviewIDS = [reviewID]
+            } else {
+                profile.reviewIDS?.append(reviewID)
+            }
+            update(profile: profile)
         } else {
             // Reviews needs updating
-            let reviewPath = reviewsPath.child(review.id)
+            let reviewPath = Database.database().reference(withPath: review.path())
             reviewPath.setValue(review.toData())
         }
     }

@@ -9,13 +9,20 @@
 import SwiftUI
 
 struct ReviewsRow: View {
-    @State var showReviews: Bool = false
-    
+    @State var likes = 0
+    @State var dislikes = 0
+    @State var reviews: [Review] = []
     var isViewOnly: Bool
     var profile: Profile
     
+    init(isViewOnly: Bool, profile: Profile) {
+        self.isViewOnly = isViewOnly
+        self.profile = profile
+        self.fetchReviews()
+    }
+    
     var body: some View {
-        NavigationLink(destination: ReviewsView(profile: profile, isViewOnly: isViewOnly)){
+        NavigationLink(destination: ReviewsView(profile: profile, isViewOnly: isViewOnly, reviews: reviews)){
             HStack {
                 Image(systemName: "quote.bubble.fill")
                     .resizable()
@@ -33,7 +40,7 @@ struct ReviewsRow: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 20)
                         .foregroundColor(.green)
-                    Text("34").padding(.trailing, 10)
+                    Text("\(likes)").padding(.trailing, 10)
                         .foregroundColor(.black)
 
                 }
@@ -44,7 +51,7 @@ struct ReviewsRow: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 20)
                         .foregroundColor(.red)
-                    Text("0").padding(.trailing, 5)
+                    Text("\(dislikes)").padding(.trailing, 5)
                         .foregroundColor(.black)
                 }
 
@@ -52,6 +59,18 @@ struct ReviewsRow: View {
                     .foregroundColor(Color(.sRGB, red: 60/255, green: 60/255, blue: 60/255, opacity: 0.5))
             }
             .padding([.leading,.trailing], 12)
+            .onAppear(perform: fetchReviews)
+        }
+    }
+    
+    func fetchReviews() {
+        if let reviewIDS = profile.reviewIDS {
+            FirebaseService.shared.fetchReviews(ids: reviewIDS) { reviews in
+                self.reviews = reviews!
+                self.likes = reviews?.filter { $0.isLiked }.count ?? 0
+                self.dislikes = reviews?.filter { !$0.isLiked }.count ?? 0
+
+            }
         }
     }
 }
