@@ -26,7 +26,7 @@ struct ConversationView: View {
     
     var body: some View {
 
-        VStack {
+        VStack(spacing: 0) {
             AutoScrollView(extraOffset: $offsetValue, scrollToEnd: false) {
                 ForEach(self.viewModel.messages, id:\.self) { message in
                     MessageRow(senderID: FirebaseService.shared.session!.uid, message: message)

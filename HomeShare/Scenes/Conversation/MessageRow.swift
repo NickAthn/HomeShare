@@ -19,6 +19,24 @@ struct MessageRow: View {
             }
         }
     }
+    var foregroundColor: Color {
+        get {
+            if senderID == message.ownerID {
+                return Color.white
+            } else {
+                return Color.black
+            }
+        }
+    }
+    var backgroundColor: Color {
+        get {
+            if senderID == message.ownerID {
+                return Color.blue
+            } else {
+                return Color.Token.fieldDefault
+            }
+        }
+    }
     var message: Message
     var body: some View {
         VStack(alignment: alignment) {
@@ -26,9 +44,9 @@ struct MessageRow: View {
                 Spacer()
             }
             Text(message.content)
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.blue)
+                .padding(10)
+                .foregroundColor(foregroundColor)
+                .background(backgroundColor)
                 .cornerRadius(20)
         }
     }

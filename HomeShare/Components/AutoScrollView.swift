@@ -15,7 +15,7 @@ struct AutoScrollView<Content>: View where Content: View {
     var reversed: Bool = true
     var scrollToEnd: Bool = false
     var content: () -> Content
-
+    
     @State private var contentHeight: CGFloat = .zero
     @State private var contentOffset: CGFloat = .zero
     @State private var scrollOffset: CGFloat = .zero
