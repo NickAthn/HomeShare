@@ -14,23 +14,12 @@ struct InboxView: View {
     var body: some View {
         NavigationView {
             List {
-//                HStack {
-//                    Image("exampleImage")
-//                        .resizable()
-//                        .frame(width: 50, height: 50)
-//                        .cornerRadius(.infinity)
-//                    VStack(alignment: .leading){
-//                        Text("Title")
-//                            .font(.headline)
-//                        Text("Description")
-//                            .font(.body)
-//                    }
-//                }
                 ForEach(viewModel.conversations) { conversation in
                     InboxRowView(conversation: conversation)
                 }
             }
             .navigationBarTitle("Inbox")
+            .onDisappear(perform: self.viewModel.stopFetchingConversations)
         }
     }
 }

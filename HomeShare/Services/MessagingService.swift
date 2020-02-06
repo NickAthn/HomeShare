@@ -33,7 +33,7 @@ class MessagingService: ObservableObject {
         }
     }
     func createConversation(fromID: String, to: Profile, completion: @escaping (_ profile: Conversation?) -> Void) {
-        fetchConverastions(for: to) { (conversations) in
+        fetchConversationsOnce(for: to) { (conversations) in
             let filteredConversation = conversations.filter { $0.userIDs.contains(to.uid) }
             if filteredConversation.isEmpty {
                 // Create a new conversation
@@ -93,10 +93,44 @@ class MessagingService: ObservableObject {
                 do {
                     let conversation = try FirebaseDecoder().decode(Conversation.self, from: snapshotValue)
                     conversations.append(conversation)
+                     completion(conversations)
+                } catch {}
+            }
+        }
+    }
+    
+    func fetchConversationsOnce(for profile: Profile, completion: @escaping (_ profile: [Conversation]) -> Void) {
+        var conversations: [Conversation] = []
+
+        guard let conversationsIDS = profile.conversations else {
+            completion([])
+            return
+        }
+        for conversationID in conversationsIDS {
+            Database.database().reference(withPath: Conversation.pathFor(id: conversationID)).observeSingleEvent(of: .value) { (snapshot) in
+                guard let snapshotValue = snapshot.value else {
+                    return
+                }
+                
+                do {
+                    let conversation = try FirebaseDecoder().decode(Conversation.self, from: snapshotValue)
+                    conversations.append(conversation)
                     completion(conversations)
                 } catch {}
             }
         }
+    }
+    
+    func stopFetchingConversations(for profile: Profile) {
+        var conversations: [Conversation] = []
+
+        guard let conversationsIDS = profile.conversations else {
+            return
+        }
+        for conversationID in conversationsIDS {
+            Database.database().reference(withPath: Conversation.pathFor(id: conversationID)).removeAllObservers()
+        }
+
     }
     
     func fetch(conversation: Conversation, completion: @escaping (_ profile: Conversation?) -> Void) {
