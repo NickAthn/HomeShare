@@ -41,17 +41,15 @@ struct AccountView: View {
                     VerifyBadgeRow(profile: viewModel.profile, isViewOnly: false)
                     
                     VStack(alignment: .leading, spacing: 0.2) {
-                        SelectableCell(title: "Profile", style: .normal) {
-                            self.viewModel.showProfileView.toggle()
+                        NavigationLink(destination: ProfileView() ) {
+                            SelectableCell(title: "Profile", style: .normal)
                         }
-                        SelectableCell(title: "Hosting", style: .normal) {
-                            self.viewModel.showHostingView.toggle()
-                        }
+                        SelectableCell(title: "Hosting", style: .normal)
                         SelectableCell(title: "Notifications", style: .normal)
                         SelectableCell(title: "Bookmarked", style: .normal)
-                        SelectableCell(title: "Log Out", style: .button) {self.viewModel.signOut()}
+                        SelectableCell(title: "Log Out", style: .button).onTapGesture {self.viewModel.signOut()}
                         
-                        SelectableCell(title: "Delete Account", style: .alertButton) {
+                        SelectableCell(title: "Delete Account", style: .alertButton).onTapGesture {
                             self.viewModel.isDeleteAlertShown.toggle()
                         }.alert(isPresented: $viewModel.isDeleteAlertShown ) {
                             Alert(title: Text("DANGER ZONE"),

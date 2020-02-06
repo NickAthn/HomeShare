@@ -26,6 +26,7 @@
 		E64184EF23EC970800BFCC19 /* VerifyBadgeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184EE23EC970800BFCC19 /* VerifyBadgeRow.swift */; };
 		E64184F123ECA91E00BFCC19 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F023ECA91E00BFCC19 /* DashboardViewModel.swift */; };
 		E64184F323ECB19C00BFCC19 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F223ECB19C00BFCC19 /* TaskRow.swift */; };
+		E64184F523ECC4E000BFCC19 /* HouseInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F423ECC4E000BFCC19 /* HouseInformationView.swift */; };
 		E64384D323AF68D70021D190 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64384D223AF68D70021D190 /* LoginViewModel.swift */; };
 		E64A334323CCD1C500618987 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334223CCD1C500618987 /* InboxView.swift */; };
 		E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334423CCD1D700618987 /* InboxViewModel.swift */; };
@@ -109,6 +110,7 @@
 		E64184EE23EC970800BFCC19 /* VerifyBadgeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyBadgeRow.swift; sourceTree = "<group>"; };
 		E64184F023ECA91E00BFCC19 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		E64184F223ECB19C00BFCC19 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		E64184F423ECC4E000BFCC19 /* HouseInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseInformationView.swift; sourceTree = "<group>"; };
 		E64384D223AF68D70021D190 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E64A334223CCD1C500618987 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		E64A334423CCD1D700618987 /* InboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewModel.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 		E61FD85F239E8E92003C8E1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E64184F623ECC4E500BFCC19 /* HouseInformation */,
 				E64184EB23EC95BA00BFCC19 /* VerifyAccount */,
 				E6B66ABF23EB03C600706532 /* Conversation */,
 				E6A9E57723E992DF00ACFA4D /* AddReview */,
@@ -316,6 +319,14 @@
 				E64184EC23EC95CD00BFCC19 /* VerifyAccountView.swift */,
 			);
 			path = VerifyAccount;
+			sourceTree = "<group>";
+		};
+		E64184F623ECC4E500BFCC19 /* HouseInformation */ = {
+			isa = PBXGroup;
+			children = (
+				E64184F423ECC4E000BFCC19 /* HouseInformationView.swift */,
+			);
+			path = HouseInformation;
 			sourceTree = "<group>";
 		};
 		E64A334123CCD1A500618987 /* Inbox */ = {
@@ -679,6 +690,7 @@
 				E64A334D23CCD7E700618987 /* InboxModel.swift in Sources */,
 				E62AD42123DC5E68002C61F9 /* Seperator.swift in Sources */,
 				E6B66AC923EB3A5600706532 /* KeyboardResponder.swift in Sources */,
+				E64184F523ECC4E000BFCC19 /* HouseInformationView.swift in Sources */,
 				E653CF3223DB4F7D0093D064 /* Color+Extensions.swift in Sources */,
 				E67F0F3623E3407E002E6942 /* ProfileView.swift in Sources */,
 				E6006A6C23DB5E9D008DB3E4 /* GoogleLoginButton.swift in Sources */,

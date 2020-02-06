@@ -38,6 +38,8 @@ struct ProfileView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            // MARK: - Navigation Links
+
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     // Profile Image
@@ -150,7 +152,9 @@ struct ProfileView: View {
                                 }
                                 // Options
                                 VStack(alignment: .leading) {
-                                    SelectableCell(title: "House Information & Rules", style: .normal)
+                                    NavigationLink(destination: HouseInformationView(home: self.viewModel.profile.home)){
+                                        SelectableCell(title: "House Information & Rules", style: .normal)
+                                    }
                                     if viewModel.isViewOnly {
                                         SelectableCell(title: "Save Profile", style: .normal)
                                         SelectableCell(title: "Share link to the Profile", style: .normal)

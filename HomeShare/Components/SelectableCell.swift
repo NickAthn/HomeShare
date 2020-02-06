@@ -21,9 +21,7 @@ struct SelectableCell: View {
     @State var action: (()->()) = {}
 
     var body: some View {
-        return Button(action: {self.action()}) {
-            SelectableCellView(title: title, style: style)
-        }.background(Color.white)
+            SelectableCellView(title: title, style: style).background(Color.white)
         
     }
 }
