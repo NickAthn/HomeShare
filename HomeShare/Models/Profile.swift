@@ -11,12 +11,25 @@ import Firebase
 import CodableFirebase
 import SwiftUI
 
-enum SleepingArrangments: String, Codable {
+enum SleepingArrangments: Int, Codable, CaseIterable, CustomStringConvertible {
     case
     privateRoom,
     publicRoom,
     sharedRoom,
-    sharedSleepingSurface
+    sharedSleepingSurface,
+    unspecified
+    
+    var description: String {
+        switch self {
+            case .privateRoom: return "Private Room"
+            case .publicRoom: return "Public Room"
+            case .sharedRoom: return "Shared Room"
+            case .sharedSleepingSurface: return "Shared Sleeping Surface"
+            case .unspecified: return "Unspecified"
+
+        }
+    }
+
 }
 
 enum GuestStatus: Int, CaseIterable, Codable {

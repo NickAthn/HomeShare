@@ -52,6 +52,45 @@ class ProfileEditViewModel: ObservableObject {
             profile.languageInfo = self.languageInfo
         }
     }
+    
+    // Home
+    @Published var maxGuests: Int = 0 {
+        didSet {
+            profile.home.maxGuests = self.maxGuests
+        }
+    }
+    @Published var petsAllowed: Bool = false {
+        didSet {
+            profile.home.petsAllowed = self.petsAllowed
+        }
+    }
+    @Published var smokingAllowed: Bool = false {
+        didSet {
+            profile.home.smokingAllowed = self.smokingAllowed
+        }
+    }
+    @Published var kidFriendly: Bool = false {
+        didSet {
+            profile.home.kidFriendly = self.kidFriendly
+        }
+    }
+    @Published var wheelChairAccessible: Bool = false {
+        didSet {
+            profile.home.wheelChairAccessible = self.wheelChairAccessible
+        }
+    }
+    @Published var sleepingPickerSelection = 0 {
+        didSet {
+            profile.home.sleepingArrangments = SleepingArrangments.allCases[sleepingPickerSelection]
+        }
+    }
+    @Published var receiveSameDayRequests: Bool = false {
+        didSet {
+            profile.home.receiveSameDayRequests = self.receiveSameDayRequests
+        }
+    }
+
+
     init() {
         fetchProfile()
     }
@@ -63,6 +102,16 @@ class ProfileEditViewModel: ObservableObject {
                 self.birthDate = profile.yearBorn?.toDate() ?? Date()
                 self.genderPickerSelection = profile.gender?.rawValue ?? 3
                 self.languageInfo = profile.languageInfo ?? ""
+                
+                // Set home info
+                self.maxGuests = profile.home.maxGuests ?? 0
+                self.petsAllowed = profile.home.petsAllowed ?? false
+                self.smokingAllowed = profile.home.smokingAllowed ?? false
+                self.kidFriendly = profile.home.kidFriendly ?? false
+                self.wheelChairAccessible = profile.home.wheelChairAccessible ?? false
+                self.sleepingPickerSelection = profile.home.sleepingArrangments?.rawValue ?? 4
+                self.receiveSameDayRequests = profile.home.receiveSameDayRequests ?? false
+                
                 self.loadProfileImage()
             }
         }

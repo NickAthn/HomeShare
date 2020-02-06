@@ -43,6 +43,10 @@ struct ProfileEditView: View {
                         NavigationLink(destination: AboutMeEditView(viewModel: self.viewModel)) {
                             Text("About me")
                         }
+                        NavigationLink(destination: AboutMyHomeEditView(viewModel: self.viewModel)) {
+                            Text("About my home")
+                        }
+
                         NavigationLink(destination: AddressSearchView(selectedAddress: self.$viewModel.profile.home.address, isActive: self.$viewModel.isActive), isActive: self.$viewModel.isActive){
                             HStack {
                                 Text("Address")
@@ -51,6 +55,7 @@ struct ProfileEditView: View {
                             }
                         }
                     }
+                    
                                     
                 }
                 .navigationBarTitle("Edit Profile")
@@ -130,5 +135,40 @@ struct AboutMeEditView: View {
         }
         .navigationBarTitle("About Me", displayMode: .inline)
         .keyboardSensible($offsetValue)
+    }
+}
+
+struct AboutMyHomeEditView: View {
+    @ObservedObject var viewModel: ProfileEditViewModel
+    
+    var body: some View {
+        Form {
+            Section(header: Text("My Home")) {
+                Stepper("Max Guests: \(self.viewModel.maxGuests)", value: self.$viewModel.maxGuests, in: 0...30)
+                Toggle(isOn: self.$viewModel.petsAllowed) {
+                    Text("Pets Allowed")
+                }
+                Toggle(isOn: self.$viewModel.smokingAllowed) {
+                    Text("Smoking Allowed")
+                }
+                Toggle(isOn: self.$viewModel.kidFriendly) {
+                    Text("Kid Friendly")
+                }
+                Toggle(isOn: self.$viewModel.wheelChairAccessible) {
+                    Text("Wheelchair Accessible")
+                }
+                Picker(selection: self.$viewModel.sleepingPickerSelection, label: Text("Sleeping Arrangments")) {
+                    ForEach(0..<SleepingArrangments.allCases.count, id: \.self) { index in
+                        Text(SleepingArrangments.allCases[index].description).tag(index)
+                    }
+                }
+                .id(0)
+            }
+            Section {
+                Toggle(isOn: self.$viewModel.receiveSameDayRequests) {
+                    Text("Accepting Same Day Requests")
+                }
+            }
+        }.navigationBarTitle("About My Home", displayMode: .inline)
     }
 }
