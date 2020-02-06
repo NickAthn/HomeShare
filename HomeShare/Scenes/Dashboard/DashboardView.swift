@@ -7,34 +7,36 @@
 //
 
 import SwiftUI
-
+enum SystemTaskID: String, CaseIterable {
+    case
+    verificationNeeded
+}
 struct Task: Identifiable {
-    let id = UUID()
+    let id: String
+    
     let image: Image
+    let color: Color
     let title: String
     let desc: String
     
     let isDone: Bool = false
-}
-struct DashboardView: View {
-    let todoList = [
-        Task(image: Image("logo"), title: "Confirm Mail", desc: "You have to confirm your email"),
-        Task(image: Image("logo"), title: "Confirm Mail", desc: "You have to confirm your email")
+        
+    static let systemTasks = [
+        Task(id: "verificationNeeded", image: Image(systemName: "checkmark.seal.fill"), color: Color(.systemGreen), title: "Your account is not verified", desc: "You have to confirm your email to verify your account."),
     ]
+}
+
+struct DashboardView: View {
+    @ObservedObject var viewModel = DashboardViewModel()
     
     var body: some View {
         NavigationView {
-                    List(todoList) { task in
-                        HStack{
-                            Image("logo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                            VStack(alignment: .leading){
-                                Text(task.title)
-                                Text(task.desc)
-                            }
-                        }.frame(minWidth: .none, idealWidth: .infinity, maxWidth: .infinity, minHeight: 34, idealHeight: 50, maxHeight: 70, alignment: .leading)
-                    }.navigationBarTitle("Dashboard", displayMode: .automatic)
+            ScrollView {
+                ForEach(viewModel.taskList, id: \.id) { task in
+                    TaskRow(task: task)
+                }
+                
+            }.navigationBarTitle("Dashboard", displayMode: .automatic)
         }
     }
 }

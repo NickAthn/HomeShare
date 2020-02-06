@@ -166,7 +166,7 @@ struct ProfileView: View {
             } // ScrollView ends here
             .navigationBarTitle("Profile", displayMode: .inline)
             .background(Color(red: 242/255, green: 242/255, blue: 247/255))
-            .navigationBarItems(trailing: Button(action: {self.showEditModal.toggle()}) {
+            .navigationBarItems(trailing: Button(action: {self.showEditModal = true}) {
                 if !viewModel.isViewOnly {
                     Image(systemName: "pencil.and.ellipsis.rectangle")
                         .frame(minWidth: 25)
@@ -176,7 +176,7 @@ struct ProfileView: View {
             })
             
             if viewModel.isViewOnly {
-                Button(action: {self.showConversation.toggle()}) {
+                Button(action: {self.showConversation = true}) {
                     HStack {
                         Spacer()
                         Image(systemName: "envelope.fill")
