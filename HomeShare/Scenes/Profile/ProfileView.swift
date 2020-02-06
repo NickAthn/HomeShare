@@ -187,7 +187,9 @@ struct ProfileView: View {
                 
             }
         }.sheet(isPresented: self.$showConversation) {
-            ConversationView(to: self.viewModel.profile)
+            NavigationView {
+                ConversationView(to: self.viewModel.profile)
+            }
         }
     } 
 

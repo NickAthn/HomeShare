@@ -27,7 +27,6 @@ struct ConversationView: View {
     var body: some View {
 
         VStack {
-            
             AutoScrollView(extraOffset: $offsetValue, scrollToEnd: false) {
                 ForEach(self.viewModel.messages, id:\.self) { message in
                     MessageRow(senderID: FirebaseService.shared.session!.uid, message: message)
@@ -42,6 +41,7 @@ struct ConversationView: View {
             }
         }
         .padding([.leading,.trailing,.bottom])
+        .navigationBarTitle(viewModel.toProfile.getFullName())
         .keyboardSensible($offsetValue, extraOffset: extraOffset)
     }
 }
