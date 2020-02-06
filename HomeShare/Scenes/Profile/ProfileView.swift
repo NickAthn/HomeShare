@@ -10,9 +10,25 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
-    @State var showEditModal: Bool = false // Due to SwiftUI Bug this cannot be stored in the viewModel as it deallocates
-    @State var showConversation: Bool = false // Due to SwiftUI Bug this cannot be stored in the viewModel as it deallocates
-
+    @State var showEditModal: Bool = false {
+        didSet {
+            if self.showEditModal == true {
+                self.activeSheet = 1
+                self.showSheet = true
+            }
+        }
+    }
+    @State var showConversation: Bool = false {
+        didSet {
+            if self.showConversation == true {
+                self.activeSheet = 0
+                self.showSheet = true
+            }
+        }
+    }
+    @State var showSheet: Bool = false // Due to SwiftUI Bug this cannot be stored in the viewModel as it deallocates
+    @State var activeSheet: Int = 0
+    
     init() {
         viewModel = ProfileViewModel()
     }
@@ -41,18 +57,7 @@ struct ProfileView: View {
                     }
                     
                     // Account Verify Status
-                    ZStack(alignment: .leading) {
-                        Rectangle()
-                            .frame(height: 30)
-                            .foregroundColor(viewModel.currentUser.verificationStatus.color)
-                        HStack {
-                            viewModel.currentUser.verificationStatus.image
-                                .foregroundColor(.white)
-                            Text(viewModel.currentUser.verificationStatus.description)
-                                .foregroundColor(.white)
-                                .font(.system(size: 17, weight: .bold, design: .default))
-                        }.padding(.leading, 6)
-                    }
+                    VerifyBadgeRow(profile: viewModel.profile, isViewOnly: viewModel.isViewOnly)
                     
                     VStack(alignment: .leading, spacing: 10) {
                         
@@ -188,15 +193,16 @@ struct ProfileView: View {
                 
             }
         }
-        .sheet(isPresented: self.$showConversation) {
-            NavigationView {
-                ConversationView(to: self.viewModel.profile)
+        .sheet(isPresented: self.$showSheet) {
+            if self.activeSheet == 0 {
+                NavigationView {
+                    ConversationView(to: self.viewModel.profile)
+                }
+            } else {
+                ProfileEditView()
+
             }
         }
-        .sheet(isPresented: self.$showEditModal) {
-            ProfileEditView()
-        }
-
     } 
 
 }

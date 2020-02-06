@@ -17,6 +17,7 @@ class ProfileViewModel: ObservableObject {
 
     @Published var profile: Profile = Profile.templateProfile
     @Published var currentUser: User = User.templateProfile
+    
     var languageInfo: String {
         get {
             return profile.languageInfo ?? ""

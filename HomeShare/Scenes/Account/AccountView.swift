@@ -38,18 +38,7 @@ struct AccountView: View {
                         .padding(.bottom)
                     }
                     
-                    ZStack(alignment: .leading) {
-                        Rectangle()
-                            .frame(height: 30)
-                            .foregroundColor(.green)
-                        HStack {
-                            Image("verified_account")
-                            Text("Verified Account")
-                                .foregroundColor(.white)
-                                .font(.system(size: 17, weight: .bold, design: .default))
-                        }.padding(.leading)
-                        
-                    }
+                    VerifyBadgeRow(profile: viewModel.profile, isViewOnly: false)
                     
                     VStack(alignment: .leading, spacing: 0.2) {
                         SelectableCell(title: "Profile", style: .normal) {

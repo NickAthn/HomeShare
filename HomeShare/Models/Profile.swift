@@ -86,6 +86,7 @@ struct Profile: FirebaseModal {
     var gender: Gender? = .unspecified
     let memberSince: Double? = Date().timeIntervalSince1970
     
+    var verificationStatus: VerificationStatus?
     
     func toData()-> Any {
         return try! FirebaseEncoder().encode(self)
@@ -102,7 +103,7 @@ struct Profile: FirebaseModal {
         return [FirebasePaths.profiles.rawValue, uid].joined(separator: FirebasePathSeparator)
     }
     
-    static var templateProfile = Profile(uid: "loading... ", firstName: "loading... ", lastName: "loading... ")
+    static var templateProfile = Profile(uid: "loading... ", firstName: "loading... ", lastName: "")
     
 }
 // Conforming to hashable and Equatable protocol

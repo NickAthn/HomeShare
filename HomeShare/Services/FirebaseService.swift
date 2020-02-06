@@ -70,6 +70,16 @@ class FirebaseService: ObservableObject {
             }
         }
     }
+    func sendVerificationMail() {
+        if let authUser = Auth.auth().currentUser {
+            if !authUser.isEmailVerified {
+                authUser.sendEmailVerification { (error) in
+                    print("Verification Mail Error: \(error)")
+                }
+            }
+        }
+    }
+
         
     func signOut() {
         do {
