@@ -8,27 +8,27 @@
 
 import SwiftUI
 
-enum SelectableCellStyle: Int, Codable {
+enum GenericRowStyle: Int, Codable {
     case
     normal,
     button,
     alertButton
 }
 
-struct SelectableCell: View {
+struct GenericRow: View {
     @State var title: String = "Title"
-    @State var style: SelectableCellStyle
+    @State var style: GenericRowStyle
     @State var action: (()->()) = {}
 
     var body: some View {
-            SelectableCellView(title: title, style: style).background(Color.white)
+            GenericRowView(title: title, style: style).background(Color.white)
         
     }
 }
 
-struct SelectableCellView: View {
+struct GenericRowView: View {
     @State var title: String = "Title"
-    @State var style: SelectableCellStyle = .normal
+    @State var style: GenericRowStyle = .normal
     
     var body: some View {
         switch style {
@@ -120,7 +120,7 @@ fileprivate struct AlertButtonView: View {
 #if DEBUG
 struct SelectableCell_Previews: PreviewProvider {
     static var previews: some View {
-        SelectableCell(style: .alertButton)
+        GenericRow(style: .alertButton)
     }
 }
 #endif

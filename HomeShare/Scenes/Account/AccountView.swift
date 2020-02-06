@@ -42,14 +42,14 @@ struct AccountView: View {
                     
                     VStack(alignment: .leading, spacing: 0.2) {
                         NavigationLink(destination: ProfileView() ) {
-                            SelectableCell(title: "Profile", style: .normal)
+                            GenericRow(title: "Profile", style: .normal)
                         }
-                        SelectableCell(title: "Hosting", style: .normal)
-                        SelectableCell(title: "Notifications", style: .normal)
-                        SelectableCell(title: "Bookmarked", style: .normal)
-                        SelectableCell(title: "Log Out", style: .button).onTapGesture {self.viewModel.signOut()}
+                        GenericRow(title: "Hosting", style: .normal)
+                        GenericRow(title: "Notifications", style: .normal)
+                        GenericRow(title: "Bookmarked", style: .normal)
+                        GenericRow(title: "Log Out", style: .button).onTapGesture {self.viewModel.signOut()}
                         
-                        SelectableCell(title: "Delete Account", style: .alertButton).onTapGesture {
+                        GenericRow(title: "Delete Account", style: .alertButton).onTapGesture {
                             self.viewModel.isDeleteAlertShown.toggle()
                         }.alert(isPresented: $viewModel.isDeleteAlertShown ) {
                             Alert(title: Text("DANGER ZONE"),
@@ -69,7 +69,7 @@ struct AccountView: View {
                             .frame(height: 0.5)
                             .foregroundColor(.gray)
 
-                        SelectableCell(title: "Sumbit a ticket", style: .normal)
+                        GenericRow(title: "Sumbit a ticket", style: .normal)
                     }
                 }.background(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
                 

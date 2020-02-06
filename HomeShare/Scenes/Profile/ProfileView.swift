@@ -153,11 +153,11 @@ struct ProfileView: View {
                                 // Options
                                 VStack(alignment: .leading) {
                                     NavigationLink(destination: HouseInformationView(home: self.viewModel.profile.home)){
-                                        SelectableCell(title: "House Information & Rules", style: .normal)
+                                        GenericRow(title: "House Information & Rules", style: .normal)
                                     }
                                     if viewModel.isViewOnly {
-                                        SelectableCell(title: "Save Profile", style: .normal)
-                                        SelectableCell(title: "Share link to the Profile", style: .normal)
+                                        GenericRow(title: "Save Profile", style: .normal)
+                                        GenericRow(title: "Share link to the Profile", style: .normal)
                                     }
                                 }
                             }
