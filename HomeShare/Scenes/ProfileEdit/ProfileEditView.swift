@@ -71,6 +71,8 @@ struct ProfileEditView: View {
 
 struct AboutMeEditView: View {
     @ObservedObject var viewModel: ProfileEditViewModel
+    @State private var offsetValue: CGFloat = 0.0
+
     var body: some View {
         Form {
             Section(header: Text("Name")) {
@@ -96,6 +98,37 @@ struct AboutMeEditView: View {
                     .frame(height: 200)
                 }
             }
-        }.navigationBarTitle("About Me", displayMode: .inline)
+            
+            Section {
+                VStack {
+                    DatePicker(selection: self.$viewModel.birthDate, in: ...Date(), displayedComponents: .date) {
+                        Text("Birthday")
+                    }
+                }
+            }
+
+            Section(header: Text("Languages")) {
+                HStack {
+                    TextField("Fluent in English, Basic Italian etc...", text: self.$viewModel.languageInfo)
+                }
+            }
+            
+            Section(header: Text("Gender")) {
+                VStack {
+                    Picker(selection: self.$viewModel.genderPickerSelection, label: Text("Gender")) {
+                        ForEach(0..<Gender.allCases.count, id: \.self) { index in
+                            Text(Gender.allCases[index].description).tag(index)
+                        }
+                    }
+                    .id(1)
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+            }
+            
+
+            
+        }
+        .navigationBarTitle("About Me", displayMode: .inline)
+        .keyboardSensible($offsetValue)
     }
 }

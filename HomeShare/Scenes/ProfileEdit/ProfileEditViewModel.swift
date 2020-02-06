@@ -15,7 +15,11 @@ class ProfileEditViewModel: ObservableObject {
     // MARK: - OUTPUT
 //    @Published var selectedGuestStatus: GuestStatus = self.p
     @Published var profile: Profile = Profile.templateProfile
-    @Published var statusPickerSelection = 0
+    @Published var statusPickerSelection = 0 {
+        didSet {
+            profile.guestStatus = GuestStatus.allCases[statusPickerSelection]
+        }
+    }
     
     // Generic Bool to be used on many view to dismish them when called
     @Published var isActive = false
@@ -23,7 +27,31 @@ class ProfileEditViewModel: ObservableObject {
     
     var initialImage: UIImage!
     @Published var profileImage: UIImage? = UIImage(named: "genericProfileImage")
+    // Date Picker
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }
+    @Published var birthDate = Date() {
+        didSet {
+            profile.yearBorn = self.birthDate.timeIntervalSince1970
+        }
+    }
+
+    // Gender Picker
+    @Published var genderPickerSelection = 3 {
+        didSet {
+            profile.gender = Gender.allCases[genderPickerSelection]
+        }
+    }
     
+    //Languge
+    @Published var languageInfo: String = "" {
+        didSet {
+            profile.languageInfo = self.languageInfo
+        }
+    }
     init() {
         fetchProfile()
     }
@@ -32,6 +60,9 @@ class ProfileEditViewModel: ObservableObject {
             if let profile = profile {
                 self.profile = profile
                 self.statusPickerSelection = profile.guestStatus.rawValue
+                self.birthDate = profile.yearBorn?.toDate() ?? Date()
+                self.genderPickerSelection = profile.gender?.rawValue ?? 3
+                self.languageInfo = profile.languageInfo ?? ""
                 self.loadProfileImage()
             }
         }
@@ -62,8 +93,6 @@ class ProfileEditViewModel: ObservableObject {
         }
     }
     func saveProfileChanges() {
-        print(profile.description)
-        profile.guestStatus = GuestStatus.allCases[statusPickerSelection]
         FirebaseService.shared.stopFetching(profile: profile)
         uploadProfileImage() {
             FirebaseService.shared.setUserLocation(address: self.profile.home.address)

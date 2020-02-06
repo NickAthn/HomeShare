@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
-    @State var showEditModal: Bool = false // Due to SwiftUI Bug this cannot be stores in the viewModel as it deallocates
-    @State var showConversation: Bool = false // Due to SwiftUI Bug this cannot be stores in the viewModel as it deallocates
+    @State var showEditModal: Bool = false // Due to SwiftUI Bug this cannot be stored in the viewModel as it deallocates
+    @State var showConversation: Bool = false // Due to SwiftUI Bug this cannot be stored in the viewModel as it deallocates
 
     init() {
         viewModel = ProfileViewModel()
@@ -88,12 +88,14 @@ struct ProfileView: View {
                                     .padding(.leading, 7)
                                 VStack(alignment: .leading ,spacing: 10) {
                                     // Content
-                                    HStack {
-                                        Image(systemName: "message.fill")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 20)
-                                        Text("Fluent in English")
+                                    if viewModel.languageInfo != "" {
+                                        HStack {
+                                            Image(systemName: "message.fill")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 20)
+                                            Text(viewModel.languageInfo)
+                                        }
                                     }
                                     HStack {
                                         Image(systemName: "mappin.and.ellipse")
@@ -102,19 +104,21 @@ struct ProfileView: View {
                                             .frame(width: 20)
                                         Text("From Greece Athens")
                                     }
-                                    HStack {
-                                        Image("genderIcon")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 20)
-                                        Text("Male, 21 years old")
+                                    if viewModel.genderAgeText != "" {
+                                        HStack {
+                                            Image("genderIcon")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 20)
+                                            Text(viewModel.genderAgeText)
+                                        }
                                     }
                                     HStack {
                                         Image(systemName: "person.crop.circle.fill")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 20)
-                                        Text("Member since Feb 2020")
+                                        Text("Member since \(viewModel.profile.memberSince?.getDateStringFromUTC() ?? "unknown")")
                                         Spacer() // Necessary to fill the screen width
                                     }
                                 }
@@ -165,9 +169,6 @@ struct ProfileView: View {
 
                 } // Temproray until finding a way to dynamical set the bar items from the viewModel
             })
-            .sheet(isPresented: self.$showEditModal) {
-                ProfileEditView()
-            }
             
             if viewModel.isViewOnly {
                 Button(action: {self.showConversation.toggle()}) {
@@ -186,11 +187,16 @@ struct ProfileView: View {
                 .background(Color.Token.textHighlight)
                 
             }
-        }.sheet(isPresented: self.$showConversation) {
+        }
+        .sheet(isPresented: self.$showConversation) {
             NavigationView {
                 ConversationView(to: self.viewModel.profile)
             }
         }
+        .sheet(isPresented: self.$showEditModal) {
+            ProfileEditView()
+        }
+
     } 
 
 }

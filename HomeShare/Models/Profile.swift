@@ -47,6 +47,21 @@ extension GuestStatus {
     }
 }
 
+enum Gender: Int, Codable, CaseIterable, CustomStringConvertible {
+    var description: String {
+        switch self {
+            case .female: return "Female"
+            case .male: return "Male"
+            case .unspecified: return "Unspecified"
+        }
+    }
+
+    case
+    male = 0,
+    female = 1,
+    unspecified = 2
+}
+
 struct Profile: FirebaseModal {
 
     var uid: String
@@ -66,6 +81,12 @@ struct Profile: FirebaseModal {
     var haveChildren: Bool? = nil
     var smoker: Bool? = nil
         
+    var languageInfo: String? = ""
+    var yearBorn: Double?
+    var gender: Gender? = .unspecified
+    let memberSince: Double? = Date().timeIntervalSince1970
+    
+    
     func toData()-> Any {
         return try! FirebaseEncoder().encode(self)
     }

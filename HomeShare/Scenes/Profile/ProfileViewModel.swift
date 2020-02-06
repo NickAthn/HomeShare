@@ -17,9 +17,33 @@ class ProfileViewModel: ObservableObject {
 
     @Published var profile: Profile = Profile.templateProfile
     @Published var currentUser: User = User.templateProfile
-
+    var languageInfo: String {
+        get {
+            return profile.languageInfo ?? ""
+        }
+    }
+    var genderAgeText: String {
+        get {
+            var components: [String] = []
+            if let gender = profile.gender {
+                if gender != .unspecified {
+                    components.append("\(gender.description)")
+                }
+            }
+            if let yearsSince = profile.yearBorn?.getYearsSinceFromUTC() {
+                components.append("\(yearsSince) years old")
+            }
+            
+            if components.isEmpty {
+                return ""
+            }
+            
+            return components.joined(separator: ", ")
+        }
+    }
+    
     @Published var isViewOnly: Bool
-
+    
 
     
     // Initilise with the logged in user
