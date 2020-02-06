@@ -60,8 +60,12 @@ struct HouseInformationView: View {
                     Text(viewModel.receiveSameDayRequests)
                         .foregroundColor(Color.secondary)
                 }
-
             }
+            MapView(viewModel.location)
+                .frame(height: 250)
+                .padding([.leading,.trailing],-20)
+                .padding([.bottom,.top],-8)
+
         }.navigationBarTitle("House Information")
     }
 }

@@ -7,11 +7,12 @@
 //
 
 import Foundation
-
+import CoreLocation
 class HouseInformationViewModel: ObservableObject {
     var home: Home
     init(home: Home) {
         self.home = home
+        self.fetchLocation()
     }
     var maxGuests: String {
         get {
@@ -81,5 +82,16 @@ class HouseInformationViewModel: ObservableObject {
         }
     }
 
+    @Published var location: CLLocation = CLLocation()
+    
+    func fetchLocation() {
+        let locationService = LocationService()
+        locationService.searchLocationgWith(addressString: home.address.getDescription()) { (location) in
+            if let location = location {
+                self.location = location
+            }
+        }
+    }
+    
 
 }
