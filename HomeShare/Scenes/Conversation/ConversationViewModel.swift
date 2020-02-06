@@ -14,14 +14,16 @@ class ConversationViewModel: ObservableObject {
     @Published var messages: [Message] = []
     @Published var textFieldText: String = ""
     
-//    init(_ conversation: Conversation) {
-//        self.conversation = conversation
-//    }
+    init(conversation: Conversation, to: Profile) {
+        self.conversation = conversation
+        self.toProfile = to
+        self.fetchMessages()
+    }
+    
     init(to: Profile){
         conversation = Conversation(userIDs: [])
         self.toProfile = to
         createConversation()
-        
     }
     
     func createConversation() {

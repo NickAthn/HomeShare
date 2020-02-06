@@ -14,6 +14,9 @@ struct ConversationView: View {
 //        viewModel = ConversationViewModel(conversation)
 //    }
     @State private var offsetValue: CGFloat = 0.0
+    init(conversation: Conversation, to: Profile) {
+        viewModel = ConversationViewModel(conversation: conversation, to: to)
+    }
 
     init(to: Profile) {
         viewModel = ConversationViewModel(to: to)
@@ -22,7 +25,8 @@ struct ConversationView: View {
     var body: some View {
 
         VStack {
-            AutoScrollView(extraOffset: $offsetValue, scrollToEnd: true) {
+            
+            AutoScrollView(extraOffset: $offsetValue, scrollToEnd: false) {
                 ForEach(self.viewModel.messages, id:\.self) { message in
                     MessageRow(senderID: FirebaseService.shared.session!.uid, message: message)
                 }

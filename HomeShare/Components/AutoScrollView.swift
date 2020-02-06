@@ -12,7 +12,7 @@ struct AutoScrollView<Content>: View where Content: View {
     @Binding var extraOffset: CGFloat
     
     var axes: Axis.Set = .vertical
-    var reversed: Bool = false
+    var reversed: Bool = true
     var scrollToEnd: Bool = false
     var content: () -> Content
 
@@ -40,7 +40,7 @@ struct AutoScrollView<Content>: View where Content: View {
             self.updateHeight(with: $0, outerHeight: geometry.size.height)
         }
         .frame(height: geometry.size.height, alignment: (reversed ? .bottom : .top))
-        .offset(y: contentOffset + scrollOffset - extraOffset)
+        .offset(y: contentOffset + scrollOffset)
         .animation(.easeInOut)
         .background(Color.white)
         .gesture(DragGesture()
