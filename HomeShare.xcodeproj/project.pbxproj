@@ -27,6 +27,7 @@
 		E64184F123ECA91E00BFCC19 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F023ECA91E00BFCC19 /* DashboardViewModel.swift */; };
 		E64184F323ECB19C00BFCC19 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F223ECB19C00BFCC19 /* TaskRow.swift */; };
 		E64184F523ECC4E000BFCC19 /* HouseInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F423ECC4E000BFCC19 /* HouseInformationView.swift */; };
+		E64184F823ECCB7B00BFCC19 /* HouseInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F723ECCB7B00BFCC19 /* HouseInformationViewModel.swift */; };
 		E64384D323AF68D70021D190 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64384D223AF68D70021D190 /* LoginViewModel.swift */; };
 		E64A334323CCD1C500618987 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334223CCD1C500618987 /* InboxView.swift */; };
 		E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334423CCD1D700618987 /* InboxViewModel.swift */; };
@@ -111,6 +112,7 @@
 		E64184F023ECA91E00BFCC19 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		E64184F223ECB19C00BFCC19 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		E64184F423ECC4E000BFCC19 /* HouseInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseInformationView.swift; sourceTree = "<group>"; };
+		E64184F723ECCB7B00BFCC19 /* HouseInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseInformationViewModel.swift; sourceTree = "<group>"; };
 		E64384D223AF68D70021D190 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E64A334223CCD1C500618987 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		E64A334423CCD1D700618987 /* InboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewModel.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				E64184F423ECC4E000BFCC19 /* HouseInformationView.swift */,
+				E64184F723ECCB7B00BFCC19 /* HouseInformationViewModel.swift */,
 			);
 			path = HouseInformation;
 			sourceTree = "<group>";
@@ -726,6 +729,7 @@
 				E6A9E57623E992DB00ACFA4D /* ReviewsView.swift in Sources */,
 				E6560CFC23E3BDE600257470 /* AddressSearchView.swift in Sources */,
 				E6B756E523AE276B0003F107 /* RoundedButton.swift in Sources */,
+				E64184F823ECCB7B00BFCC19 /* HouseInformationViewModel.swift in Sources */,
 				E67F0F4523E356FB002E6942 /* SearchView.swift in Sources */,
 				E66C145423B4F664007FD7ED /* MainTabView.swift in Sources */,
 				E6B672E023E9E81500446914 /* ReviewsViewModel.swift in Sources */,

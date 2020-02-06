@@ -9,14 +9,59 @@
 import SwiftUI
 
 struct HouseInformationView: View {
-    var home: Home
+    @ObservedObject var viewModel: HouseInformationViewModel
+    init(home: Home) {
+        viewModel = HouseInformationViewModel(home: home)
+    }
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("Max Guests")
-                Text("0")
+        Form {
+            Section {
+                HStack {
+                    Text("Max Guests")
+                    Spacer()
+                    Text(viewModel.maxGuests)
+                        .foregroundColor(Color.secondary)
+                }
+                HStack {
+                    Text("Pets")
+                    Spacer()
+                    Text(viewModel.petsAllowed)
+                        .foregroundColor(Color.secondary)
+                }
+                HStack {
+                    Text("Smoking in house")
+                    Spacer()
+                    Text(viewModel.smokingAllowed)
+                        .foregroundColor(Color.secondary)
+                }
+                HStack {
+                    Text("Kid Friendly")
+                    Spacer()
+                    Text(viewModel.kidFriendly)
+                        .foregroundColor(Color.secondary)
+                }
+                HStack {
+                    Text("Wheelchair Accessible")
+                    Spacer()
+                    Text(viewModel.wheelChairAccessible)
+                        .foregroundColor(Color.secondary)
+                }
+                HStack {
+                    Text("Sleeping Arrangments")
+                    Spacer()
+                    Text(viewModel.sleepingArrangments)
+                        .foregroundColor(Color.secondary)
+                }
+
+                HStack {
+                    Text("Accepting Same Day Requests")
+                    Spacer()
+                    Text(viewModel.receiveSameDayRequests)
+                        .foregroundColor(Color.secondary)
+                }
+
             }
-        }
+        }.navigationBarTitle("House Information")
     }
 }
