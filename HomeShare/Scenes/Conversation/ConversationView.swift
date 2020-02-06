@@ -10,12 +10,14 @@ import SwiftUI
 
 struct ConversationView: View {
     @ObservedObject var viewModel: ConversationViewModel
-//    init(conversation: Conversation) {
-//        viewModel = ConversationViewModel(conversation)
-//    }
+    
+    var extraOffset: CGFloat = 0
     @State private var offsetValue: CGFloat = 0.0
+    
     init(conversation: Conversation, to: Profile) {
         viewModel = ConversationViewModel(conversation: conversation, to: to)
+        // Temporary fix until finding a proper way to calculate tabview height in swiftUI
+        extraOffset = -38
     }
 
     init(to: Profile) {
@@ -40,7 +42,7 @@ struct ConversationView: View {
             }
         }
         .padding([.leading,.trailing,.bottom])
-        .keyboardSensible($offsetValue)
+        .keyboardSensible($offsetValue, extraOffset: extraOffset)
     }
 }
 
