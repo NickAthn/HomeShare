@@ -15,6 +15,11 @@ class ReviewsViewModel: ObservableObject {
     let isViewOnly: Bool
 
     var reviews: [Review] = []
+    var displayedReviews: [Review] {
+        get {
+            reviews.filter { $0.title != nil && $0.description != nil && ($0.title != "" || $0.description != "" ) }
+        }
+    }
     var likes: Int  {
         get {
             reviews.filter { $0.isLiked }.count

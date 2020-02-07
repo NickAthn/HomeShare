@@ -79,7 +79,10 @@ struct ReviewsView: View {
                 }
             }
             Spacer().frame(height: 30)
-
+            
+            ForEach(self.viewModel.displayedReviews, id: \.self) { review in
+                ReviewDisplayRow(review: review)
+            }
         }
         .padding([.leading,.trailing])
         .navigationBarTitle("Likes & Reviews")
@@ -91,18 +94,19 @@ struct ReviewDisplayRow: View {
     let review: Review
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Text("Title")
+            HStack(alignment: .top) {
+                Text(review.title ?? "")
                     .font(.headline)
                 Spacer()
-                Image("hand.thumbsdown.fill")
+                Image(review.isLiked ? "hand.thumbsup.fill" : "hand.thumbsdown.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.red)
+                    .foregroundColor(review.isLiked ? Color.green : Color.red)
                     .frame(width: 20)
 
             }
-            Text("Decritption goes here")
+            Text(review.description ?? "")
+            
         }
         .padding(20)
         .background(Color.Token.fieldDefault)
