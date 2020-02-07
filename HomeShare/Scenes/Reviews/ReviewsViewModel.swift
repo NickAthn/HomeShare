@@ -15,6 +15,17 @@ class ReviewsViewModel: ObservableObject {
     let isViewOnly: Bool
 
     var reviews: [Review] = []
+    var likes: Int  {
+        get {
+            reviews.filter { $0.isLiked }.count
+        }
+    }
+    var dislikes: Int  {
+        get {
+            reviews.filter { !$0.isLiked }.count
+        }
+    }
+
     @Published var showAddReviewModal: Bool = false
     @Published var isLikePressed: Bool = false {
         willSet {
@@ -24,6 +35,14 @@ class ReviewsViewModel: ObservableObject {
     @Published var isDislikedPressed: Bool = false {
         willSet {
             if isLikePressed { isLikePressed = false }
+        }
+    }
+    var likePercentage: Int {
+        get {
+            if reviews.isEmpty {
+                return 0
+            }
+            return Int(Double(likes)/Double(reviews.count)*100)
         }
     }
     

@@ -22,58 +22,64 @@ struct ReviewsView: View {
             
             Text("Reviews")
                 .font(.title)
-            HStack {
-                Text("98%")
-                    .font(.largeTitle)
+            if viewModel.reviews.isEmpty {
+                Text("No reviews have been made yet.")
+                    .font(.headline)
+            } else {
+                HStack(alignment: .lastTextBaseline) {
+                    Text("\(viewModel.likePercentage)%")
+                        .font(.largeTitle)
+                    Text("of people like this person")
+                        .font(.headline)
+                }
             }
-            
             Divider()
-            
-            HStack {
-                Text("Tap to rate: ")
-                    .foregroundColor(.secondary)
-                Spacer()
-                Button(action: {self.viewModel.isLikePressed.toggle()}) {
-                    if viewModel.isLikePressed {
-                        Image(systemName: "hand.thumbsup.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    } else {
-                        Image(systemName: "hand.thumbsup")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+            if viewModel.isViewOnly {
+                HStack {
+                    Text("Tap to rate: ")
+                        .foregroundColor(.secondary)
+                    Spacer()
+                    Button(action: {self.viewModel.isLikePressed.toggle()}) {
+                        if viewModel.isLikePressed {
+                            Image(systemName: "hand.thumbsup.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } else {
+                            Image(systemName: "hand.thumbsup")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
                     }
-                }
-                .accentColor(.green)
-                .frame(width: 30)
-                Spacer().frame(width: 50)
-                Button(action: {self.viewModel.isDislikedPressed.toggle()}) {
-                    if viewModel.isDislikedPressed {
-                        Image(systemName: "hand.thumbsdown.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    } else {
-                        Image(systemName: "hand.thumbsdown")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                    .accentColor(.green)
+                    .frame(width: 30)
+                    Spacer().frame(width: 50)
+                    Button(action: {self.viewModel.isDislikedPressed.toggle()}) {
+                        if viewModel.isDislikedPressed {
+                            Image(systemName: "hand.thumbsdown.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } else {
+                            Image(systemName: "hand.thumbsdown")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
                     }
+                    .accentColor(.red)
+                    .frame(width: 30)
                 }
-                .accentColor(.red)
-                .frame(width: 30)
-            }
-            
-            HStack {
-                Button(action: { self.viewModel.showAddReviewModal.toggle() } ) {
-                    HStack {
-                        Image(systemName: "square.and.pencil")
-                        Text("Write a review")
+                
+                HStack {
+                    Button(action: { self.viewModel.showAddReviewModal.toggle() } ) {
+                        HStack {
+                            Image(systemName: "square.and.pencil")
+                            Text("Write a review")
+                        }
                     }
+                    Spacer()
                 }
-                Spacer()
             }
             Spacer().frame(height: 30)
-            
-            
+
         }
         .padding([.leading,.trailing])
         .navigationBarTitle("Likes & Reviews")
