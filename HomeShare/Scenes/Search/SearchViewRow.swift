@@ -19,19 +19,30 @@ struct SearchViewRow: View {
         NavigationLink (destination: ProfileView(profile: viewModel.profile)) {
             VStack {
                 ZStack(alignment: .bottomLeading) {
-                    Image(uiImage: viewModel.profileImage)
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 200)
-                        .overlay(
-                            Rectangle()
-                                .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear, .clear, .black]), startPoint: .top, endPoint: .bottom))
-                                .opacity(0.4)
-                        )
-                        .cornerRadius(10)
-                        .clipped()
-
+                    ZStack(alignment: .topTrailing) {
+                        Image(uiImage: viewModel.profileImage)
+                            .renderingMode(.original)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
+                            .overlay(
+                                Rectangle()
+                                    .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear, .clear, .black]), startPoint: .top, endPoint: .bottom))
+                                    .opacity(0.4)
+                            )
+                            .cornerRadius(10)
+                            .clipped()
+                        HStack {
+                            Text("\(viewModel.profile.guestStatus.getDescription())")
+                                .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                .foregroundColor(.white)
+                                .padding(4)
+                                .padding(.leading, 2)
+                                .background(RoundedCorners(color: viewModel.profile.guestStatus.getColor(), tl: 20, tr: 0, bl: 20, br: 0))
+                                .padding(.top)
+                            
+                        }
+                    }
                     VStack(alignment: .leading) {
                         Text("\(viewModel.profile.firstName) \(viewModel.profile.lastName)" )
                             .foregroundColor(.white)
