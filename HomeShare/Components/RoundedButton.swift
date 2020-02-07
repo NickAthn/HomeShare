@@ -25,6 +25,7 @@ struct RoundedButton: View {
         .background(Color.Token.buttonHighlight)
         .cornerRadius(8)
         .foregroundColor(.white)
+        
 
     }
 }

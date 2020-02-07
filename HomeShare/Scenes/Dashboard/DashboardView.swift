@@ -32,11 +32,44 @@ struct DashboardView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(viewModel.taskList, id: \.id) { task in
-                    TaskRow(task: task)
-                }
-                
-            }.navigationBarTitle("Dashboard", displayMode: .automatic)
+                VStack(alignment: .leading) {
+                    if !viewModel.taskList.isEmpty {
+                        Text("To - Do").font(.headline)
+                        ForEach(viewModel.taskList, id: \.id) { task in
+                            TaskRow(task: task)
+                        }.padding(.bottom)
+                    }
+                    HStack(alignment: .top) {
+                        Text("People around you?")
+                            .font(.headline)
+                            .padding(.bottom)
+                        Spacer()
+                        if viewModel.isLocationLoading {
+                            ActivityIndicator(isAnimating: self.$viewModel.isLocationLoading, style: .medium)
+                                .padding(0)
+                        }
+                    }
+                    if viewModel.lastUserLocation != nil {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 10) {
+                                ForEach(self.viewModel.profilesNear , id: \.uid) { profile in
+                                    SearchViewRow(withProfile: profile)
+                                    .frame(width: 330)
+                                    .fixedSize()
+                                }
+                            }.padding(.horizontal, 18)
+                        }.padding(.horizontal, -18)
+                    } else {
+                        RoundedButton(title: "Use my current location") {
+                            self.viewModel.requestLocationAccess()
+                        }
+                        .padding([.leading,.trailing])
+                        .disabled(viewModel.isLocationLoading)
+                        
+                    }
+                }.padding()
+            }
+            .navigationBarTitle("Dashboard", displayMode: .automatic)
         }
     }
 }

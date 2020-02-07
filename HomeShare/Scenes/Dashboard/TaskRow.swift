@@ -25,7 +25,6 @@ struct TaskRow: View {
             }
             Spacer()
         }
-        .padding([.leading,.trailing])
         .onTapGesture {
             self.shouldShowSheet()
         }

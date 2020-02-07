@@ -18,9 +18,34 @@ class LocationService: NSObject, ObservableObject {
     let completer = MKLocalSearchCompleter()
     var queryFragment: String = ""
     @Published var suggestions: [String] = []
+    @Published var lastUserLocation: CLLocation? = nil
+    
+    var isLocatingAuthorised: Bool {
+        get {
+            switch CLLocationManager.authorizationStatus() {
+                case .notDetermined, .restricted, .denied:
+                    return false
+                case .authorizedAlways, .authorizedWhenInUse:
+                    return true
+                @unknown default: return false
+            }
+        }
+    }
     
     private var cancellables: [AnyCancellable] = []
 
+    override init() {
+        super.init()
+        locationManager.delegate = self
+    }
+    
+//    func requestLocation() {
+//        if CLLocationManager.locationServicesEnabled() {
+//            if isLocatingAuthorised {
+//                locationManager.requestLocation()
+//            }
+//        }
+//    }
     func getAddressFrom(addressString: String, completion: @escaping (_ address: Address?)-> Void) {
         var address = Address()
         geoCoder.geocodeAddressString(addressString) { (placemarks, error) in
@@ -132,8 +157,21 @@ extension LocationService: MKLocalSearchCompleterDelegate {
         
         suggestions = addresses
     }
-
-
 }
 
+extension LocationService: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+         print("error:: \(error.localizedDescription)")
+    }
 
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        self.lastUserLocation = locations.first
+    }
+}
