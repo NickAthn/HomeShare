@@ -21,7 +21,7 @@ struct LoadingView<Content>: View where Content: View {
                     .blur(radius: self.isShowing ? 3 : 0)
 
                 VStack {
-                    Text("Loading Account")
+                    Text("Loading Account").padding()
                     ActivityIndicator(isAnimating: .constant(true), style: .large)
                 }
                 .frame(width: geometry.size.width / 2, height: geometry.size.height / 5)
