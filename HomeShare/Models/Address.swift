@@ -27,4 +27,15 @@ struct Address: Codable {
         }
         return description
     }
+    
+    func getShortDescription() -> String {
+        var description: String = ""
+        if country != "" {
+            description += "\(country), "
+        }
+        if city != "" {
+            description += "\(city) "
+        }
+        return description
+    }
 }

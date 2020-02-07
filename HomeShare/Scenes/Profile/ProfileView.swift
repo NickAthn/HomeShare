@@ -121,7 +121,7 @@ struct ProfileView: View {
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 20)
-                                        Text("From Greece Athens")
+                                        Text("From \(viewModel.profile.home.address.getShortDescription())")
                                     }
                                     if viewModel.genderAgeText != "" {
                                         HStack {

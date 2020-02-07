@@ -29,9 +29,9 @@
 		E64184F523ECC4E000BFCC19 /* HouseInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F423ECC4E000BFCC19 /* HouseInformationView.swift */; };
 		E64184F823ECCB7B00BFCC19 /* HouseInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F723ECCB7B00BFCC19 /* HouseInformationViewModel.swift */; };
 		E64184FB23ECEA0C00BFCC19 /* SubmitTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184FA23ECEA0C00BFCC19 /* SubmitTicketView.swift */; };
-		E64184FD23ECF10D00BFCC19 /* MyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184FC23ECF10D00BFCC19 /* MyAlert.swift */; };
 		E641850023ED62D500BFCC19 /* BookmarkedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184FF23ED62D500BFCC19 /* BookmarkedView.swift */; };
 		E641850223ED63A800BFCC19 /* BookmarkedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E641850123ED63A800BFCC19 /* BookmarkedViewModel.swift */; };
+		E641850623ED7ABF00BFCC19 /* StructWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E641850523ED7ABF00BFCC19 /* StructWrapper.swift */; };
 		E64384D323AF68D70021D190 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64384D223AF68D70021D190 /* LoginViewModel.swift */; };
 		E64A334323CCD1C500618987 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334223CCD1C500618987 /* InboxView.swift */; };
 		E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334423CCD1D700618987 /* InboxViewModel.swift */; };
@@ -117,9 +117,9 @@
 		E64184F423ECC4E000BFCC19 /* HouseInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseInformationView.swift; sourceTree = "<group>"; };
 		E64184F723ECCB7B00BFCC19 /* HouseInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseInformationViewModel.swift; sourceTree = "<group>"; };
 		E64184FA23ECEA0C00BFCC19 /* SubmitTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitTicketView.swift; sourceTree = "<group>"; };
-		E64184FC23ECF10D00BFCC19 /* MyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlert.swift; sourceTree = "<group>"; };
 		E64184FF23ED62D500BFCC19 /* BookmarkedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedView.swift; sourceTree = "<group>"; };
 		E641850123ED63A800BFCC19 /* BookmarkedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedViewModel.swift; sourceTree = "<group>"; };
+		E641850523ED7ABF00BFCC19 /* StructWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructWrapper.swift; sourceTree = "<group>"; };
 		E64384D223AF68D70021D190 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E64A334223CCD1C500618987 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		E64A334423CCD1D700618987 /* InboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewModel.swift; sourceTree = "<group>"; };
@@ -404,7 +404,6 @@
 			children = (
 				E653CF2D23DB438C0093D064 /* MainTextField.swift */,
 				E67F0F4A23E35809002E6942 /* ResignKeyboardOnDragGesture.swift */,
-				E64184FC23ECF10D00BFCC19 /* MyAlert.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -533,6 +532,7 @@
 				E67F0F4123E351A2002E6942 /* FirebaseConstants.swift */,
 				E6B66ABB23EAFF5600706532 /* Message.swift */,
 				E6B66ABD23EB000C00706532 /* Conversation.swift */,
+				E641850523ED7ABF00BFCC19 /* StructWrapper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -735,6 +735,7 @@
 				E63E158123B517150056F2AC /* LoadingView.swift in Sources */,
 				E6FB686F23DE18890054888D /* Profile.swift in Sources */,
 				E6A9E57B23E9955300ACFA4D /* ReviewsRow.swift in Sources */,
+				E641850623ED7ABF00BFCC19 /* StructWrapper.swift in Sources */,
 				E61FD863239E8EC5003C8E1B /* DashboardView.swift in Sources */,
 				E60AFB132397D0DC00211C28 /* AppDelegate.swift in Sources */,
 				E653CF3023DB4C5D0093D064 /* TextView.swift in Sources */,
@@ -745,7 +746,6 @@
 				E67F0F4023E34ACA002E6942 /* FirebaseModel.swift in Sources */,
 				E6560CF623E3BA7400257470 /* LocationService.swift in Sources */,
 				E67F0F4223E351A2002E6942 /* FirebaseConstants.swift in Sources */,
-				E64184FD23ECF10D00BFCC19 /* MyAlert.swift in Sources */,
 				E60AFB172397D0DC00211C28 /* LoginView.swift in Sources */,
 				E6560CF423E39C4F00257470 /* Option.swift in Sources */,
 				E64184EA23EC77AB00BFCC19 /* Double+Extensions.swift in Sources */,

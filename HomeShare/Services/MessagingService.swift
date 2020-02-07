@@ -13,6 +13,9 @@ import CodableFirebase
 class MessagingService: ObservableObject {
     static let shared = MessagingService()
     
+//    //MARK: - 'messagesCashArray' is a varible for cashed Messages
+//    var messagesCashArray = NSCache<NSString, StructWrapper<Message>>()
+    
     func sendMessage(from: Profile, to: Profile, message: Message) {
         fetchConverastions(for: from) { (conversations) in
 //            for conv in conversations {
