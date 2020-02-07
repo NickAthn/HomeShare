@@ -24,8 +24,14 @@ struct SearchViewRow: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 200)
+                        .overlay(
+                            Rectangle()
+                                .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear, .clear, .black]), startPoint: .top, endPoint: .bottom))
+                                .opacity(0.4)
+                        )
                         .cornerRadius(10)
                         .clipped()
+
                     VStack(alignment: .leading) {
                         Text("\(viewModel.profile.firstName) \(viewModel.profile.lastName)" )
                             .foregroundColor(.white)

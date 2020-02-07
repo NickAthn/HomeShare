@@ -64,8 +64,7 @@ struct DashboardView: View {
                             self.viewModel.requestLocationAccess()
                         }
                         .padding([.leading,.trailing])
-                        .disabled(viewModel.isLocationLoading)
-                        
+                        .disabledView(isDisabled: self.$viewModel.isLocationLoading)
                     }
                 }.padding()
             }
