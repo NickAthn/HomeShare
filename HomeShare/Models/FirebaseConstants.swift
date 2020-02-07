@@ -20,6 +20,7 @@ enum FirebasePaths: String {
     case reviews
     case conversations
     case messages
+    case tickets
 }
 
 

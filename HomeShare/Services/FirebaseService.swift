@@ -253,6 +253,16 @@ class FirebaseService: ObservableObject {
 
     }
         
+    func submitTicket(message: String) {
+        if let currentUserID = self.session?.uid {
+            let timestamp = Int(Date().timeIntervalSince1970)
+            Database.database().reference(withPath: FirebasePaths.tickets.rawValue).childByAutoId().setValue([
+                "message": message,
+                "userID": currentUserID,
+                "timestamp": timestamp
+            ])
+        }
+    }
     // MARK: - Error Handling
     func getErrorDescription(_ error: Error)->String {
         if let errorCode = AuthErrorCode(rawValue: error._code) {
