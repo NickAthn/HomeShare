@@ -37,7 +37,7 @@ struct SearchViewRow: View {
                     .padding(.leading)
                     .padding(.bottom)
                 }
-            }.padding(.trailing, -20) // TODO: Delete after finding another way to remove the disclosure inidcator
+            }
         }
     }
     

@@ -11,10 +11,21 @@ import Firebase
 import CodableFirebase
 import GeoFire
 
+//// A Generic Struct Wrapper to make the usable with 'NSCache' as it accepts only class types
+//class StructWrapper<T>: NSObject {
+//    let value: T
+//    init(_ _struct: T) {
+//        self.value = _struct
+//    }
+//}
+//
+
 class FirebaseService: ObservableObject {
     static let shared = FirebaseService()
     
     @Published var session: User?
+    @Published var sessionProfile: Profile?
+    
     var handle: AuthStateDidChangeListenerHandle?
 
     // MARK: - Session Listener
@@ -25,6 +36,7 @@ class FirebaseService: ObservableObject {
                 guard let authUser = auth.currentUser else { return }
                 self.session = User(authData: authUser)
                 self.update(user: self.session!) // Updates the db entity
+                self.fetchSessionProfile()
             } else {
                 self.session = nil
             }
@@ -33,6 +45,13 @@ class FirebaseService: ObservableObject {
     func stopSessionListener() {
         if let handle = handle {
             Auth.auth().removeStateDidChangeListener(handle)
+        }
+    }
+    func fetchSessionProfile() {
+        fetchProfileForCurrentUser { (profile) in
+            if let profile = profile {
+                self.sessionProfile = profile
+            }
         }
     }
     
@@ -134,6 +153,7 @@ class FirebaseService: ObservableObject {
                 let profile = try FirebaseDecoder().decode(Profile.self, from: snapshotValue)
                 completion(profile)
             } catch {
+                print("🐞 Decoding Error: \(error)")
                 completion(nil)
             }
         }

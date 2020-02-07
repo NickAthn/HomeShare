@@ -45,7 +45,9 @@ struct AccountView: View {
                             GenericRow(title: "Profile", style: .normal)
                         }
                         GenericRow(title: "Notifications", style: .normal)
-                        GenericRow(title: "Bookmarked", style: .normal)
+                        NavigationLink(destination: BookmarkedView(profile: self.viewModel.profile)) {
+                            GenericRow(title: "Bookmarked", style: .normal)
+                        }
                         GenericRow(title: "Log Out", style: .button).onTapGesture {self.viewModel.signOut()}
                         
                         GenericRow(title: "Delete Account", style: .alertButton).onTapGesture {

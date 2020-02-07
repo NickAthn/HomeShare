@@ -17,7 +17,18 @@ class ProfileViewModel: ObservableObject {
 
     @Published var profile: Profile = Profile.templateProfile
     @Published var currentUser: User = User.templateProfile
-    
+    // View Only
+    @Published var isBookmarked: Bool = false
+    var bookmarkImage: Image {
+        get {
+            isBookmarked ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+        }
+    }
+    var bookmarkText: String {
+        get {
+            isBookmarked ? "Unsave Profile" : "Save Profile"
+        }
+    }
     var languageInfo: String {
         get {
             return profile.languageInfo ?? ""
@@ -63,6 +74,7 @@ class ProfileViewModel: ObservableObject {
         if isViewOnly {
             self.loadProfileImage()
             self.fetchUser()
+            self.setBookmarkStatus()
         } else {
             currentUser = FirebaseService.shared.session!
             fetchProfile()
@@ -100,6 +112,34 @@ class ProfileViewModel: ObservableObject {
         FirebaseService.shared.fetchUser(forUID: profile.uid) { (user) in
             if let user = user {
                 self.currentUser = user
+            }
+        }
+    }
+    
+    // View Only methods
+    func bookmarkProfile() {
+        guard var activeProfile = FirebaseService.shared.sessionProfile else { return }
+        if isBookmarked { // Unbookmark
+            activeProfile.bookmarkedProfiles?.removeAll{ $0 == self.profile.uid }
+            FirebaseService.shared.update(profile: activeProfile)
+            self.isBookmarked = false
+        } else {
+            if activeProfile.bookmarkedProfiles != nil {
+                activeProfile.bookmarkedProfiles?.append(self.profile.uid)
+            } else {
+                activeProfile.bookmarkedProfiles = [self.profile.uid]
+            }
+            FirebaseService.shared.update(profile: activeProfile)
+            self.isBookmarked = true
+        }
+    }
+    func setBookmarkStatus() {
+        guard var activeProfile = FirebaseService.shared.sessionProfile else { return }
+        if let bookmarks = activeProfile.bookmarkedProfiles {
+            if bookmarks.contains(profile.uid) {
+                self.isBookmarked = true
+            } else {
+                self.isBookmarked = false
             }
         }
     }

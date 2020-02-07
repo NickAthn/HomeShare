@@ -18,7 +18,6 @@ enum GenericRowStyle: Int, Codable {
 struct GenericRow: View {
     @State var title: String = "Title"
     @State var style: GenericRowStyle
-    @State var action: (()->()) = {}
 
     var body: some View {
             GenericRowView(title: title, style: style).background(Color.white)
@@ -45,7 +44,7 @@ struct GenericRowView: View {
 }
 
 fileprivate struct NormalView: View {
-    var title: String = "Title"
+    @State var title: String = "Title"
     
     var body: some View {
         VStack {
@@ -116,12 +115,3 @@ fileprivate struct AlertButtonView: View {
         }
     }
 }
-
-#if DEBUG
-struct SelectableCell_Previews: PreviewProvider {
-    static var previews: some View {
-        GenericRow(style: .alertButton)
-    }
-}
-#endif
-

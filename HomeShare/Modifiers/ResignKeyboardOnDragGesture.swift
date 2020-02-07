@@ -18,3 +18,9 @@ struct ResignKeyboardOnDragGesture: ViewModifier {
     }
 }
 
+// Exposing ResignKeyboardOnDragGesture function to View
+extension View {
+    func resignKeyboardOnDragGesture() -> some View {
+        return modifier(ResignKeyboardOnDragGesture())
+    }
+}

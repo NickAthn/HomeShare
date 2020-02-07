@@ -33,7 +33,7 @@ struct SearchView: View {
                         // Filtered list of names
                         ForEach(viewModel.displayedProfiles, id:\.self) { profile in
                             SearchViewRow(withProfile: profile)
-                        }
+                        }.padding(.trailing, -20) // TODO: Delete after finding another way to remove the disclosure inidcator
                     }
 
                 } else {
@@ -42,11 +42,5 @@ struct SearchView: View {
                 }
             }.navigationBarTitle("Search")
         }
-    }
-}
-
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
     }
 }

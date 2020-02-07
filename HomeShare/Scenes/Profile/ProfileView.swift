@@ -44,9 +44,21 @@ struct ProfileView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     // Profile Image
                     ZStack(alignment: .bottomLeading) {
-                        StickyImage(image: Image(uiImage: viewModel.profileImage))
-                            .frame(height: 300)
-                        
+                        ZStack(alignment: .topTrailing) {
+                            StickyImage(image: Image(uiImage: viewModel.profileImage))
+                                .frame(height: 300)
+                            if viewModel.isViewOnly {
+                                Button(action: self.viewModel.bookmarkProfile) {
+                                    viewModel.bookmarkImage
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 35)
+                                    .padding()
+                                    .foregroundColor(.white)
+                    
+                                }
+                            }
+                        }
                         VStack(alignment: .leading) {
                             Text("\(viewModel.profile.firstName) \(viewModel.profile.lastName)" )
                                 .foregroundColor(.white)
@@ -156,7 +168,9 @@ struct ProfileView: View {
                                         GenericRow(title: "House Information & Rules", style: .normal)
                                     }
                                     if viewModel.isViewOnly {
-                                        GenericRow(title: "Save Profile", style: .normal)
+                                        GenericRow(title: viewModel.bookmarkText, style: .normal).onTapGesture {
+                                            self.viewModel.bookmarkProfile()
+                                        }
                                         GenericRow(title: "Share link to the Profile", style: .normal)
                                     }
                                 }

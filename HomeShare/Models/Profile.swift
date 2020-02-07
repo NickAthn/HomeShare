@@ -101,6 +101,8 @@ struct Profile: FirebaseModal {
     
     var verificationStatus: VerificationStatus?
     
+    var bookmarkedProfiles: [String]? = []
+    
     func toData()-> Any {
         return try! FirebaseEncoder().encode(self)
     }
