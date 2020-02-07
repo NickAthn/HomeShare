@@ -28,6 +28,7 @@
 		E64184F323ECB19C00BFCC19 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F223ECB19C00BFCC19 /* TaskRow.swift */; };
 		E64184F523ECC4E000BFCC19 /* HouseInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F423ECC4E000BFCC19 /* HouseInformationView.swift */; };
 		E64184F823ECCB7B00BFCC19 /* HouseInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184F723ECCB7B00BFCC19 /* HouseInformationViewModel.swift */; };
+		E64184FB23ECEA0C00BFCC19 /* SubmitTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64184FA23ECEA0C00BFCC19 /* SubmitTicketView.swift */; };
 		E64384D323AF68D70021D190 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64384D223AF68D70021D190 /* LoginViewModel.swift */; };
 		E64A334323CCD1C500618987 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334223CCD1C500618987 /* InboxView.swift */; };
 		E64A334523CCD1D700618987 /* InboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A334423CCD1D700618987 /* InboxViewModel.swift */; };
@@ -113,6 +114,7 @@
 		E64184F223ECB19C00BFCC19 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		E64184F423ECC4E000BFCC19 /* HouseInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseInformationView.swift; sourceTree = "<group>"; };
 		E64184F723ECCB7B00BFCC19 /* HouseInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseInformationViewModel.swift; sourceTree = "<group>"; };
+		E64184FA23ECEA0C00BFCC19 /* SubmitTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitTicketView.swift; sourceTree = "<group>"; };
 		E64384D223AF68D70021D190 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E64A334223CCD1C500618987 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		E64A334423CCD1D700618987 /* InboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewModel.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		E61FD85F239E8E92003C8E1B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E64184F923ECE9F600BFCC19 /* SubmitTicket */,
 				E64184F623ECC4E500BFCC19 /* HouseInformation */,
 				E64184EB23EC95BA00BFCC19 /* VerifyAccount */,
 				E6B66ABF23EB03C600706532 /* Conversation */,
@@ -330,6 +333,14 @@
 				E64184F723ECCB7B00BFCC19 /* HouseInformationViewModel.swift */,
 			);
 			path = HouseInformation;
+			sourceTree = "<group>";
+		};
+		E64184F923ECE9F600BFCC19 /* SubmitTicket */ = {
+			isa = PBXGroup;
+			children = (
+				E64184FA23ECEA0C00BFCC19 /* SubmitTicketView.swift */,
+			);
+			path = SubmitTicket;
 			sourceTree = "<group>";
 		};
 		E64A334123CCD1A500618987 /* Inbox */ = {
@@ -723,6 +734,7 @@
 				E6560CF423E39C4F00257470 /* Option.swift in Sources */,
 				E64184EA23EC77AB00BFCC19 /* Double+Extensions.swift in Sources */,
 				E668A66823AF9F900030741D /* RegisterViewModel.swift in Sources */,
+				E64184FB23ECEA0C00BFCC19 /* SubmitTicketView.swift in Sources */,
 				E6B756E823AE44610003F107 /* RegisterView.swift in Sources */,
 				E6B66ABE23EB000C00706532 /* Conversation.swift in Sources */,
 				E67F0F3723E3407E002E6942 /* ProfileViewModel.swift in Sources */,

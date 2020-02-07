@@ -253,10 +253,11 @@ class FirebaseService: ObservableObject {
 
     }
         
-    func submitTicket(message: String) {
+    func submitTicket(subject: String, message: String) {
         if let currentUserID = self.session?.uid {
             let timestamp = Int(Date().timeIntervalSince1970)
             Database.database().reference(withPath: FirebasePaths.tickets.rawValue).childByAutoId().setValue([
+                "subject": subject,
                 "message": message,
                 "userID": currentUserID,
                 "timestamp": timestamp

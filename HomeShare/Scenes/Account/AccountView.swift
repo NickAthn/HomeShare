@@ -44,7 +44,6 @@ struct AccountView: View {
                         NavigationLink(destination: ProfileView() ) {
                             GenericRow(title: "Profile", style: .normal)
                         }
-                        GenericRow(title: "Hosting", style: .normal)
                         GenericRow(title: "Notifications", style: .normal)
                         GenericRow(title: "Bookmarked", style: .normal)
                         GenericRow(title: "Log Out", style: .button).onTapGesture {self.viewModel.signOut()}
@@ -68,8 +67,9 @@ struct AccountView: View {
                         Rectangle()
                             .frame(height: 0.5)
                             .foregroundColor(.gray)
-
-                        GenericRow(title: "Sumbit a ticket", style: .normal)
+                        NavigationLink(destination: SubmitTicketView()) {
+                            GenericRow(title: "Sumbit a ticket", style: .normal)
+                        }
                     }
                 }.background(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
                 
